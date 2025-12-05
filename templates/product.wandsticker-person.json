@@ -194,6 +194,12 @@
           "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "settings": {}
         },
+        "custom_liquid_7gTCnk": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "// ...existing code...\n{% if product.handle == 'wandsticker-person' %}\n  <div class=\"custom-file-upload\">\n    <label for=\"customer_image\">Bild für Wandsticker hochladen (JPG/PNG, max 5 MB)</label>\n    <input type=\"file\" id=\"customer_image\" name=\"properties[Person Image]\" accept=\"image/png,image/jpeg\" />\n    <input type=\"hidden\" name=\"properties[Person Image Filename]\" id=\"customer_image_filename\" />\n    <div id=\"customer_image_preview_wrap\" style=\"margin-top:8px;display:none;\">\n      <img id=\"customer_image_preview\" alt=\"Vorschau\" style=\"max-width:220px;max-height:220px;border:1px solid #ddd;padding:4px;\" />\n      <div id=\"customer_image_error\" style=\"color:#b00;margin-top:6px;\"></div>\n    </div>\n  </div>\n\n  <script>\n    (function(){\n      var input = document.getElementById('customer_image');\n      if(!input) return;\n\n      // finde das nächstgelegene Produkt-Formular und setze enctype\n      var form = input.closest('form') || document.querySelector('form[action^=\"/cart/add\"]');\n      if(form) form.enctype = 'multipart/form-data';\n\n      var previewWrap = document.getElementById('customer_image_preview_wrap');\n      var preview = document.getElementById('customer_image_preview');\n      var errorEl = document.getElementById('customer_image_error');\n      var filenameHidden = document.getElementById('customer_image_filename');\n\n      var MAX_BYTES = 5 * 1024 * 1024; // 5 MB\n      var ALLOWED = ['image/png','image/jpeg'];\n\n      input.addEventListener('change', function(e){\n        errorEl.textContent = '';\n        var file = input.files && input.files[0];\n        if(!file){\n          previewWrap.style.display = 'none';\n          filenameHidden.value = '';\n          return;\n        }\n\n        if(ALLOWED.indexOf(file.type) === -1){\n          errorEl.textContent = 'Nur JPG/PNG erlaubt.';\n          input.value = '';\n          previewWrap.style.display = 'none';\n          return;\n        }\n        if(file.size > MAX_BYTES){\n          errorEl.textContent = 'Datei zu groß (max. 5 MB).';\n          input.value = '';\n          previewWrap.style.display = 'none';\n          return;\n        }\n\n        // Vorschau\n        var url = URL.createObjectURL(file);\n        preview.src = url;\n        previewWrap.style.display = '';\n        filenameHidden.value = file.name;\n\n        // optional: revoke URL nach dem Laden\n        preview.onload = function(){ URL.revokeObjectURL(url); };\n      });\n\n      // Optional: Falls Theme AJAX-Add-to-Cart nutzt, stell sicher, dass File mitgesendet wird.\n      // Wenn du AJAX nutzt, musst du die Datei per FormData an /cart/add.js senden (custom AJAX).\n    })();\n  </script>\n{% endif %}\n// ...existing code..."
+          }
+        },
         "custom_liquid_cgCbVb": {
           "type": "custom_liquid",
           "disabled": true,
@@ -333,6 +339,7 @@
         "custom_liquid_nQ7FDh",
         "title",
         "judge_me_reviews_preview_badge_feDbrp",
+        "custom_liquid_7gTCnk",
         "custom_liquid_cgCbVb",
         "price",
         "custom_liquid_ajdxNh",
