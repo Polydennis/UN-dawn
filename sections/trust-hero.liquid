@@ -1,0 +1,354 @@
+{% assign hero_id = section.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .hero-{{ hero_id }} {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .hero-media-{{ hero_id }} {
+    position: relative;
+    width: 100%;
+  }
+
+  .hero-image-wrapper-{{ hero_id }} {
+    position: relative;
+    width: 100%;
+    height: {{ section.settings.hero_height_desktop }}px;
+  }
+
+  .hero-image-{{ hero_id }} {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .hero-image-placeholder-{{ hero_id }} {
+    width: 100%;
+    height: 100%;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-image-placeholder-{{ hero_id }} svg {
+    width: 100%;
+    height: 100%;
+    max-width: 500px;
+    max-height: 500px;
+  }
+
+  .hero-overlay-{{ hero_id }} {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, {{ section.settings.overlay_opacity | divided_by: 100.0 }});
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Content wrapper overlays image on desktop; becomes in-flow on mobile */
+  .hero-content-wrapper-{{ hero_id }} {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: {{ section.settings.content_vertical_alignment }};
+    justify-content: {{ section.settings.content_horizontal_alignment }};
+    padding: 40px 20px;
+    z-index: 2; /* above overlay */
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero-content-{{ hero_id }} {
+    max-width: {{ section.settings.content_max_width }}px;
+    text-align: {{ section.settings.text_alignment }};
+    padding: {{ section.settings.content_padding }}px;
+    border-radius: {{ section.settings.content_border_radius }}px;
+  }
+
+  .hero-heading-{{ hero_id }} {
+    font-size: {{ section.settings.heading_size }}px;
+    margin: 0 0 {{ section.settings.spacing_between_elements }}px;
+    line-height: 1.2;
+  }
+
+  .hero-text-{{ hero_id }} {
+    font-size: {{ section.settings.text_size }}px;
+    margin: 0 0 {{ section.settings.spacing_between_elements }}px;
+    line-height: 1.5;
+  }
+
+  .hero-buttons-{{ hero_id }} {
+    display: flex;
+    gap: {{ section.settings.button_spacing }}px;
+    flex-wrap: wrap;
+    {% if section.settings.text_alignment == 'center' %}
+      justify-content: center;
+    {% elsif section.settings.text_alignment == 'right' %}
+      justify-content: flex-end;
+    {% else %}
+      justify-content: flex-start;
+    {% endif %}
+  }
+
+  .hero-button-{{ hero_id }} {
+    display: inline-block;
+    padding: {{ section.settings.button_padding_vertical }}px {{ section.settings.button_padding_horizontal }}px;
+    border-radius: {{ section.settings.button_border_radius }}px;
+    text-decoration: none;
+    font-size: {{ section.settings.button_font_size }}px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+  }
+
+  .hero-trust-bar-wrapper-{{ hero_id }} {
+    padding: {{ section.settings.trust_bar_padding }}px 20px;
+  }
+
+  .hero-trust-bar-{{ hero_id }} {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: {{ section.settings.trust_bar_gap }}px;
+    flex-wrap: wrap;
+  }
+
+  .hero-trust-item-{{ hero_id }} {
+    display: flex;
+    align-items: center;
+    gap: {{ section.settings.trust_item_gap }}px;
+  }
+
+  .hero-trust-icon-{{ hero_id }} {
+    width: {{ section.settings.trust_icon_size }}px;
+    height: {{ section.settings.trust_icon_size }}px;
+    flex-shrink: 0;
+  }
+
+  .hero-trust-icon-{{ hero_id }} img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .hero-trust-text-{{ hero_id }} {
+    font-size: {{ section.settings.trust_text_size }}px;
+  }
+
+  @media screen and (max-width: 749px) {
+    .hero-image-wrapper-{{ hero_id }} {
+      height: {{ section.settings.hero_height_mobile }}px;
+    }
+
+    /* Make content full-width and between media + trust bar */
+    .hero-content-wrapper-{{ hero_id }} {
+      position: static;
+      width: 100%;
+      height: auto;
+      padding: 0;
+    }
+
+    .hero-content-{{ hero_id }} {
+      max-width: none;
+      width: 100%;
+      padding: {{ section.settings.content_padding | times: 0.7 }}px;
+      text-align: {{ section.settings.text_alignment }};
+    }
+
+    .hero-heading-{{ hero_id }} { font-size: {{ section.settings.heading_size | times: 0.7 }}px; }
+    .hero-text-{{ hero_id }} { font-size: {{ section.settings.text_size | times: 0.9 }}px; }
+
+    .hero-buttons-{{ hero_id }} { flex-direction: column; align-items: stretch; }
+    .hero-button-{{ hero_id }} { text-align: center; }
+
+    .hero-trust-bar-{{ hero_id }} {
+      flex-direction: column;
+      gap: {{ section.settings.trust_bar_gap | times: 0.7 }}px;
+    }
+  }
+{% endstyle %}
+
+<div class="page-width hero-{{ hero_id }} color-{{ section.settings.hero_color_scheme }}" {{ section.shopify_attributes }}>
+  <div class="hero-media-{{ hero_id }}">
+    <div class="hero-image-wrapper-{{ hero_id }}">
+      {% if section.settings.hero_image %}
+        <img
+          src="{{ section.settings.hero_image | image_url: width: 2400 }}"
+          alt="{{ section.settings.hero_image.alt | escape }}"
+          loading="lazy"
+          width="{{ section.settings.hero_image.width }}"
+          height="{{ section.settings.hero_image.height }}"
+          class="hero-image-{{ hero_id }}"
+        >
+      {% else %}
+        <div class="hero-image-placeholder-{{ hero_id }}">
+          {{ 'hero-apparel-1' | placeholder_svg_tag }}
+        </div>
+      {% endif %}
+
+      {% if section.settings.show_overlay %}
+        <div class="hero-overlay-{{ hero_id }}"></div>
+      {% endif %}
+    </div>
+
+    <!-- Content follows image in DOM; overlays on desktop, sits between on mobile -->
+    <div class="hero-content-wrapper-{{ hero_id }}">
+      <div class="hero-content-{{ hero_id }} color-{{ section.settings.content_color_scheme }}">
+        {% if section.settings.heading != blank %}
+          <h1 class="hero-heading-{{ hero_id }}">{{ section.settings.heading }}</h1>
+        {% endif %}
+
+        {% if section.settings.text != blank %}
+          <div class="hero-text-{{ hero_id }}">{{ section.settings.text }}</div>
+        {% endif %}
+
+        {% if section.settings.button_primary_label != blank or section.settings.button_secondary_label != blank or section.settings.button_tertiary_label != blank or section.settings.button_quartiary_label != blank %}
+          <div class="hero-buttons-{{ hero_id }}">
+            {% if section.settings.button_primary_label != blank %}
+              <a href="{{ section.settings.button_primary_link }}" class="hero-button-{{ hero_id }} button button--primary">{{ section.settings.button_primary_label }}</a>
+            {% endif %}
+            {% if section.settings.button_secondary_label != blank %}
+              <a href="{{ section.settings.button_secondary_link }}" class="hero-button-{{ hero_id }} button button--primary">{{ section.settings.button_secondary_label }}</a>
+            {% endif %}
+            {% if section.settings.button_tertiary_label != blank %}
+              <a href="{{ section.settings.button_tertiary_link }}" class="hero-button-{{ hero_id }} button button--primary">{{ section.settings.button_tertiary_label }}</a>
+            {% endif %}
+            {% if section.settings.button_quartiary_label != blank %}
+              <a href="{{ section.settings.button_quartiary_link }}" class="hero-button-{{ hero_id }} button button--primary">{{ section.settings.button_quartiary_label }}</a>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-trust-bar-wrapper-{{ hero_id }} color-{{ section.settings.trust_bar_color_scheme }}">
+    <div class="hero-trust-bar-{{ hero_id }} page-width">
+      {% if section.settings.usp_1_text != blank %}
+        <div class="hero-trust-item-{{ hero_id }}">
+          {% if section.settings.usp_1_icon %}
+            <div class="hero-trust-icon-{{ hero_id }}">
+              <img src="{{ section.settings.usp_1_icon | image_url: width: 100 }}" alt="{{ section.settings.usp_1_text | escape }}" loading="lazy" width="100" height="100">
+            </div>
+          {% endif %}
+          <span class="hero-trust-text-{{ hero_id }}">{{ section.settings.usp_1_text }}</span>
+        </div>
+      {% endif %}
+
+      {% if section.settings.usp_2_text != blank %}
+        <div class="hero-trust-item-{{ hero_id }}">
+          {% if section.settings.usp_2_icon %}
+            <div class="hero-trust-icon-{{ hero_id }}">
+              <img src="{{ section.settings.usp_2_icon | image_url: width: 100 }}" alt="{{ section.settings.usp_2_text | escape }}" loading="lazy" width="100" height="100">
+            </div>
+          {% endif %}
+          <span class="hero-trust-text-{{ hero_id }}">{{ section.settings.usp_2_text }}</span>
+        </div>
+      {% endif %}
+
+      {% if section.settings.usp_3_text != blank %}
+        <div class="hero-trust-item-{{ hero_id }}">
+          {% if section.settings.usp_3_icon %}
+            <div class="hero-trust-icon-{{ hero_id }}">
+              <img src="{{ section.settings.usp_3_icon | image_url: width: 100 }}" alt="{{ section.settings.usp_3_text | escape }}" loading="lazy" width="100" height="100">
+            </div>
+          {% endif %}
+          <span class="hero-trust-text-{{ hero_id }}">{{ section.settings.usp_3_text }}</span>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Hero with trust bar",
+  "settings": [
+    { "type": "header", "content": "Hero image" },
+    { "type": "image_picker", "id": "hero_image", "label": "Image" },
+    { "type": "range", "id": "hero_height_desktop", "min": 300, "max": 800, "step": 50, "unit": "px", "label": "Height on desktop", "default": 600 },
+    { "type": "range", "id": "hero_height_mobile", "min": 200, "max": 600, "step": 50, "unit": "px", "label": "Height on mobile", "default": 400 },
+    { "type": "color_scheme", "id": "hero_color_scheme", "label": "Color scheme", "default": "scheme-1" },
+    { "type": "checkbox", "id": "show_overlay", "label": "Show overlay", "default": true },
+    { "type": "range", "id": "overlay_opacity", "min": 0, "max": 80, "step": 5, "unit": "%", "label": "Overlay opacity", "default": 30 },
+
+    { "type": "header", "content": "Content" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Welcome to our store" },
+    { "type": "textarea", "id": "text", "label": "Text", "default": "Discover our amazing products and transform your space" },
+    { "type": "color_scheme", "id": "content_color_scheme", "label": "Color scheme", "default": "scheme-1" },
+    { "type": "range", "id": "content_max_width", "min": 400, "max": 1000, "step": 50, "unit": "px", "label": "Maximum width", "default": 600 },
+    { "type": "range", "id": "content_padding", "min": 0, "max": 80, "step": 5, "unit": "px", "label": "Padding", "default": 40 },
+    { "type": "range", "id": "content_border_radius", "min": 0, "max": 40, "step": 2, "unit": "px", "label": "Border radius", "default": 0 },
+    { "type": "select", "id": "content_vertical_alignment", "label": "Vertical alignment", "options": [
+      { "value": "flex-start", "label": "Top" },
+      { "value": "center", "label": "Center" },
+      { "value": "flex-end", "label": "Bottom" }
+    ], "default": "center" },
+    { "type": "select", "id": "content_horizontal_alignment", "label": "Horizontal alignment", "options": [
+      { "value": "flex-start", "label": "Left" },
+      { "value": "center", "label": "Center" },
+      { "value": "flex-end", "label": "Right" }
+    ], "default": "center" },
+    { "type": "select", "id": "text_alignment", "label": "Text alignment", "options": [
+      { "value": "left", "label": "Left" },
+      { "value": "center", "label": "Center" },
+      { "value": "right", "label": "Right" }
+    ], "default": "center" },
+    { "type": "range", "id": "spacing_between_elements", "min": 10, "max": 50, "step": 5, "unit": "px", "label": "Spacing between elements", "default": 20 },
+
+    { "type": "header", "content": "Typography" },
+    { "type": "range", "id": "heading_size", "min": 24, "max": 80, "step": 2, "unit": "px", "label": "Heading size", "default": 48 },
+    { "type": "range", "id": "text_size", "min": 12, "max": 28, "step": 2, "unit": "px", "label": "Text size", "default": 18 },
+
+    { "type": "header", "content": "Primary button" },
+    { "type": "text", "id": "button_primary_label", "label": "Label", "default": "Shop now" },
+    { "type": "url", "id": "button_primary_link", "label": "Link" },
+
+    { "type": "header", "content": "Secondary button" },
+    { "type": "text", "id": "button_secondary_label", "label": "Label", "default": "Learn more" },
+    { "type": "url", "id": "button_secondary_link", "label": "Link" },
+
+    { "type": "header", "content": "Tertiary button" },
+    { "type": "text", "id": "button_tertiary_label", "label": "Label", "default": "Contact" },
+    { "type": "url", "id": "button_tertiary_link", "label": "Link" },
+       
+    { "type": "header", "content": "Quartiary button" },
+    { "type": "text", "id": "button_quartiary_label", "label": "Label", "default": "Contact" },
+    { "type": "url", "id": "button_quartiary_link", "label": "Link" },
+
+    { "type": "header", "content": "Button style" },
+    { "type": "range", "id": "button_font_size", "min": 12, "max": 24, "step": 1, "unit": "px", "label": "Font size", "default": 16 },
+    { "type": "range", "id": "button_padding_vertical", "min": 8, "max": 24, "step": 2, "unit": "px", "label": "Vertical padding", "default": 14 },
+    { "type": "range", "id": "button_padding_horizontal", "min": 16, "max": 60, "step": 4, "unit": "px", "label": "Horizontal padding", "default": 32 },
+    { "type": "range", "id": "button_border_radius", "min": 0, "max": 40, "step": 2, "unit": "px", "label": "Border radius", "default": 30 },
+    { "type": "range", "id": "button_spacing", "min": 8, "max": 32, "step": 4, "unit": "px", "label": "Spacing between buttons", "default": 16 },
+
+    { "type": "header", "content": "Trust bar" },
+    { "type": "color_scheme", "id": "trust_bar_color_scheme", "label": "Color scheme", "default": "scheme-5" },
+    { "type": "range", "id": "trust_bar_padding", "min": 10, "max": 50, "step": 5, "unit": "px", "label": "Padding", "default": 25 },
+    { "type": "range", "id": "trust_bar_gap", "min": 20, "max": 80, "step": 5, "unit": "px", "label": "Gap between items", "default": 40 },
+    { "type": "range", "id": "trust_item_gap", "min": 8, "max": 24, "step": 2, "unit": "px", "label": "Gap between icon and text", "default": 12 },
+    { "type": "range", "id": "trust_icon_size", "min": 20, "max": 48, "step": 2, "unit": "px", "label": "Icon size", "default": 32 },
+    { "type": "range", "id": "trust_text_size", "min": 12, "max": 20, "step": 1, "unit": "px", "label": "Text size", "default": 14 },
+
+    { "type": "header", "content": "USP 1" },
+    { "type": "text", "id": "usp_1_text", "label": "Text", "default": "Free shipping over €50" },
+    { "type": "image_picker", "id": "usp_1_icon", "label": "Icon" },
+
+    { "type": "header", "content": "USP 2" },
+    { "type": "text", "id": "usp_2_text", "label": "Text", "default": "Secure payment" },
+    { "type": "image_picker", "id": "usp_2_icon", "label": "Icon" },
+
+    { "type": "header", "content": "USP 3" },
+    { "type": "text", "id": "usp_3_text", "label": "Text", "default": "30-day returns" },
+    { "type": "image_picker", "id": "usp_3_icon", "label": "Icon" }
+  ],
+  "presets": [ { "name": "Hero with trust bar" } ]
+}
+{% endschema %}

@@ -1,0 +1,280 @@
+{%- comment -%}
+  badges-with-tooltips.liquid (Coupon Hint Version + Möbelfolie-Badge)
+  Rendert vier mögliche Badges mit Tooltips:
+    - Bestseller (über Tag "bestseller")
+    - Sale (compare_at_price > price)
+    - "Inkl. Warengutschein" (wenn Handle mit "muster-" beginnt)
+    - "w-squeegee" (wenn Produkt-Typ "Möbelfolie")
+
+  Dezenter Interaktions-Hinweis nur beim Warengutschein-Badge:
+    • Dotted-Underline unter dem Label
+    • kleines "ⓘ" als Pseudo-Element (kein Icon-Asset nötig)
+    • einmalige, sanfte Attention-Animation (respektiert prefers-reduced-motion)
+
+  Übergabe-Parameter (optional):
+    - product oder card_product
+    - section_id
+    - *_color_scheme (bestseller_color_scheme, sale_color_scheme, coupon_color_scheme, squeegee_color_scheme)
+
+  Fallbacks:
+    - Erkennt product/card_product automatisch
+    - Nutzt settings.sale_badge_color_scheme, falls keine Farbe angegeben
+{%- endcomment -%}
+
+{%- assign p = product | default: card_product -%}
+{%- if p -%}
+  {%- assign id_suffix = section_id | default: 'global' -%}
+  {%- assign bestseller_color = bestseller_color_scheme | default: settings.sale_badge_color_scheme -%}
+  {%- assign sale_color = sale_color_scheme | default: settings.sale_badge_color_scheme -%}
+  {%- assign coupon_color = coupon_color_scheme | default: settings.sale_badge_color_scheme -%}
+  {%- assign squeegee_color = squeegee_color_scheme | default: settings.sale_badge_color_scheme -%}
+
+  {%- comment -%} Bedingungen {%- endcomment -%}
+  {%- assign tags_str = p.tags | join: ',' | downcase -%}
+  {%- assign is_bestseller = false -%}
+  {%- if tags_str contains 'bestseller' -%}
+    {%- assign is_bestseller = true -%}
+  {%- endif -%}
+
+  {%- assign is_sale = false -%}
+  {%- if p.compare_at_price_max > p.price_max -%}
+    {%- assign is_sale = true -%}
+  {%- endif -%}
+
+  {%- assign handle_prefix = p.handle | slice: 0, 7 -%}
+  {%- assign is_coupon = false -%}
+  {%- if handle_prefix == 'muster-' -%}
+    {%- assign is_coupon = true -%}
+  {%- endif -%}
+
+  {%- assign p_type = p.type | downcase -%}
+  {%- assign is_squeegee = false -%}
+  {%- if p_type == 'möbelfolie' or p_type contains 'möbelfolie' or p_type contains 'ikea' -%}
+    {%- assign is_squeegee = true -%}
+  {%- endif -%}
+
+  <style>
+    .badge-tooltips { display: flex; gap: .5rem; flex-wrap: wrap; }
+
+    .badge.tooltip {
+      position: relative;
+      cursor: help;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      padding: 0.25rem 0.5rem;
+    }
+
+    .badge .tooltiptext {
+      visibility: hidden;
+      opacity: 0;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: calc(100% + 8px);
+      min-width: 160px;
+      max-width: 420px;
+      background: #6E6E6E;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 8px 10px;
+      z-index: 99999;
+      transition: opacity .2s ease, visibility .2s ease;
+      pointer-events: none;
+      font-size: .875rem;
+      line-height: 1.3;
+      box-shadow: 0 6px 18px rgba(0,0,0,.15);
+      white-space: normal;
+    }
+
+    .badge .tooltiptext::after {
+      content: "";
+      position: absolute;
+      top: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-width: 6px;
+      border-style: solid;
+      border-color: transparent transparent #6E6E6E transparent;
+    }
+
+    /* Hover-Fallback (Desktop) */
+    .badge.tooltip:hover .tooltiptext { visibility: visible; opacity: 1; }
+
+    /* Tastaturfokus gut sichtbar */
+    .badge.tooltip:focus-visible {
+      outline: 2px solid currentColor;
+      outline-offset: 2px;
+    }
+
+    /* --- Dezenter Interaktions-Hinweis NUR beim Coupon-Badge --- */
+    .badge--coupon .badge-label {
+      text-decoration-line: underline;
+      text-decoration-style: dotted;
+      text-underline-offset: 2px;
+      position: relative;
+    }
+    .badge--coupon .badge-label::after {
+      content: "ⓘ"; /* Kein externes Icon nötig */
+      font-size: .75em;
+      margin-left: .35em;
+      opacity: .7;
+      display: inline-block;
+      transform: translateY(-1px);
+      animation: couponHint 2.4s ease 1;
+    }
+
+    @keyframes couponHint {
+      0%, 100% { opacity: .7; transform: translateY(-1px) scale(1); }
+      10% { opacity: 1; transform: translateY(-1px) scale(1.08); }
+      20% { opacity: .7; transform: translateY(-1px) scale(1); }
+    }
+
+    /* Bewegungsreduzierung respektieren */
+    @media (prefers-reduced-motion: reduce) {
+      .badge--coupon .badge-label::after { animation: none; }
+    }
+
+    /* Mobile freundlicher Tipp: Cursor nicht help, da es Touch gibt */
+    @media (hover: none) {
+      .badge.tooltip { cursor: pointer; }
+    }
+  </style>
+
+  <div class="badge-tooltips" data-badges-for="{{ p.id }}">
+    {%- if is_bestseller -%}
+      <a href="javascript:void(0);"
+         class="badge tooltip badge--bottom-left color-{{ bestseller_color }}"
+         role="button"
+         aria-haspopup="true"
+         aria-expanded="false"
+         id="BadgeBestseller-{{ id_suffix }}-{{ p.id }}"
+         aria-label="{{ 'products.product.bestseller' | t }}: Weitere Infos">
+        <span class="badge-label">
+          {{- 'products.product.bestseller' | t -}}
+        </span>
+        <span class="tooltiptext" role="tooltip">
+          Besonders beliebt: Dieses Produkt wird häufig gekauft.
+        </span>
+      </a>
+    {%- endif -%}
+
+    {%- if is_sale -%}
+      {%- assign savings = p.compare_at_price_max | minus: p.price_max -%}
+      <a href="javascript:void(0);"
+         class="badge tooltip badge--bottom-left color-{{ sale_color }}"
+         role="button"
+         aria-haspopup="true"
+         aria-expanded="false"
+         id="BadgeSale-{{ id_suffix }}-{{ p.id }}"
+         aria-label="{{ 'products.product.on_sale' | t | default: 'Sale' }}: Weitere Infos">
+        <span class="badge-label">
+          {{- 'products.product.on_sale' | t | default: 'Sale' -}}
+        </span>
+        <span class="tooltiptext" role="tooltip">
+          Reduziert! Du sparst {{ savings | money }} gegenüber {{ p.compare_at_price_max | money }}.
+        </span>
+      </a>
+    {%- endif -%}
+
+    {%- if is_coupon -%}
+      <a href="javascript:void(0);"
+         class="badge tooltip badge--coupon badge--bottom-left color-{{ coupon_color }}"
+         role="button"
+         aria-haspopup="true"
+         aria-expanded="false"
+         id="BadgeCoupon-{{ id_suffix }}-{{ p.id }}"
+         aria-label="{{ 'products.product.samples.coupon' | t }}: Tipp antippen für Details">
+        <span class="badge-label">
+          {{- 'products.product.samples.coupon' | t -}}
+        </span>
+        <span class="tooltiptext" role="tooltip">
+          Für jedes bestellte Muster erhältst du einen Warengutschein über {{ p.price | money }}.
+          Effektiv zahlst du also nichts für deine Materialprobe!
+        </span>
+      </a>
+    {%- endif -%}
+
+    {%- if is_squeegee -%}
+      <a href="javascript:void(0);"
+         class="badge tooltip badge--bottom-left color-{{ squeegee_color }}"
+         role="button"
+         aria-haspopup="true"
+         aria-expanded="false"
+         id="BadgeSqueegee-{{ id_suffix }}-{{ p.id }}"
+         aria-label="{{ 'products.product.custom_labels.w-squeegee' | t }}: Weitere Infos">
+        <span class="badge-label">
+          {{- 'products.product.custom_labels.w-squeegee' | t -}}
+        </span>
+        <span class="tooltiptext" role="tooltip">
+          {{ 'products.product.custom_labels.w-squeegee_desc' | t | default: 'Inklusive Squeegee (Rakel) für die einfache Anbringung.' }}
+        </span>
+      </a>
+    {%- endif -%}
+  </div>
+
+  <script>
+    (function() {
+      function positionTooltip(trigger, tip) {
+        tip.style.top = 'calc(100% + 8px)';
+        tip.style.bottom = 'auto';
+        const rect = trigger.getBoundingClientRect();
+        const tipRect = tip.getBoundingClientRect();
+        const spaceBelow = window.innerHeight - rect.bottom;
+        const needed = tipRect.height + 12;
+        if (spaceBelow < needed) {
+          tip.style.top = 'auto';
+          tip.style.bottom = 'calc(100% + 8px)';
+        }
+      }
+
+      function closeAll(except) {
+        document.querySelectorAll('.badge.tooltip[aria-expanded="true"]').forEach(function(open) {
+          if (open !== except) {
+            open.setAttribute('aria-expanded', 'false');
+            var tip = open.querySelector('.tooltiptext');
+            if (tip) {
+              tip.style.visibility = 'hidden';
+              tip.style.opacity = '0';
+            }
+          }
+        });
+      }
+
+      function toggleTip(el) {
+        var tip = el.querySelector('.tooltiptext');
+        if (!tip) return;
+        var expanded = el.getAttribute('aria-expanded') === 'true';
+        if (expanded) {
+          el.setAttribute('aria-expanded', 'false');
+          tip.style.visibility = 'hidden';
+          tip.style.opacity = '0';
+        } else {
+          closeAll(el);
+          el.setAttribute('aria-expanded', 'true');
+          tip.style.visibility = 'visible';
+          tip.style.opacity = '1';
+          positionTooltip(el, tip);
+        }
+      }
+
+      document.addEventListener('click', function(e) {
+        var trigger = e.target.closest('.badge.tooltip');
+        if (trigger) {
+          e.preventDefault();
+          toggleTip(trigger);
+        } else {
+          closeAll(null);
+        }
+      });
+
+      window.addEventListener('resize', function() {
+        document.querySelectorAll('.badge.tooltip[aria-expanded="true"]').forEach(function(el) {
+          var tip = el.querySelector('.tooltiptext');
+          if (tip) positionTooltip(el, tip);
+        });
+      });
+    })();
+  </script>
+{%- endif -%}

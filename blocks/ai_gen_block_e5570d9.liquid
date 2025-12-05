@@ -1,0 +1,686 @@
+{% doc %}
+  @prompt
+    i need an hero image. with pagewidth. there shall be a text container for a heading, text, and 2 buttons. underneath the container there is a USP or trust bar with 3 USPs and corresponding icons., statt freie farben wende bitte die color-schemes vom dawn theme an. setze für den container außerdem die klasse pagewidth.
+    statt vorausgewählter icons möchte ich bitte icons aus der library auswählen können, i want to select the svgs in my media please. and i want the section to be page-width (not pagewidth)
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-hero-{{ ai_gen_id }} {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .ai-hero-image-wrapper-{{ ai_gen_id }} {
+    position: relative;
+    width: 100%;
+    height: {{ block.settings.hero_height_desktop }}px;
+  }
+
+  .ai-hero-image-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .ai-hero-image-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ai-hero-image-placeholder-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    max-width: 500px;
+    max-height: 500px;
+  }
+
+  .ai-hero-overlay-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, {{ block.settings.overlay_opacity | divided_by: 100.0 }});
+    pointer-events: none;
+  }
+
+  .ai-hero-content-wrapper-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: {{ block.settings.content_vertical_alignment }};
+    justify-content: {{ block.settings.content_horizontal_alignment }};
+    padding: 40px 20px;
+  }
+
+  .ai-hero-content-{{ ai_gen_id }} {
+    max-width: {{ block.settings.content_max_width }}px;
+    text-align: {{ block.settings.text_alignment }};
+    padding: {{ block.settings.content_padding }}px;
+    border-radius: {{ block.settings.content_border_radius }}px;
+  }
+
+  .ai-hero-heading-{{ ai_gen_id }} {
+    font-size: {{ block.settings.heading_size }}px;
+    margin: 0 0 {{ block.settings.spacing_between_elements }}px;
+    line-height: 1.2;
+  }
+
+  .ai-hero-text-{{ ai_gen_id }} {
+    font-size: {{ block.settings.text_size }}px;
+    margin: 0 0 {{ block.settings.spacing_between_elements }}px;
+    line-height: 1.5;
+  }
+
+  .ai-hero-buttons-{{ ai_gen_id }} {
+    display: flex;
+    gap: {{ block.settings.button_spacing }}px;
+    flex-wrap: wrap;
+    {% if block.settings.text_alignment == 'center' %}
+      justify-content: center;
+    {% elsif block.settings.text_alignment == 'right' %}
+      justify-content: flex-end;
+    {% else %}
+      justify-content: flex-start;
+    {% endif %}
+  }
+
+  .ai-hero-button-{{ ai_gen_id }} {
+    display: inline-block;
+    padding: {{ block.settings.button_padding_vertical }}px {{ block.settings.button_padding_horizontal }}px;
+    border-radius: {{ block.settings.button_border_radius }}px;
+    text-decoration: none;
+    font-size: {{ block.settings.button_font_size }}px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+  }
+
+  .ai-hero-trust-bar-wrapper-{{ ai_gen_id }} {
+    padding: {{ block.settings.trust_bar_padding }}px 20px;
+  }
+
+  .ai-hero-trust-bar-{{ ai_gen_id }} {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: {{ block.settings.trust_bar_gap }}px;
+    flex-wrap: wrap;
+  }
+
+  .ai-hero-trust-item-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    gap: {{ block.settings.trust_item_gap }}px;
+  }
+
+  .ai-hero-trust-icon-{{ ai_gen_id }} {
+    width: {{ block.settings.trust_icon_size }}px;
+    height: {{ block.settings.trust_icon_size }}px;
+    flex-shrink: 0;
+  }
+
+  .ai-hero-trust-icon-{{ ai_gen_id }} img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .ai-hero-trust-text-{{ ai_gen_id }} {
+    font-size: {{ block.settings.trust_text_size }}px;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-hero-image-wrapper-{{ ai_gen_id }} {
+      height: {{ block.settings.hero_height_mobile }}px;
+    }
+
+    .ai-hero-content-{{ ai_gen_id }} {
+      padding: {{ block.settings.content_padding | times: 0.7 }}px;
+    }
+
+    .ai-hero-heading-{{ ai_gen_id }} {
+      font-size: {{ block.settings.heading_size | times: 0.7 }}px;
+    }
+
+    .ai-hero-text-{{ ai_gen_id }} {
+      font-size: {{ block.settings.text_size | times: 0.9 }}px;
+    }
+
+    .ai-hero-buttons-{{ ai_gen_id }} {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .ai-hero-button-{{ ai_gen_id }} {
+      text-align: center;
+    }
+
+    .ai-hero-trust-bar-{{ ai_gen_id }} {
+      flex-direction: column;
+      gap: {{ block.settings.trust_bar_gap | times: 0.7 }}px;
+    }
+  }
+{% endstyle %}
+
+<div class="page-width ai-hero-{{ ai_gen_id }} color-{{ block.settings.hero_color_scheme }}" {{ block.shopify_attributes }}>
+  <div class="ai-hero-image-wrapper-{{ ai_gen_id }}">
+    {% if block.settings.hero_image %}
+      <img
+        src="{{ block.settings.hero_image | image_url: width: 2400 }}"
+        alt="{{ block.settings.hero_image.alt | escape }}"
+        loading="lazy"
+        width="{{ block.settings.hero_image.width }}"
+        height="{{ block.settings.hero_image.height }}"
+        class="ai-hero-image-{{ ai_gen_id }}"
+      >
+    {% else %}
+      <div class="ai-hero-image-placeholder-{{ ai_gen_id }}">
+        {{ 'hero-apparel-1' | placeholder_svg_tag }}
+      </div>
+    {% endif %}
+
+    {% if block.settings.show_overlay %}
+      <div class="ai-hero-overlay-{{ ai_gen_id }}"></div>
+    {% endif %}
+
+    <div class="ai-hero-content-wrapper-{{ ai_gen_id }}">
+      <div class="ai-hero-content-{{ ai_gen_id }} color-{{ block.settings.content_color_scheme }}">
+        {% if block.settings.heading != blank %}
+          <h1 class="ai-hero-heading-{{ ai_gen_id }}">{{ block.settings.heading }}</h1>
+        {% endif %}
+
+        {% if block.settings.text != blank %}
+          <div class="ai-hero-text-{{ ai_gen_id }}">{{ block.settings.text }}</div>
+        {% endif %}
+
+        {% if block.settings.button_primary_label != blank or block.settings.button_secondary_label != blank %}
+          <div class="ai-hero-buttons-{{ ai_gen_id }}">
+            {% if block.settings.button_primary_label != blank %}
+              <a
+                href="{{ block.settings.button_primary_link }}"
+                class="ai-hero-button-{{ ai_gen_id }} button button--primary"
+              >
+                {{ block.settings.button_primary_label }}
+              </a>
+            {% endif %}
+
+            {% if block.settings.button_secondary_label != blank %}
+              <a
+                href="{{ block.settings.button_secondary_link }}"
+                class="ai-hero-button-{{ ai_gen_id }} button button--secondary"
+              >
+                {{ block.settings.button_secondary_label }}
+              </a>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <div class="ai-hero-trust-bar-wrapper-{{ ai_gen_id }} color-{{ block.settings.trust_bar_color_scheme }}">
+    <div class="ai-hero-trust-bar-{{ ai_gen_id }} page-width">
+      {% if block.settings.usp_1_text != blank %}
+        <div class="ai-hero-trust-item-{{ ai_gen_id }}">
+          {% if block.settings.usp_1_icon %}
+            <div class="ai-hero-trust-icon-{{ ai_gen_id }}">
+              <img
+                src="{{ block.settings.usp_1_icon | image_url: width: 100 }}"
+                alt="{{ block.settings.usp_1_text | escape }}"
+                loading="lazy"
+                width="100"
+                height="100"
+              >
+            </div>
+          {% endif %}
+          <span class="ai-hero-trust-text-{{ ai_gen_id }}">{{ block.settings.usp_1_text }}</span>
+        </div>
+      {% endif %}
+
+      {% if block.settings.usp_2_text != blank %}
+        <div class="ai-hero-trust-item-{{ ai_gen_id }}">
+          {% if block.settings.usp_2_icon %}
+            <div class="ai-hero-trust-icon-{{ ai_gen_id }}">
+              <img
+                src="{{ block.settings.usp_2_icon | image_url: width: 100 }}"
+                alt="{{ block.settings.usp_2_text | escape }}"
+                loading="lazy"
+                width="100"
+                height="100"
+              >
+            </div>
+          {% endif %}
+          <span class="ai-hero-trust-text-{{ ai_gen_id }}">{{ block.settings.usp_2_text }}</span>
+        </div>
+      {% endif %}
+
+      {% if block.settings.usp_3_text != blank %}
+        <div class="ai-hero-trust-item-{{ ai_gen_id }}">
+          {% if block.settings.usp_3_icon %}
+            <div class="ai-hero-trust-icon-{{ ai_gen_id }}">
+              <img
+                src="{{ block.settings.usp_3_icon | image_url: width: 100 }}"
+                alt="{{ block.settings.usp_3_text | escape }}"
+                loading="lazy"
+                width="100"
+                height="100"
+              >
+            </div>
+          {% endif %}
+          <span class="ai-hero-trust-text-{{ ai_gen_id }}">{{ block.settings.usp_3_text }}</span>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Hero with trust bar",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Hero image"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Image"
+    },
+    {
+      "type": "range",
+      "id": "hero_height_desktop",
+      "min": 300,
+      "max": 800,
+      "step": 50,
+      "unit": "px",
+      "label": "Height on desktop",
+      "default": 600
+    },
+    {
+      "type": "range",
+      "id": "hero_height_mobile",
+      "min": 200,
+      "max": 600,
+      "step": 50,
+      "unit": "px",
+      "label": "Height on mobile",
+      "default": 400
+    },
+    {
+      "type": "color_scheme",
+      "id": "hero_color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_overlay",
+      "label": "Show overlay",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 80,
+      "step": 5,
+      "unit": "%",
+      "label": "Overlay opacity",
+      "default": 30
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Welcome to our store"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Discover our amazing products and transform your space"
+    },
+    {
+      "type": "color_scheme",
+      "id": "content_color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "content_max_width",
+      "min": 400,
+      "max": 1000,
+      "step": 50,
+      "unit": "px",
+      "label": "Maximum width",
+      "default": 600
+    },
+    {
+      "type": "range",
+      "id": "content_padding",
+      "min": 0,
+      "max": 80,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "content_border_radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Border radius",
+      "default": 0
+    },
+    {
+      "type": "select",
+      "id": "content_vertical_alignment",
+      "label": "Vertical alignment",
+      "options": [
+        {
+          "value": "flex-start",
+          "label": "Top"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "flex-end",
+          "label": "Bottom"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "content_horizontal_alignment",
+      "label": "Horizontal alignment",
+      "options": [
+        {
+          "value": "flex-start",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "flex-end",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "range",
+      "id": "spacing_between_elements",
+      "min": 10,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "label": "Spacing between elements",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 24,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "label": "Heading size",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "min": 12,
+      "max": 28,
+      "step": 2,
+      "unit": "px",
+      "label": "Text size",
+      "default": 18
+    },
+    {
+      "type": "header",
+      "content": "Primary button"
+    },
+    {
+      "type": "text",
+      "id": "button_primary_label",
+      "label": "Label",
+      "default": "Shop now"
+    },
+    {
+      "type": "url",
+      "id": "button_primary_link",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Secondary button"
+    },
+    {
+      "type": "text",
+      "id": "button_secondary_label",
+      "label": "Label",
+      "default": "Learn more"
+    },
+    {
+      "type": "url",
+      "id": "button_secondary_link",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Button style"
+    },
+    {
+      "type": "range",
+      "id": "button_font_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "button_padding_vertical",
+      "min": 8,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "label": "Vertical padding",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "button_padding_horizontal",
+      "min": 16,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "label": "Horizontal padding",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "button_border_radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Border radius",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "button_spacing",
+      "min": 8,
+      "max": 32,
+      "step": 4,
+      "unit": "px",
+      "label": "Spacing between buttons",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Trust bar"
+    },
+    {
+      "type": "color_scheme",
+      "id": "trust_bar_color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-5"
+    },
+    {
+      "type": "range",
+      "id": "trust_bar_padding",
+      "min": 10,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding",
+      "default": 25
+    },
+    {
+      "type": "range",
+      "id": "trust_bar_gap",
+      "min": 20,
+      "max": 80,
+      "step": 5,
+      "unit": "px",
+      "label": "Gap between items",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "trust_item_gap",
+      "min": 8,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "label": "Gap between icon and text",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "trust_icon_size",
+      "min": 20,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "label": "Icon size",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "trust_text_size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Text size",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "USP 1"
+    },
+    {
+      "type": "text",
+      "id": "usp_1_text",
+      "label": "Text",
+      "default": "Free shipping over €50"
+    },
+    {
+      "type": "image_picker",
+      "id": "usp_1_icon",
+      "label": "Icon"
+    },
+    {
+      "type": "header",
+      "content": "USP 2"
+    },
+    {
+      "type": "text",
+      "id": "usp_2_text",
+      "label": "Text",
+      "default": "Secure payment"
+    },
+    {
+      "type": "image_picker",
+      "id": "usp_2_icon",
+      "label": "Icon"
+    },
+    {
+      "type": "header",
+      "content": "USP 3"
+    },
+    {
+      "type": "text",
+      "id": "usp_3_text",
+      "label": "Text",
+      "default": "30-day returns"
+    },
+    {
+      "type": "image_picker",
+      "id": "usp_3_icon",
+      "label": "Icon"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero with trust bar"
+    }
+  ]
+}
+{% endschema %}

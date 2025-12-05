@@ -35,9 +35,32 @@
     assign money_price_max = price_max | money_with_currency
   endif
 
-  if target == product and product.price_varies
-    assign money_price = 'products.product.price.from_price_html' | t: price: money_price
-  endif
+
+ assign show_from_price = false 
+
+if target == product and product.price_varies 
+   assign show_from_price = true 
+endif 
+
+ assign target_product_types = 'Home Tapete, Kindertapete' | split: ',' 
+if target == product and target_product_types contains product.type 
+   assign show_from_price = true 
+ endif 
+
+ assign target_collections = 'Home Tapete, Kindertapete' | split: ',' 
+ if target == product 
+   for collection in product.collections 
+     if target_collections contains collection.handle 
+       assign show_from_price = true 
+       break 
+     endif 
+   endfor 
+ endif 
+
+if show_from_price
+  assign money_price = 'products.product.price.from_price_html' | t: price: money_price
+endif
+
 -%}
 
 {%- unless target == null and placeholder == null -%}

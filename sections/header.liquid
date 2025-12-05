@@ -263,6 +263,10 @@
         </a>
       {%- endif -%}
 
+      <a href="/pages/wishlist" rel="nofollow">
+        <span class="svg-wrapper" style="margin-top:8px;">{{ 'icon-heart.svg' | inline_asset_content }}</span>
+      </a>
+
       {%- for block in section.blocks -%}
         {%- case block.type -%}
           {%- when '@app' -%}

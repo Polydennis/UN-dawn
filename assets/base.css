@@ -3595,3 +3595,70 @@ details-disclosure > details {
     transform: translateX(100%) scaleX(0);
   }
 }
+
+/* CUSTOM */
+@font-face {
+  font-family: "Hunter";
+  src: url("https://cdn.shopify.com/s/files/1/0580/6007/9242/files/hunter-webfont.woff?v=1742988238")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+h1,
+h2 {
+  font-family: "Hunter", serif !important;
+}
+/*
+@media screen and (max-width: 989px) {
+  .header__heading {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    padding-top: 10px;
+  }
+}
+*/
+.rating-star {
+  --color-rating-star: #ceae64;
+  font-size: calc(var(--font-size) * 1.4rem);
+}
+.jdgm-star {
+  color: #ceae64 !important;
+}
+.card__heading {
+  font-family: "Hunter", serif;
+  font-weight: 500;
+}
+html {
+  scroll-behavior: smooth;
+}
+.shopify-pc__banner__dialog button.shopify-pc__banner__btn-decline {
+  display: none;
+  background-color: #9EA187!important;
+}
+#shopify-pc__banner__btn-accept {
+  order: 2;
+}
+#shopify-pc__banner__btn-decline {
+  order: 1;
+}
+#shopify-pc__prefs__header-decline {
+  order: 1;
+  background-color: #9EA187!important;
+}
+
+#shopify-pc__prefs__header-save {
+  order: 2;
+  background-color: #9EA187!important;
+}
+
+#shopify-pc__prefs__header-accept {
+  order: 3;
+}
+
+div.product__tax.caption.rte > a {
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-decoration-thickness: 1px;
+}

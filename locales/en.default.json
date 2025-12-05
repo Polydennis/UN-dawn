@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "general": {
     "password_page": {
@@ -106,6 +115,25 @@
   },
   "products": {
     "product": {
+      "samples": {
+        "to_sample": "See for yourself the quality and the material:",
+        "to-original": "This is a material sample for:",
+        "not-found": "If you would like to order a material sample for this product,",
+        "not-found-link": "please contact us!",
+        "coupon": "Includes store credit"
+      },
+      "custom_labels": {
+        "label_info": "Customizations (click for info):",
+        "color_options": "Selectable Colors",
+        "moveable_elements": "Movable Individual Motifs",
+        "custom_sizes": "Custom Sizes",
+        "color_options_desc": "With this label you can choose the colors yourself.",
+        "moveable_elements_desc": "Here, the individual motifs of the graphic are moveable.",
+        "custom_sizes_desc": "The motif and cut are adjusted to size free of charge.",
+        "w-squeegee": "Free squeegee"
+      },
+      "bestseller": "Bestseller",
+      "new": "New",
       "add_to_cart": "Add to cart",
       "choose_options": "Choose options",
       "choose_product_options": "Choose options for {{ product_name }}",
@@ -256,7 +284,9 @@
         "comment": "Comment",
         "send": "Send",
         "post_success": "Thanks for contacting us. We'll get back to you as soon as possible.",
-        "error_heading": "Please adjust the following:"
+        "error_heading": "Please adjust the following:",
+        "image": "Add sketches/photos to your message.",
+        "whatsapp_desc": "Simple and direct via Messenger"
       }
     },
     "404": {
@@ -272,7 +302,6 @@
       "announcement": "Announcement",
       "announcement_bar": "Announcement bar"
     },
-
     "header": {
       "announcement": "Announcement",
       "menu": "Menu",

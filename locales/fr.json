@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "general": {
     "password_page": {
@@ -107,6 +116,25 @@
   },
   "products": {
     "product": {
+      "samples": {
+        "to_sample": "Découvrez par vous-même la qualité et le matériau :",
+        "to-original": "Ceci est un échantillon de matériau pour :",
+        "not-found": "Si vous souhaitez commander un échantillon de matériau pour ce produit,",
+        "not-found-link": "merci de nous contacter !",
+        "coupon": "Bon d’achat inclus"
+      },
+      "custom_labels": {
+        "label_info": "Personnalisations (cliquez pour info) :",
+        "color_options": "Couleurs sélectionnables",
+        "moveable_elements": "Motifs individuels déplaçables",
+        "custom_sizes": "Tailles personnalisées",
+        "color_options_desc": "Avec cette étiquette, vous pouvez choisir vous-même les couleurs.",
+        "moveable_elements_desc": "Ici, les motifs individuels du graphique sont déplaçables.",
+        "custom_sizes_desc": "Le motif et la coupe sont ajustés sur mesure gratuitement.",
+        "w-squeegee": "Raclette incluse"
+      },
+      "bestseller": "Meilleure vente",
+      "new": "Nouveau",
       "add_to_cart": "Ajouter au panier",
       "description": "Description",
       "on_sale": "Promotion",
@@ -265,7 +293,9 @@
         "send": "Envoyer",
         "post_success": "Merci de nous avoir contactés. Nous vous répondrons dès que possible.",
         "error_heading": "Veuillez ajuster les éléments suivants :",
-        "title": "Formulaire de contact"
+        "title": "Formulaire de contact",
+        "image": "Ajoutez des croquis/photos à votre message.",
+        "whatsapp_desc": "Simple et direct via Messenger"
       }
     },
     "404": {
