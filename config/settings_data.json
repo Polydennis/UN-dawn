@@ -145,6 +145,53 @@
     },
     "content_for_index": [],
     "blocks": {
+      "12120936241911852800": {
+        "type": "shopify://apps/judge-me-reviews/blocks/reviews_tab/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "disabled": true,
+        "settings": {
+          "position": "right"
+        }
+      },
+      "15181020662106344915": {
+        "type": "shopify://apps/judge-me-reviews/blocks/popup_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "disabled": true,
+        "settings": {}
+      },
+      "15393088698543645836": {
+        "type": "shopify://apps/essential-preorder/blocks/app-embed/bb7e7a06-2a82-4e7d-8984-c3918deb1c2a",
+        "disabled": true,
+        "settings": {}
+      },
+      "10012068959737676665": {
+        "type": "shopify://apps/gropulse-wishlist/blocks/gropulse-wishlist/d606b448-832c-4b0a-adbb-21c7fa132df1",
+        "disabled": false,
+        "settings": {}
+      },
+      "17676059084223943535": {
+        "type": "shopify://apps/triplewhale/blocks/triple_pixel_snippet/483d496b-3f1a-4609-aea7-8eee3b6b7a2a",
+        "disabled": false,
+        "settings": {}
+      },
+      "11068332061543699368": {
+        "type": "shopify://apps/booster-page-speed-optimizer/blocks/app-embed/d920faf3-7c60-423a-9636-22618b5561b5",
+        "disabled": false,
+        "settings": {}
+      },
+      "13768625480086291342": {
+        "type": "shopify://apps/forms/blocks/forms/8744a304-fcb1-4347-b211-bb6b4759a76a",
+        "disabled": false,
+        "settings": {}
+      },
+      "855628211100114053": {
+        "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/klaviyo-onsite-embed/2632fe16-c075-4321-a88b-50b567f42507",
+        "disabled": false,
+        "settings": {}
+      },
+      "14060646107696862457": {
+        "type": "shopify://apps/judge-me-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "disabled": false,
+        "settings": {}
+      },
       "15683396631634586217": {
         "type": "shopify://apps/inbox/blocks/chat/841fc607-4181-4ad1-842d-e24d7f8bad6b",
         "disabled": true,
@@ -159,56 +206,9 @@
           "greeting_message": ""
         }
       },
-      "12120936241911852800": {
-        "type": "shopify://apps/judge-me-reviews/blocks/reviews_tab/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-        "disabled": true,
-        "settings": {
-          "position": "right"
-        }
-      },
-      "15181020662106344915": {
-        "type": "shopify://apps/judge-me-reviews/blocks/popup_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-        "disabled": true,
-        "settings": {}
-      },
-      "10012068959737676665": {
-        "type": "shopify://apps/gropulse-wishlist/blocks/gropulse-wishlist/d606b448-832c-4b0a-adbb-21c7fa132df1",
-        "disabled": true,
-        "settings": {}
-      },
-      "17676059084223943535": {
-        "type": "shopify://apps/triplewhale/blocks/triple_pixel_snippet/483d496b-3f1a-4609-aea7-8eee3b6b7a2a",
-        "disabled": true,
-        "settings": {}
-      },
-      "15393088698543645836": {
-        "type": "shopify://apps/essential-preorder/blocks/app-embed/bb7e7a06-2a82-4e7d-8984-c3918deb1c2a",
-        "disabled": true,
-        "settings": {}
-      },
-      "11068332061543699368": {
-        "type": "shopify://apps/booster-page-speed-optimizer/blocks/app-embed/d920faf3-7c60-423a-9636-22618b5561b5",
-        "disabled": true,
-        "settings": {}
-      },
-      "855628211100114053": {
-        "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/klaviyo-onsite-embed/2632fe16-c075-4321-a88b-50b567f42507",
-        "disabled": true,
-        "settings": {}
-      },
-      "13768625480086291342": {
-        "type": "shopify://apps/forms/blocks/forms/8744a304-fcb1-4347-b211-bb6b4759a76a",
-        "disabled": true,
-        "settings": {}
-      },
-      "14060646107696862457": {
-        "type": "shopify://apps/judge-me-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-        "disabled": true,
-        "settings": {}
-      },
       "6460986421370555689": {
         "type": "shopify://apps/apippa-custom-price-calculator/blocks/cpc-app-embed/c499fa68-8478-4285-a3f7-27654dd66c3e",
-        "disabled": true,
+        "disabled": false,
         "settings": {}
       }
     },
