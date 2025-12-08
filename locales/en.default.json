@@ -132,6 +132,8 @@
         "custom_sizes_desc": "The motif and cut are adjusted to size free of charge.",
         "w-squeegee": "Free squeegee"
       },
+      "upload_photo": "Upload photo",
+      "photo_uploaded": "Photo uploaded successfully",
       "bestseller": "Bestseller",
       "new": "New",
       "add_to_cart": "Add to cart",
