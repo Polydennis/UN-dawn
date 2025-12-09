@@ -13,9 +13,9 @@
       "type": "featured-collection",
       "name": "t:sections.featured-collection.presets.name",
       "settings": {
-        "collection": "naturtapeten-fur-kinderzimmer",
+        "collection": "tapete-babyzimmer",
         "products_to_show": 25,
-        "title": "Naturtapeten für dein Kinderzimmer",
+        "title": "Tapeten für Mädchen",
         "heading_size": "h1",
         "description": "<p>Beruhigende Motive und sanfte Farben fördern die Kreativität und Entwicklung.</p>",
         "show_description": false,
