@@ -255,8 +255,18 @@
             "heading_3": "Reißfest & Matt"
           }
         },
+        "collapsible_tab_HRMJt3": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Vom Foto zum Sticker",
+            "icon": "foerdert_kreativitaet",
+            "content": "<p>Wir verwandeln dein Lieblingsfoto in einen hochwertigen und persönlichen Wandsticker.</p>",
+            "page": ""
+          }
+        },
         "collapsible_tab_JEaUnA": {
           "type": "collapsible_tab",
+          "disabled": true,
           "settings": {
             "heading": "Flexibel & einfach",
             "icon": "sicher_unbedenklich",
@@ -343,6 +353,7 @@
         "buy_buttons",
         "gropulse_wishlist_gropulse_wishlist_button_67GamL",
         "icon_with_text_gzHay7",
+        "collapsible_tab_HRMJt3",
         "collapsible_tab_JEaUnA",
         "collapsible_tab_mGXBpK",
         "collapsible_tab_ebV9Pf",
