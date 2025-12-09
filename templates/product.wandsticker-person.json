@@ -553,7 +553,7 @@
           "settings": {
             "title": "Produktbeschreibung",
             "product_description": false,
-            "content": "<h3>Unik Nordic {{ product.title }}</h3><p>{{ product.metafields.custom.zproduktbeschreibung | metafield_tag }}</p><p>Sindy, unsere Gründerin und Designerin, hat bei der Erstellung dieser Wandsticker an folgende Räume gedacht: </p>{{ product.metafields.custom.raumauswahl | metafield_tag }}",
+            "content": "<h3>Unik Nordic {{ product.title }}</h3><p>{{ product.metafields.custom.zproduktbeschreibung | metafield_tag }}</p><p>Dein Foto nutzen wir ausschließlich, um deinen Auftrag umzusetzen. Es wird niemals an Dritte weitergegeben, ausschließlich in unserem geschützten Shopsystem gespeichert und nur für die Bestellbearbeitung verwendet. Eine Veröffentlichung findet selbstverständlich nicht statt und alle Rechte bleiben bei dir. Versprochen!</p><p>Sindy, unsere Gründerin und Designerin, hat bei der Erstellung dieser Wandsticker an folgende Räume gedacht: </p>{{ product.metafields.custom.raumauswahl | metafield_tag }}",
             "page_content": "",
             "show_page_title": false,
             "page_title_html_element": "h2",
