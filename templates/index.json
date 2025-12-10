@@ -439,55 +439,6 @@
         "hide_desktop": false
       }
     },
-    "image_with_text_iRBAJt": {
-      "type": "image-with-text",
-      "blocks": {
-        "heading_Vxd9zP": {
-          "type": "heading",
-          "settings": {
-            "heading": "Tapetenmotiv & Maße perfekt auf deinen Raum abgestimmt",
-            "heading_size": "h2"
-          }
-        },
-        "text_nPxzzw": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Deine Wand ist einzigartig und deswegen<br/>passen wir jedes Design individuell an deinen Raum an und berücksichtigen Schrägen, Türen oder Fenster - und dank der besonders hohen Papiervlies-Qualität ist das Tapezieren spielend leicht!</p>",
-            "text_style": "body"
-          }
-        },
-        "button_dPTKTN": {
-          "type": "button",
-          "settings": {
-            "button_label": "Erfahre mehr über uns",
-            "button_link": "shopify://pages/ueber-uns",
-            "button_style_secondary": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_Vxd9zP",
-        "text_nPxzzw",
-        "button_dPTKTN"
-      ],
-      "custom_css": [],
-      "name": "USP Anpassung Design & Maß",
-      "settings": {
-        "image": "shopify://shop_images/2504_Feenwald_485c8cb2-f2d7-48a9-9407-04ec470b03b9.png",
-        "height": "medium",
-        "desktop_image_width": "medium",
-        "layout": "image_first",
-        "image_behavior": "none",
-        "content_layout": "no-overlap",
-        "desktop_content_position": "middle",
-        "desktop_content_alignment": "left",
-        "mobile_content_alignment": "left",
-        "section_color_scheme": "scheme-1",
-        "color_scheme": "scheme-2",
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
-    },
     "rich_text_RMpa6j": {
       "type": "rich-text",
       "blocks": {
@@ -621,6 +572,55 @@
         "border_thickness": 0,
         "section_radius": 0,
         "lazy": true
+      }
+    },
+    "image_with_text_iRBAJt": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_Vxd9zP": {
+          "type": "heading",
+          "settings": {
+            "heading": "Tapetenmotiv & Maße perfekt auf deinen Raum abgestimmt",
+            "heading_size": "h2"
+          }
+        },
+        "text_nPxzzw": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Deine Wand ist einzigartig und deswegen<br/>passen wir jedes Design individuell an deinen Raum an und berücksichtigen Schrägen, Türen oder Fenster - und dank der besonders hohen Papiervlies-Qualität ist das Tapezieren spielend leicht!</p>",
+            "text_style": "body"
+          }
+        },
+        "button_dPTKTN": {
+          "type": "button",
+          "settings": {
+            "button_label": "Erfahre mehr über uns",
+            "button_link": "shopify://pages/ueber-uns",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_Vxd9zP",
+        "text_nPxzzw",
+        "button_dPTKTN"
+      ],
+      "custom_css": [],
+      "name": "USP Anpassung Design & Maß",
+      "settings": {
+        "image": "shopify://shop_images/2504_Feenwald_485c8cb2-f2d7-48a9-9407-04ec470b03b9.png",
+        "height": "medium",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-1",
+        "color_scheme": "scheme-2",
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "17582876099bb6d401": {
@@ -1499,9 +1499,9 @@
     "17612174079e159a1e",
     "collection_list_kKF3eU",
     "ss_circle_menu_XwgEY3",
-    "image_with_text_iRBAJt",
     "rich_text_RMpa6j",
     "ss_scrolling_images_5_9JT7Xx",
+    "image_with_text_iRBAJt",
     "17582876099bb6d401",
     "featured_collection_r6wPYF",
     "featured_collection_G6qmcY",
