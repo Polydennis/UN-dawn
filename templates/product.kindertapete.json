@@ -458,7 +458,7 @@
         "text_6RXcng": {
           "type": "text",
           "settings": {
-            "text": "<p>Wir drucken deine Tapete nachhaltig mit modernster Technik auf Papiervlies in außergewöhnlicher Qualität. So wird sie besonders widerstandsfähig farbstark und sogar feucht abwischbar. Das Material ist frei von PVC und Weichmachern und daher absolut unbedenklich.</p>",
+            "text": "<p>Wir drucken deine Tapete nachhaltig mit modernster Technik auf Papiervlies in außergewöhnlicher Qualität. So wird sie besonders widerstandsfähig farbstark und sogar feucht abwischbar. Das Material ist frei von PVC und Weichmachern und unbedenklich.</p>",
             "text_style": "body"
           }
         }
@@ -561,7 +561,7 @@
           "settings": {
             "title": "Versand",
             "product_description": false,
-            "content": "<p>{{ localization.market.metafields.custom.versandtext_paket | metafield_tag }}</p>",
+            "content": "{{ localization.market.metafields.custom.versandtext_paket | metafield_tag }}",
             "page_content": "",
             "show_page_title": false,
             "page_title_html_element": "h2",
