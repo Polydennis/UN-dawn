@@ -3662,3 +3662,10 @@ div.product__tax.caption.rte > a {
   text-decoration-style: dotted;
   text-decoration-thickness: 1px;
 }
+
+.mobile-facets__disclosure {
+  background: #e0e3cc;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 15px;
+}
