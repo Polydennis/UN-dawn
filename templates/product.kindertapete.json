@@ -529,7 +529,7 @@
           "settings": {
             "title": "Produktbeschreibung",
             "product_description": false,
-            "content": "<h3>Unik Nordic {{ product.title }} Premium Vliestapete</h3><p>{{ product.metafields.custom.zproduktbeschreibung | metafield_tag }}</p><p>Sindy, unsere Gründerin und Designerin hatte bei der Erstellung dieses Motivs folgende Räume im Kopf: </p>{{ product.metafields.custom.raumauswahl | metafield_tag }}<p>Dieses Produkt hat folgende Anpassungsmöglichkeiten (schreib uns einfach an, wenn dir etwas unklar ist!):</p>{{ product.metafields.custom.labels | metafield_tag }}",
+            "content": "<h3>Unik Nordic {{ product.title }} Premium Vliestapete</h3><p>{{ product.metafields.custom.zproduktbeschreibung | metafield_tag }}</p><p>Wir finden, dass dieses Motiv wunderbar in folgende Räume passt: </p>{{ product.metafields.custom.raumauswahl | metafield_tag }}<p>Dieses Produkt hat folgende Anpassungsmöglichkeiten (schreib uns einfach an, wenn dir etwas unklar ist):</p>{{ product.metafields.custom.labels | metafield_tag }}",
             "page_content": "",
             "show_page_title": false,
             "page_title_html_element": "h2",
