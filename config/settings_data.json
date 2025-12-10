@@ -261,7 +261,7 @@
         "settings": {
           "background": "#efeeed",
           "background_gradient": "",
-          "text": "#4e5344",
+          "text": "#494d40",
           "button": "#6d6f5f",
           "button_label": "#efeeed",
           "secondary_button_label": "#6d6f5f",
@@ -305,7 +305,7 @@
         "settings": {
           "background": "#b8baa5",
           "background_gradient": "",
-          "text": "#383d2d",
+          "text": "#2a2f22",
           "button": "#4e5344",
           "button_label": "#efeeed",
           "secondary_button_label": "#ffffff",
