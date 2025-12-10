@@ -194,17 +194,17 @@
           "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "settings": {}
         },
+        "text_ADXKAr": {
+          "type": "text",
+          "settings": {
+            "text": "<em>24,90 €/m²</em>",
+            "text_style": "subtitle"
+          }
+        },
         "custom_liquid_cgCbVb": {
           "type": "custom_liquid",
           "settings": {
             "custom_liquid": "{% style %}\n.label-ico {\n  float: inline;\n  max-width: 50px;\n  margin: 5px 5px 5px 0;\n}\n\n.tooltip {\n  position: relative;\n  display: inline-block;\n  cursor: help;\n}\n\n.tooltip .tooltiptext {\n  visibility: hidden;\n  min-width: 150px;\n  max-width: 400px;\n  background-color: #6E6E6E;\n  color: #fff;\n  text-align: center;\n  border-radius: 6px;\n  padding: 5px;\n  position: absolute;\n  bottom: auto; \n  top: 100%;\n  left: 50%;\n  margin-left: -60px;\n  opacity: 0;\n  z-index: 99999;\n  transition: opacity 0.3s;\n}\n\n.tooltip:hover .tooltiptext {\n  visibility: visible;\n  opacity: 1;\n}\n{% endstyle %}\n<div>\n  <span class=\"caption\">{{ 'products.product.custom_labels.label_info' | t }}<br /></span>\n  {% if product.metafields.custom.labels.value contains 'Auswählbare Farben' or product.metafields.custom.labels.value contains 'Selectable Colors' %}\n    <a href=\"javascript:void(0);\" class=\"tooltip\">\n      <img src=\"{{ 'Eigenschaften_Tapeten_Symbole_grau_Farben.png' | file_img_url }}\" class=\"label-ico\" />\n      <span class=\"tooltiptext\">{{ 'products.product.custom_labels.color_options_desc' | t }}</span>\n    </a>\n  {% endif %}\n  {% if product.metafields.custom.labels.value contains 'Verschiebbare Einzelmotive' or product.metafields.custom.labels.value contains 'Movable individual motifs' %}\n    <a href=\"javascript:void(0);\" class=\"tooltip\">\n      <img src=\"{{ 'Eigenschaften_Tapeten_Symbole_grau_Verschiebbare_Einzelnmotive.png' | file_img_url }}\" class=\"label-ico\" />\n      <span class=\"tooltiptext\">{{ 'products.product.custom_labels.moveable_elements_desc' | t }}</span>\n    </a>\n  {% endif %}\n  {% if product.metafields.custom.labels.value contains 'Individuelle Maße' or product.metafields.custom.labels.value contains 'Individual dimensions' %}\n    <a href=\"javascript:void(0);\" class=\"tooltip\">\n      <img src=\"{{ 'Eigenschaften_Tapeten_Symbole_grau_Auf_Mass.png' | file_img_url }}\" class=\"label-ico\" />\n      <span class=\"tooltiptext\">{{ 'products.product.custom_labels.custom_sizes_desc' | t }}</span>\n    </a>\n  {% endif %}\n</div>\n\n<script>\n  function positionTooltip(tooltip, tooltipText) {\n    // Standardposition auf unterhalb des Tooltips setzen\n    tooltipText.style.top = '100%';\n    tooltipText.style.bottom = 'auto';\n\n    const rect = tooltip.getBoundingClientRect();\n    const winWidth = window.innerWidth;\n    const winHeight = window.innerHeight;\n    const spaceBottom = winHeight - rect.bottom;\n\n    // Platz unten überprüfen und ggf. Position anpassen\n    if (spaceBottom < tooltipText.offsetHeight) {\n      tooltipText.style.top = 'auto';\n      tooltipText.style.bottom = '100%';\n    }\n\n    if (tooltipText.offsetWidth > Math.max(spaceLeft, spaceRight)) {\n      tooltipText.style.left = '50%';\n      tooltipText.style.marginLeft = -(tooltipText.offsetWidth / 2) + 'px';\n    } else if (spaceRight < tooltipText.offsetWidth) {\n      tooltipText.style.left = 'auto';\n      tooltipText.style.right = '100%';\n      tooltipText.style.marginLeft = '';\n    }\n  }\n\n  document.addEventListener('DOMContentLoaded', function() {\n    var tooltips = document.querySelectorAll('.tooltip');\n    tooltips.forEach(function(tooltip) {\n      var tooltipText = tooltip.querySelector('.tooltiptext');\n      positionTooltip(tooltip, tooltipText);\n\n      tooltip.addEventListener('click', function(event) {\n        event.preventDefault();\n        tooltipText.style.visibility = tooltipText.style.visibility === 'visible' ? 'hidden' : 'visible';\n        positionTooltip(tooltip, tooltipText);\n      });\n\n      window.addEventListener('resize', function() {\n        positionTooltip(tooltip, tooltipText);\n      });\n    });\n  });\n</script>"
-          }
-        },
-        "text_ADXKAr": {
-          "type": "text",
-          "settings": {
-            "text": "<em>24,90€/m²</em>",
-            "text_style": "subtitle"
           }
         },
         "price": {
@@ -336,8 +336,8 @@
         "custom_liquid_LHpVEd",
         "title",
         "judge_me_reviews_preview_badge_feDbrp",
-        "custom_liquid_cgCbVb",
         "text_ADXKAr",
+        "custom_liquid_cgCbVb",
         "price",
         "custom_liquid_ajdxNh",
         "variant_picker",

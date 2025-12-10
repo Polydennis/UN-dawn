@@ -194,6 +194,13 @@
           "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "settings": {}
         },
+        "text_T4RUtA": {
+          "type": "text",
+          "settings": {
+            "text": "<em>24,90 €/m²</em>",
+            "text_style": "subtitle"
+          }
+        },
         "custom_liquid_cgCbVb": {
           "type": "custom_liquid",
           "settings": {
@@ -204,13 +211,6 @@
           "type": "price",
           "disabled": true,
           "settings": {}
-        },
-        "text_T4RUtA": {
-          "type": "text",
-          "settings": {
-            "text": "<em>24,90€/m²</em>",
-            "text_style": "subtitle"
-          }
         },
         "custom_liquid_ajdxNh": {
           "type": "custom_liquid",
@@ -333,9 +333,9 @@
         "custom_liquid_miayk8",
         "title",
         "judge_me_reviews_preview_badge_feDbrp",
+        "text_T4RUtA",
         "custom_liquid_cgCbVb",
         "price",
-        "text_T4RUtA",
         "custom_liquid_ajdxNh",
         "variant_picker",
         "quantity_selector",
