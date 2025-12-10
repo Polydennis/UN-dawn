@@ -569,7 +569,7 @@
           "settings": {
             "title": "Eigenschaften",
             "product_description": false,
-            "content": "<p>Material: {{ product.metafields.custom.material | metafield_tag }}</p><ul><li>Oberflächenstruktur: {{ product.metafields.custom.oberflaechenstruktur.value }}</li><li>Oberflächenoptik: {{ product.metafields.custom.oberflaechenoptik.value }}</li></ul><p>Die Wandsticker können rückstandsfrei wieder entfernt werden.</p><p>Zum Befestigen eine möglichst glatte Oberfläche finden und mit dem Handrücken fest andrücken.</p><p>Hält auf den meisten glatten oder rauen Oberflächen.</p>",
+            "content": "<p>Material: {{ product.metafields.custom.material | metafield_tag }}</p><ul><li>Oberflächenstruktur: {{ product.metafields.custom.oberflaechenstruktur.value }}</li><li>Oberflächenoptik: {{ product.metafields.custom.oberflaechenoptik.value }}</li></ul><p>Die Wandsticker können rückstandsfrei wieder entfernt werden.</p><p>Zum Befestigen eine möglichst glatte und gesäuberte Oberfläche finden und mit dem Handrücken fest andrücken.</p><p>Hält auf den meisten glatten oder rauen Oberflächen.</p>",
             "page_content": "",
             "show_page_title": false,
             "page_title_html_element": "h2",
