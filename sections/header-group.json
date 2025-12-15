@@ -1,1 +1,161 @@
-{"name":"t:sections.header.name","type":"header","sections":{"announcement-bar":{"type":"announcement-bar","blocks":{"announcement_AA9Ved":{"type":"announcement","disabled":true,"settings":{"text":"BLACK DAYS SALE - 10% an der Kasse","link":""}},"announcement-bar-0":{"type":"announcement","settings":{"text":"DE-Versand kostenlos","link":"https:\/\/unik-nordic.com\/policies\/shipping-policy"}},"announcement_GRqeix":{"type":"announcement","settings":{"text":"Neue Trendkollektion Urban Playground","link":"shopify:\/\/collections\/urban-playground"}}},"block_order":["announcement_AA9Ved","announcement-bar-0","announcement_GRqeix"],"settings":{"auto_rotate":true,"change_slides_speed":5,"color_scheme":"scheme-4","show_line_separator":false,"show_social":true,"enable_country_selector":true,"enable_language_selector":false}},"announcement_bar_pmKgQT":{"type":"announcement-bar","blocks":{"announcement_fW4HtA":{"type":"announcement","settings":{"text":"SEASON SALE - 15% auf Alles*","link":"shopify:\/\/pages\/season-sale"}}},"block_order":["announcement_fW4HtA"],"disabled":true,"name":"t:sections.announcement-bar.presets.name","settings":{"auto_rotate":false,"change_slides_speed":5,"color_scheme":"scheme-84e37e6c-5625-45a2-aff7-c354c8bcbf72","show_line_separator":true,"show_social":false,"enable_country_selector":false,"enable_language_selector":false}},"ss_countdown_bar_VJJ8W6":{"type":"ss-countdown-bar","blocks":{"text_pMPCdj":{"type":"text","settings":{"heading":"BLACK DAYS SALE - 10%","color":"#2e2a39","font_size":18}},"timer_PDimHN":{"type":"timer","settings":{"year":"2025","month":"12","day":"01","hour":"23","minute":"59","hide_timer_on_completed":true,"color":"#3a3e2e","font_size_number":20,"font_size_text":6}}},"block_order":["text_pMPCdj","timer_PDimHN"],"disabled":true,"name":"SS - Countdown Timer Bar","settings":{"target_selector":".header, .pageheader, .section-header, #announcement, .toolbar, .header__wrapper, .onboarding-header","use_cross":true,"banner_link":"https:\/\/unik-nordic.com","link_new_tab":false,"link_aria_label":"BLACK WEEK SALE","days_text":"Tage","hours_text":"Stunden","mins_text":"Minuten","seconds_text":"Sekunden","background-color":"#b8baa5"}},"header":{"type":"header","custom_css":[],"settings":{"logo_position":"top-center","mobile_logo_position":"center","menu":"hauptmenue-2-0","menu_type_desktop":"mega","sticky_header_type":"on-scroll-up","show_line_separator":true,"color_scheme":"scheme-1","menu_color_scheme":"scheme-3","enable_country_selector":false,"enable_language_selector":true,"enable_customer_avatar":true,"margin_bottom":24,"padding_top":20,"padding_bottom":20}}},"order":["announcement-bar","announcement_bar_pmKgQT","ss_countdown_bar_VJJ8W6","header"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement_AqEeCm": {
+          "type": "announcement",
+          "settings": {
+            "text": "Betriebsurlaub - 23.12. - 05.01.",
+            "link": "shopify://pages/betriebsurlaub-weihnachtsferien-im-betrieb"
+          }
+        },
+        "announcement_AA9Ved": {
+          "type": "announcement",
+          "disabled": true,
+          "settings": {
+            "text": "BLACK DAYS SALE - 10% an der Kasse",
+            "link": ""
+          }
+        },
+        "announcement-bar-0": {
+          "type": "announcement",
+          "settings": {
+            "text": "DE-Versand kostenlos",
+            "link": "https://unik-nordic.com/policies/shipping-policy"
+          }
+        },
+        "announcement_GRqeix": {
+          "type": "announcement",
+          "settings": {
+            "text": "Neue Trendkollektion Urban Playground",
+            "link": "shopify://collections/urban-playground"
+          }
+        }
+      },
+      "block_order": [
+        "announcement_AqEeCm",
+        "announcement_AA9Ved",
+        "announcement-bar-0",
+        "announcement_GRqeix"
+      ],
+      "settings": {
+        "auto_rotate": true,
+        "change_slides_speed": 5,
+        "color_scheme": "scheme-4",
+        "show_line_separator": false,
+        "show_social": true,
+        "enable_country_selector": true,
+        "enable_language_selector": false
+      }
+    },
+    "announcement_bar_pmKgQT": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement_fW4HtA": {
+          "type": "announcement",
+          "settings": {
+            "text": "SEASON SALE - 15% auf Alles*",
+            "link": "shopify://pages/season-sale"
+          }
+        }
+      },
+      "block_order": [
+        "announcement_fW4HtA"
+      ],
+      "disabled": true,
+      "name": "t:sections.announcement-bar.presets.name",
+      "settings": {
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "color_scheme": "scheme-84e37e6c-5625-45a2-aff7-c354c8bcbf72",
+        "show_line_separator": true,
+        "show_social": false,
+        "enable_country_selector": false,
+        "enable_language_selector": false
+      }
+    },
+    "ss_countdown_bar_VJJ8W6": {
+      "type": "ss-countdown-bar",
+      "blocks": {
+        "text_pMPCdj": {
+          "type": "text",
+          "settings": {
+            "heading": "BLACK DAYS SALE - 10%",
+            "color": "#2e2a39",
+            "font_size": 18
+          }
+        },
+        "timer_PDimHN": {
+          "type": "timer",
+          "settings": {
+            "year": "2025",
+            "month": "12",
+            "day": "01",
+            "hour": "23",
+            "minute": "59",
+            "hide_timer_on_completed": true,
+            "color": "#3a3e2e",
+            "font_size_number": 20,
+            "font_size_text": 6
+          }
+        }
+      },
+      "block_order": [
+        "text_pMPCdj",
+        "timer_PDimHN"
+      ],
+      "disabled": true,
+      "name": "SS - Countdown Timer Bar",
+      "settings": {
+        "target_selector": ".header, .pageheader, .section-header, #announcement, .toolbar, .header__wrapper, .onboarding-header",
+        "use_cross": true,
+        "banner_link": "https://unik-nordic.com",
+        "link_new_tab": false,
+        "link_aria_label": "BLACK WEEK SALE",
+        "days_text": "Tage",
+        "hours_text": "Stunden",
+        "mins_text": "Minuten",
+        "seconds_text": "Sekunden",
+        "background-color": "#b8baa5"
+      }
+    },
+    "header": {
+      "type": "header",
+      "custom_css": [],
+      "settings": {
+        "logo_position": "top-center",
+        "mobile_logo_position": "center",
+        "menu": "hauptmenue-2-0",
+        "menu_type_desktop": "mega",
+        "sticky_header_type": "on-scroll-up",
+        "show_line_separator": true,
+        "color_scheme": "scheme-1",
+        "menu_color_scheme": "scheme-3",
+        "enable_country_selector": false,
+        "enable_language_selector": true,
+        "enable_customer_avatar": true,
+        "margin_bottom": 24,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "announcement_bar_pmKgQT",
+    "ss_countdown_bar_VJJ8W6",
+    "header"
+  ]
+}
