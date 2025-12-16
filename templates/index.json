@@ -307,13 +307,29 @@
           "settings": {
             "collection": "kuechenfolie"
           }
+        },
+        "featured_collection_yYmbcJ": {
+          "type": "featured_collection",
+          "disabled": true,
+          "settings": {
+            "collection": ""
+          }
+        },
+        "featured_collection_c344U3": {
+          "type": "featured_collection",
+          "disabled": true,
+          "settings": {
+            "collection": ""
+          }
         }
       },
       "block_order": [
         "featured_collection_FJVKGP",
         "featured_collection_xBVLAN",
         "featured_collection_9wjYFk",
-        "featured_collection_azrJa4"
+        "featured_collection_azrJa4",
+        "featured_collection_yYmbcJ",
+        "featured_collection_c344U3"
       ],
       "custom_css": [
         ".card__heading {color: rgb(var(--color-text));}"
