@@ -9,6 +9,43 @@
  */
 {
   "sections": {
+    "image_banner_MH9bFq": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_DBaUYc": {
+          "type": "heading",
+          "settings": {
+            "heading": "Zu viele Kekse...",
+            "heading_size": "h2"
+          }
+        },
+        "text_8T6zUc": {
+          "type": "text",
+          "settings": {
+            "text": "...deshalb können wir ab dem 22.12 – 5.1.26 leider keine Bestellungen verpacken. Natürlich kannst du trotzdem einkaufen, musst aber leider ein paar Tage länger als üblich warten.",
+            "text_style": "subtitle"
+          }
+        }
+      },
+      "block_order": [
+        "heading_DBaUYc",
+        "text_8T6zUc"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/Betriebsurlaub_2025.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "small",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": true,
+        "color_scheme": "",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    },
     "slideshow_d34CyR": {
       "type": "slideshow",
       "blocks": {
@@ -153,56 +190,6 @@
         "button_primary_link": "shopify://pages/alles-fur-kinder",
         "button_secondary_label": "Home & Living",
         "button_secondary_link": "shopify://pages/home-living",
-        "button_tertiary_label": "",
-        "button_tertiary_link": "shopify://collections/wandsticker-wandtattoo",
-        "button_quartiary_label": "",
-        "button_quartiary_link": "shopify://collections/kuechenfolie",
-        "button_font_size": 16,
-        "button_padding_vertical": 14,
-        "button_padding_horizontal": 32,
-        "button_border_radius": 30,
-        "button_spacing": 16,
-        "trust_bar_color_scheme": "",
-        "trust_bar_padding": 25,
-        "trust_bar_gap": 40,
-        "trust_item_gap": 12,
-        "trust_icon_size": 32,
-        "trust_text_size": 14,
-        "usp_1_text": "Maßangefertigt für dich",
-        "usp_1_icon": "shopify://shop_images/icon-foerdert-kreativitaet.svg",
-        "usp_2_text": "Premium-Qualität aus DE",
-        "usp_2_icon": "shopify://shop_images/icon-hergestellt-in-de.svg",
-        "usp_3_text": "Kostenloser Versand nach DE",
-        "usp_3_icon": "shopify://shop_images/icon-schneller-versand.svg"
-      }
-    },
-    "trust_hero_QHb4Kg": {
-      "type": "trust-hero",
-      "disabled": true,
-      "name": "Hero with trust bar",
-      "settings": {
-        "hero_image": "shopify://shop_images/black-week-sale-2.png",
-        "hero_height_desktop": 550,
-        "hero_height_mobile": 400,
-        "hero_color_scheme": "",
-        "show_overlay": false,
-        "overlay_opacity": 30,
-        "heading": "BLACK DAYS SALE",
-        "text": "<b>10 % auf alle Tapeten, Wandsticker, Möbelfolien und Küchenrückwände!</b><br> Rabatt wird an der Kasse automatisch abgezogen.",
-        "content_color_scheme": "scheme-4",
-        "content_max_width": 600,
-        "content_padding": 40,
-        "content_border_radius": 0,
-        "content_vertical_alignment": "flex-end",
-        "content_horizontal_alignment": "flex-end",
-        "text_alignment": "center",
-        "spacing_between_elements": 20,
-        "heading_size": 48,
-        "text_size": 18,
-        "button_primary_label": "Home & Living",
-        "button_primary_link": "shopify://pages/home-living",
-        "button_secondary_label": "Kinder",
-        "button_secondary_link": "shopify://pages/alles-fur-kinder",
         "button_tertiary_label": "",
         "button_tertiary_link": "shopify://collections/wandsticker-wandtattoo",
         "button_quartiary_label": "",
@@ -1509,9 +1496,9 @@
     }
   },
   "order": [
+    "image_banner_MH9bFq",
     "slideshow_d34CyR",
     "trust_hero_MX4pEL",
-    "trust_hero_QHb4Kg",
     "17612174079e159a1e",
     "collection_list_kKF3eU",
     "ss_circle_menu_XwgEY3",
