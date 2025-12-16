@@ -235,7 +235,7 @@
         "text_YpHa4Q": {
           "type": "text",
           "settings": {
-            "text": "<a href=\"/pages/betriebsurlaub-weihnachtsferien-im-betrieb\" target=\"_blank\" title=\"Betriebsurlaub - Weihnachtsferien im Betrieb\">Betriebsurlaub ab 23.12. - Versand ab 05.01.</a>",
+            "text": "<a href=\"/pages/betriebsurlaub-weihnachtsferien-im-betrieb\" target=\"_blank\" title=\"Betriebsurlaub - Weihnachtsferien im Betrieb\"><strong>Betriebsurlaub ab 23.12. - Versand ab 05.01.</strong></a>",
             "text_style": "subtitle"
           }
         },
