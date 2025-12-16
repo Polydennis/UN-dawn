@@ -22,7 +22,7 @@
         "text_8T6zUc": {
           "type": "text",
           "settings": {
-            "text": "...deshalb können wir ab dem 22.12 – 5.1.26 leider keine Bestellungen verpacken. Natürlich kannst du trotzdem einkaufen, musst aber leider ein paar Tage länger als üblich warten.",
+            "text": "...deshalb können wir vom 22.12 – 5.1.26 leider keine Bestellungen verpacken. Natürlich kannst du trotzdem einkaufen, musst aber leider ein paar Tage länger als üblich warten.",
             "text_style": "subtitle"
           }
         }
@@ -43,128 +43,22 @@
         "desktop_content_position": "middle-center",
         "desktop_content_alignment": "center",
         "show_text_box": true,
-        "color_scheme": "",
+        "color_scheme": "scheme-9451dc8a-8a8a-40c2-8da4-658e4170854c",
         "stack_images_on_mobile": true,
         "mobile_content_alignment": "center",
         "show_text_below": true
       }
     },
-    "slideshow_d34CyR": {
-      "type": "slideshow",
-      "blocks": {
-        "slide_TMrMNP": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/header_family_2.jpg",
-            "image_overlay_opacity": 0,
-            "heading": "Maß­gefertigte Tapeten, die passen",
-            "heading_size": "h1",
-            "subheading": "Motiv & Maße perfekt an deinen Raum angepasst und in 3 – 5 Werktagen geliefert.",
-            "button_label": "Finde dein Traumdesign",
-            "link": "https://unik-nordic.com/pages/unsere-tapeten",
-            "button_style_secondary": false,
-            "show_text_box": true,
-            "box_align": "top-left",
-            "text_alignment": "center",
-            "text_alignment_mobile": "center",
-            "color_scheme": "scheme-4"
-          }
-        },
-        "slide_KACcQY": {
-          "type": "slide",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/freepik__white-wall-in-a-japandi-styled-livingroom-a-woman-__75117_18197603-8a57-4032-96c4-838c97445bcb.jpg",
-            "image_overlay_opacity": 0,
-            "heading": "Neue Designs",
-            "heading_size": "h1",
-            "subheading": "Entdecke neue Motive und Produkte für dein Zuhause!",
-            "button_label": "Lass dich inspirieren",
-            "link": "https://unik-nordic.com/collections/neues",
-            "button_style_secondary": false,
-            "show_text_box": true,
-            "box_align": "bottom-left",
-            "text_alignment": "center",
-            "text_alignment_mobile": "center",
-            "color_scheme": "scheme-4"
-          }
-        },
-        "slide_JgAWkF": {
-          "type": "slide",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/Tapete-Kinderzimmer-Wald-Tannen_08_70ea708d-a5ce-4bd7-8c24-f6a9a9903911.jpg",
-            "image_overlay_opacity": 0,
-            "heading": "Kindertapeten",
-            "heading_size": "h1",
-            "subheading": "Motivwelten, die Fantasie beflügeln & Kreativität wecken",
-            "button_label": "Finde dein Lieblingsmotiv",
-            "link": "https://unik-nordic.com/collections/kindertapeten",
-            "button_style_secondary": false,
-            "show_text_box": true,
-            "box_align": "bottom-right",
-            "text_alignment": "center",
-            "text_alignment_mobile": "center",
-            "color_scheme": "scheme-4"
-          }
-        },
-        "slide_6rdXgF": {
-          "type": "slide",
-          "disabled": true,
-          "settings": {
-            "image_overlay_opacity": 0,
-            "heading": "Dein Raum, dein Look",
-            "heading_size": "h1",
-            "subheading": "Welches Design passt zu welchem Raum? Finde es heraus!",
-            "button_label": "Zur Raum-Auswahl",
-            "link": "https://unik-nordic.com/pages/tapeten-fuer-alle-raume",
-            "button_style_secondary": false,
-            "show_text_box": true,
-            "box_align": "bottom-left",
-            "text_alignment": "center",
-            "text_alignment_mobile": "center",
-            "color_scheme": "scheme-4"
-          }
-        },
-        "slide_d6efwD": {
-          "type": "slide",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/Wandsticker-Kinderzimmer_Maedchen-Feen-Wald_03.jpg",
-            "image_overlay_opacity": 0,
-            "heading": "Wandsticker",
-            "heading_size": "h1",
-            "subheading": "Gestaltet gemeinsam eine Fantasiewelt im Kinderzimmer.",
-            "button_label": "Jetzt Lieblingsmotiv finden",
-            "link": "https://unik-nordic.com/collections/wandsticker-wandtattoo",
-            "button_style_secondary": false,
-            "show_text_box": true,
-            "box_align": "bottom-right",
-            "text_alignment": "center",
-            "text_alignment_mobile": "center",
-            "color_scheme": "scheme-4"
-          }
-        }
-      },
-      "block_order": [
-        "slide_TMrMNP",
-        "slide_KACcQY",
-        "slide_JgAWkF",
-        "slide_6rdXgF",
-        "slide_d6efwD"
-      ],
-      "disabled": true,
-      "custom_css": [],
-      "name": "t:sections.slideshow.presets.name",
+    "rich_text_ybJPg7": {
+      "type": "rich-text",
+      "name": "t:sections.rich-text.presets.name",
       "settings": {
-        "layout": "grid",
-        "slide_height": "medium",
-        "slider_visual": "dots",
-        "auto_rotate": true,
-        "change_slides_speed": 9,
-        "image_behavior": "none",
-        "show_text_below": true,
-        "accessibility_info": "Entdecke unsere verschiedenen Kategorien"
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "trust_hero_MX4pEL": {
@@ -1500,7 +1394,7 @@
   },
   "order": [
     "image_banner_MH9bFq",
-    "slideshow_d34CyR",
+    "rich_text_ybJPg7",
     "trust_hero_MX4pEL",
     "17612174079e159a1e",
     "collection_list_kKF3eU",
