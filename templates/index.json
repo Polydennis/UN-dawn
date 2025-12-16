@@ -31,6 +31,9 @@
         "heading_DBaUYc",
         "text_8T6zUc"
       ],
+      "custom_css": [
+        "section {margin-bottom: 15px;}"
+      ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
         "image": "shopify://shop_images/Betriebsurlaub_2025.jpg",
