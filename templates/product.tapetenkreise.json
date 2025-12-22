@@ -54,6 +54,7 @@
         "video_dXaqaD",
         "video_teYLfC"
       ],
+      "disabled": true,
       "custom_css": [
         ".swiper {margin-top: -80px !important; width: 80% !important;}"
       ],
@@ -258,18 +259,18 @@
         "collapsible_tab_JEaUnA": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "Flexibel & einfach",
-            "icon": "sicher_unbedenklich",
-            "content": "<p>Unsere Wandsticker lassen sich ganz einfach aufkleben, mehrfach ablösen und neu positionieren – ohne Rückstände oder Schäden an der Wand.</p>",
+            "heading": "Clever selbstklebend",
+            "icon": "selbstklebende_hartfolie",
+            "content": "<p>Dank des extra dicken, speziell entwickelten Klebstoffs lässt sich unsere runde Tapete besonders leicht anbringen, haftet sicher auf nahezu allen Wandoberflächen und kann bei Bedarf mühelos neu positioniert werden.</p>",
             "page": ""
           }
         },
         "collapsible_tab_mGXBpK": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "Hochwertiges Material",
+            "heading": "Texturiertes Papiervlies",
             "icon": "robustes_material",
-            "content": "<p>Unsere Wandsticker bestehen aus stabilem Vinyl mit matter Oberfläche – reißfest, langlebig und perfekt für Kinderhände gemacht. So halten sie auch kleinen Entdeckern stand.</p>",
+            "content": "<p><br/>Unsere runden Tapeten werden aus hochwertigem Papiervlies mit fein texturierter Oberfläche gefertigt – die matte Optik fängt das Licht sanft ein und sorgt für eine ruhige, harmonische Wirkung.<br/><br/></p>",
             "page": ""
           }
         },
@@ -521,6 +522,7 @@
     },
     "video_7UpTKN": {
       "type": "video",
+      "disabled": true,
       "settings": {
         "heading": "",
         "heading_size": "h1",
