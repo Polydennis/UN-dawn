@@ -110,61 +110,6 @@
         "usp_3_icon": "shopify://shop_images/icon-schneller-versand.svg"
       }
     },
-    "17612174079e159a1e": {
-      "type": "_blocks",
-      "blocks": {
-        "ai_gen_block_e5570d9_mYBW64": {
-          "type": "ai_gen_block_e5570d9",
-          "settings": {
-            "hero_image": "shopify://shop_images/black-week-sale-2.png",
-            "hero_height_desktop": 550,
-            "hero_height_mobile": 400,
-            "hero_color_scheme": "scheme-1",
-            "show_overlay": false,
-            "overlay_opacity": 30,
-            "heading": "BLACK WEEK  SALE",
-            "text": "<b>10 %</b> auf alle Tapeten, Wandsticker, Möbelfolien und Küchenrückwände! Rabatt wird an der Kasse automatisch abgezogen",
-            "content_color_scheme": "scheme-4",
-            "content_max_width": 600,
-            "content_padding": 40,
-            "content_border_radius": 0,
-            "content_vertical_alignment": "flex-end",
-            "content_horizontal_alignment": "flex-end",
-            "text_alignment": "center",
-            "spacing_between_elements": 20,
-            "heading_size": 48,
-            "text_size": 18,
-            "button_primary_label": "Finde dein Traumdesign",
-            "button_primary_link": "https://unik-nordic.com/pages/unsere-tapeten",
-            "button_secondary_label": "",
-            "button_secondary_link": "",
-            "button_font_size": 16,
-            "button_padding_vertical": 14,
-            "button_padding_horizontal": 32,
-            "button_border_radius": 30,
-            "button_spacing": 16,
-            "trust_bar_color_scheme": "scheme-5",
-            "trust_bar_padding": 25,
-            "trust_bar_gap": 40,
-            "trust_item_gap": 12,
-            "trust_icon_size": 32,
-            "trust_text_size": 14,
-            "usp_1_text": "Maßangefertigt in DE",
-            "usp_1_icon": "shopify://shop_images/icon-hergestellt-in-de.svg",
-            "usp_2_text": "Premium-Qualität",
-            "usp_2_icon": "shopify://shop_images/icon-foerdert-kreativitaet.svg",
-            "usp_3_text": "Kostenloser Versand nach DE",
-            "usp_3_icon": "shopify://shop_images/icon-schneller-versand.svg"
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "ai_gen_block_e5570d9_mYBW64"
-      ],
-      "disabled": true,
-      "settings": {}
-    },
     "collection_list_kKF3eU": {
       "type": "collection-list",
       "blocks": {
@@ -594,6 +539,35 @@
         "columns_mobile": "2",
         "swipe_on_mobile": false,
         "padding_top": 36,
+        "padding_bottom": 0
+      }
+    },
+    "featured_collection_HbMW8U": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "collection": "tapetenkreise",
+        "products_to_show": 4,
+        "title": "",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": false,
+        "view_all_style": "solid",
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 0,
         "padding_bottom": 36
       }
     },
@@ -1396,7 +1370,6 @@
     "image_banner_MH9bFq",
     "rich_text_ybJPg7",
     "trust_hero_MX4pEL",
-    "17612174079e159a1e",
     "collection_list_kKF3eU",
     "ss_circle_menu_XwgEY3",
     "rich_text_RMpa6j",
@@ -1405,6 +1378,7 @@
     "17582876099bb6d401",
     "featured_collection_r6wPYF",
     "featured_collection_G6qmcY",
+    "featured_collection_HbMW8U",
     "featured_product_WRUKhe",
     "multicolumn_fKV4Ta",
     "slideshow_X3KTTm",
