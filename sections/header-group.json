@@ -16,6 +16,7 @@
       "blocks": {
         "announcement_AqEeCm": {
           "type": "announcement",
+          "disabled": true,
           "settings": {
             "text": "Betriebsurlaub - 23.12. – 05.01.",
             "link": "shopify://pages/betriebsurlaub-weihnachtsferien-im-betrieb"
