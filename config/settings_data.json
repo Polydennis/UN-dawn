@@ -210,6 +210,11 @@
         "type": "shopify://apps/apippa-custom-price-calculator/blocks/cpc-app-embed/c499fa68-8478-4285-a3f7-27654dd66c3e",
         "disabled": false,
         "settings": {}
+      },
+      "14656832010101544780": {
+        "type": "shopify://apps/apo-product-options/blocks/app-embed-block/a1199153-7462-4b5b-8a80-f0eefba85e99",
+        "disabled": false,
+        "settings": {}
       }
     },
     "color_schemes": {
