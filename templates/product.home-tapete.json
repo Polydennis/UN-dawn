@@ -232,13 +232,6 @@
           "disabled": true,
           "settings": {}
         },
-        "text_YpHa4Q": {
-          "type": "text",
-          "settings": {
-            "text": "<a href=\"/pages/betriebsurlaub-weihnachtsferien-im-betrieb\" target=\"_blank\" title=\"Betriebsurlaub - Weihnachtsferien im Betrieb\"><strong>Betriebsurlaub ab 23.12. - Versand ab 05.01.</strong></a>",
-            "text_style": "subtitle"
-          }
-        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
@@ -346,7 +339,6 @@
         "custom_liquid_ajdxNh",
         "variant_picker",
         "quantity_selector",
-        "text_YpHa4Q",
         "buy_buttons",
         "gropulse_wishlist_gropulse_wishlist_button_PiVynw",
         "icon_with_text_gzHay7",
