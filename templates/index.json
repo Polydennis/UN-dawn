@@ -620,10 +620,9 @@
         "quantity_selector_e7deKH",
         "buy_buttons_VMeaee"
       ],
-      "disabled": true,
       "name": "t:sections.featured-product.presets.name",
       "settings": {
-        "product": "magischer-adventskalender-24-geschichten-sticker-fur-kinder",
+        "product": "personalisierte-wandsticker-feenwald",
         "color_scheme": "scheme-5",
         "secondary_background": true,
         "media_size": "small",
