@@ -177,6 +177,54 @@
         "padding_bottom": 36
       }
     },
+    "image_with_text_VrrGCh": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_FQFwqe": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Dein Lieblingsmotiv war noch nicht dabei?</strong>",
+            "heading_size": "h2"
+          }
+        },
+        "text_c49zPg": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Kein Problem, das war nur eine kleine Auswahl! In unserem Shop findest du viele weitere Kindertapeten und passende Produkte wie Wandsticker oder Möbelfolien. Egal ob du nach bestimmten Farben, Tieren, Natur- oder Fantasiewelten suchst – stöbere einfach durch unsere Kategorien und finde das perfekte Design für euer Traum-Kinderzimmer.<br/><br/></p>",
+            "text_style": "body"
+          }
+        },
+        "button_GiVJVC": {
+          "type": "button",
+          "settings": {
+            "button_label": "Kindertapeten entdecken",
+            "button_link": "shopify://collections/kindertapeten",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_FQFwqe",
+        "text_c49zPg",
+        "button_GiVJVC"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/NL_Banner_750_x_350_px_3.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "content_layout": "overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-1",
+        "color_scheme": "scheme-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "1748948064571f82d8": {
       "type": "apps",
       "blocks": {
@@ -239,6 +287,7 @@
     "featured_collection_dPGRmy",
     "featured_collection_8X8NKt",
     "featured_collection_HeNxTQ",
+    "image_with_text_VrrGCh",
     "1748948064571f82d8",
     "contact_section_3Lj7TL"
   ]
