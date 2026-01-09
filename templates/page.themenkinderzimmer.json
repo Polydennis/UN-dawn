@@ -17,6 +17,50 @@
         "padding_bottom": 0
       }
     },
+    "rich_text_mrfVUt": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_nFyPfr": {
+          "type": "heading",
+          "settings": {
+            "heading": "Ein Look, der das ganze Zimmer verwandelt",
+            "heading_size": "h2"
+          }
+        },
+        "text_PbL8J7": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Du liebst es harmonisch und durchdacht? Wir auch. Deshalb findest du bei uns Tapeten, Wandsticker und Möbelfolien im selben Design – perfekt abgestimmt für dein persönliches Themenkinderzimmer. <strong>Finde jetzt deine Lieblings-Welt!</strong><br/></p>"
+          }
+        },
+        "button_rjC7GG": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Schaltflächenbeschriftung",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_nFyPfr",
+        "text_PbL8J7",
+        "button_rjC7GG"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 0
+      }
+    },
     "featured_collection_BnWH86": {
       "type": "featured-collection",
       "name": "t:sections.featured-collection.presets.name",
@@ -104,6 +148,35 @@
         "padding_bottom": 36
       }
     },
+    "featured_collection_HeNxTQ": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "collection": "kollektion-meer",
+        "products_to_show": 15,
+        "title": "Kollektion Meereswelt",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "1748948064571f82d8": {
       "type": "apps",
       "blocks": {
@@ -161,9 +234,11 @@
   },
   "order": [
     "main",
+    "rich_text_mrfVUt",
     "featured_collection_BnWH86",
     "featured_collection_dPGRmy",
     "featured_collection_8X8NKt",
+    "featured_collection_HeNxTQ",
     "1748948064571f82d8",
     "contact_section_3Lj7TL"
   ]
