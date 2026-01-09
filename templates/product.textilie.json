@@ -525,7 +525,7 @@
           "settings": {
             "title": "Produktbeschreibung",
             "product_description": false,
-            "content": "<h3>Unik Nordic {{ product.title }} Premium Vliestapete</h3><p>{{ product.metafields.custom.zproduktbeschreibung | metafield_tag }}</p><p>Sindy, unsere Gründerin und Designerin hatte bei der Erstellung dieses Motivs folgende Räume im Kopf: </p>{{ product.metafields.custom.raumauswahl | metafield_tag }}<p>Dieses Produkt hat folgende Anpassungsmöglichkeiten (schreib uns einfach an, wenn dir etwas unklar ist!):</p>{{ product.metafields.custom.labels | metafield_tag }}",
+            "content": "<h3>Details {{ product.title }} </h3><p>{{ product.metafields.custom.zproduktbeschreibung | metafield_tag }}</p>",
             "page_content": "",
             "show_page_title": false,
             "page_title_html_element": "h2",
@@ -541,7 +541,7 @@
           "settings": {
             "title": "Eigenschaften",
             "product_description": false,
-            "content": "<p>Material: {{ product.metafields.custom.material | metafield_tag }}</p><ul><li>Oberflächenstruktur: {{ product.metafields.custom.oberflaechenstruktur.value }}</li><li>Oberflächenoptik: {{ product.metafields.custom.oberflaechenoptik.value }}</li><li>Grammatur: Das Flächengewicht unserer Tapeten ist mit {{ product.metafields.custom.grammatur.value }} g/m² besonders hoch</li><li>Brandschutzklasse C1: Schwer entflammbar</li></ul><p></p>",
+            "content": "<ul><li>Material: {{ product.metafields.custom.material | metafield_tag }}</li><li>Oberflächenstruktur: {{ product.metafields.custom.oberflaechenstruktur.value }}</li><li>Oberflächenoptik: {{ product.metafields.custom.oberflaechenoptik.value }}</li><li>Grammatur: {{ product.metafields.custom.grammatur.value }} g/m²</li></ul><p></p>",
             "page_content": "",
             "show_page_title": false,
             "page_title_html_element": "h2",
@@ -557,7 +557,7 @@
           "settings": {
             "title": "Versand",
             "product_description": false,
-            "content": "<p>{{ localization.market.metafields.custom.versandtext_paket | metafield_tag }}</p>",
+            "content": "{{ localization.market.metafields.custom.versandtext_paket | metafield_tag }}",
             "page_content": "",
             "show_page_title": false,
             "page_title_html_element": "h2",
@@ -725,6 +725,7 @@
         "collapsible_row_XfrUEW",
         "collapsible_row_EzHXrT"
       ],
+      "disabled": true,
       "settings": {
         "caption": "FAQ",
         "heading": "Häufig gestellte Fragen",
