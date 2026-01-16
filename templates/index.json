@@ -1081,7 +1081,7 @@
         "text_8TqK9w": {
           "type": "text",
           "settings": {
-            "text": "Tauche ein in eine traumhafte Himmelswelt voller Fantasie mit unseren Wandstickern \"Dreamland\"! Dieses zarte Motiv entführt Kinder auf eine Reise zwischen Wolken, Sternen und dem Mond. Sanfte Heißluftballons schweben hoch am Himmel, während elegante Schwäne mit weit ausgebreiteten Flügeln majestätisch durch die Nacht gleiten. Umgeben von flauschigen Wolken und funkelnden Sternen entsteht eine beruhigende, märchenhafte Atmosphäre, die jedes Kinderzimmer in eine zauberhafte Traumlandschaft verwandelt.",
+            "text": "Das Motiv ist im sanften Aquarellstil gestaltet und wirkt bewusst zurückhaltend – perfekt für alle, die ein natürliches, zeitloses Kinderzimmer lieben. Die Tapete fügt sich mühelos in nordische Einrichtungen ein und harmoniert besonders schön mit Möbeln aus hellem Holz, warmen Naturtextilien oder dezenten Grautönen.",
             "text_style": "body"
           }
         },
@@ -1089,7 +1089,7 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "Design ansehen",
-            "button_link_1": "shopify://products/wandsticker-dreamland",
+            "button_link_1": "shopify://products/kindertapete-sanfter-dschungel",
             "button_style_secondary_1": false,
             "button_label_2": "",
             "button_link_2": "",
@@ -1104,7 +1104,7 @@
       ],
       "name": "Design des Monats",
       "settings": {
-        "image": "shopify://shop_images/candid-photography-with-natural-textures-and-highl__31339.jpg",
+        "image": "shopify://shop_images/Tapete-Kinderzimmer-Dschungel-Pastell-Aquarell-Ruhig-Natur_01.jpg",
         "image_overlay_opacity": 0,
         "image_height": "large",
         "image_behavior": "fixed",
