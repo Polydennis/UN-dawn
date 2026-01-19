@@ -66,7 +66,7 @@
       "type": "trust-hero",
       "name": "Hero with trust bar",
       "settings": {
-        "hero_image": "shopify://shop_images/header_family_2.jpg",
+        "hero_image": "shopify://shop_images/header_winter_2.jpg",
         "hero_height_desktop": 550,
         "hero_height_mobile": 400,
         "hero_color_scheme": "",
