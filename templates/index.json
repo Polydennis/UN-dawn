@@ -66,7 +66,7 @@
       "type": "trust-hero",
       "name": "Hero with trust bar",
       "settings": {
-        "hero_image": "shopify://shop_images/header_winter_2.jpg",
+        "hero_image": "shopify://shop_images/header_winter_2_6d814985-86aa-42d4-b3f0-e98ecd63bd74.jpg",
         "hero_height_desktop": 550,
         "hero_height_mobile": 400,
         "hero_color_scheme": "",
@@ -78,7 +78,7 @@
         "content_max_width": 600,
         "content_padding": 40,
         "content_border_radius": 0,
-        "content_vertical_alignment": "flex-start",
+        "content_vertical_alignment": "flex-end",
         "content_horizontal_alignment": "flex-start",
         "text_alignment": "center",
         "spacing_between_elements": 20,
