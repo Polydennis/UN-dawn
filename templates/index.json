@@ -572,6 +572,54 @@
         "padding_bottom": 28
       }
     },
+    "image_with_text_48bmcJ": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_nBdTzC": {
+          "type": "heading",
+          "settings": {
+            "heading": "Dein Foto als Wandsticker",
+            "heading_size": "h2"
+          }
+        },
+        "text_bb9K7K": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Lade ein Foto deines Kindes hoch und wir verwandeln es liebevoll in einen absolut einzigartigen Wandsticker - einfach anzubringen und genauso besonders wie dein kleiner Lieblingsmensch.<br/><br/></p>",
+            "text_style": "body"
+          }
+        },
+        "button_mT7Le4": {
+          "type": "button",
+          "settings": {
+            "button_label": "Alle personalisierten Wandsticker",
+            "button_link": "shopify://collections/personalisierte-wandsticker",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_nBdTzC",
+        "text_bb9K7K",
+        "button_mT7Le4"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/Maedchen_03_05e44b57-9b77-4355-bf1c-d0b4f1dc137e.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-1",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 0
+      }
+    },
     "featured_product_WRUKhe": {
       "type": "featured-product",
       "blocks": {
@@ -632,7 +680,7 @@
         "image_zoom": "none",
         "hide_variants": false,
         "enable_video_looping": false,
-        "padding_top": 36,
+        "padding_top": 0,
         "padding_bottom": 36
       }
     },
@@ -1248,70 +1296,6 @@
         "padding_bottom": 36
       }
     },
-    "collapsible_content_VnTejM": {
-      "type": "collapsible-content",
-      "blocks": {
-        "collapsible_row_CmQWY9": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "1. Motiv auswählen",
-            "icon": "hergestellt_in_de",
-            "row_content": "<p>Wir lieben es, wenn Produkte nicht um die halbe Welt reisen müssen. Deshalb gestalten und drucken wir direkt hier in Deutschland – mit hochwertigen Materialien und ganz viel Liebe fürs Detail.</p>",
-            "page": ""
-          }
-        },
-        "collapsible_row_hjeE6D": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "3. Wir passen das Motiv an (inkl. Schrägen/Türen/Fenstern)",
-            "icon": "persoenliche_beratung",
-            "row_content": "<p>Du hast Fragen? Wir die Antworten! <br/>Ganz gleich, was du dir für deinen Raum wünschst – wir nehmen jede Ideen an und setzen alles daran, sie möglich zu machen. Damit dein Zuhause zu einem echten Unikat wird.</p>",
-            "page": ""
-          }
-        },
-        "collapsible_row_jdq9A3": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "2. Maße und ggf. Skizze hochladen",
-            "icon": "perfekt_auf_mass",
-            "row_content": "<p>Auf Wunsch können wir fast alle Designs individuell an deinen Raum anpassen und architektonische Besonderheiten wie Schrägen, Türen oder Fenster berücksichtigen. Tapeten & Folien werden zudem exakt auf dein Wunschmaß gefertigt.</p>",
-            "page": ""
-          }
-        },
-        "collapsible_row_pExGan": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "4. Produktion in DE & schnelle Lieferung",
-            "icon": "sicher_unbedenklich",
-            "row_content": "<p>Wir fertigen erst, wenn du bestellst – ganz ohne Lager und Massenproduktion. So sparen wir wertvolle Ressourcen und vermeiden unnötigen Müll. Für alle Produkte verwenden wir sorgfältig ausgewählte Materialien aus ökologisch verantwortungsvoller Herkunft.</p>",
-            "page": ""
-          }
-        }
-      },
-      "block_order": [
-        "collapsible_row_CmQWY9",
-        "collapsible_row_hjeE6D",
-        "collapsible_row_jdq9A3",
-        "collapsible_row_pExGan"
-      ],
-      "disabled": true,
-      "name": "Wofür wir stehen",
-      "settings": {
-        "caption": "",
-        "heading": "Und so funktioniert's",
-        "heading_size": "h2",
-        "heading_alignment": "center",
-        "heading_id": "faq-heading",
-        "layout": "none",
-        "container_color_scheme": "scheme-2",
-        "color_scheme": "scheme-5",
-        "open_first_collapsible_row": false,
-        "image_ratio": "adapt",
-        "desktop_layout": "image_second",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "17489505506557c4fc": {
       "type": "apps",
       "blocks": {
@@ -1379,6 +1363,7 @@
     "featured_collection_G6qmcY",
     "featured_collection_HbMW8U",
     "featured_collection_r6wPYF",
+    "image_with_text_48bmcJ",
     "featured_product_WRUKhe",
     "multicolumn_fKV4Ta",
     "slideshow_X3KTTm",
@@ -1389,7 +1374,6 @@
     "image_banner_3U3FU6",
     "collection_list_EthTbL",
     "collapsible_content_AwMUec",
-    "collapsible_content_VnTejM",
     "17489505506557c4fc",
     "contact_section_X9Tyq9"
   ]
