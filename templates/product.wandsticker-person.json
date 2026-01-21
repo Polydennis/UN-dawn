@@ -260,7 +260,7 @@
           "settings": {
             "heading": "Vom Foto zum Sticker",
             "icon": "foerdert_kreativitaet",
-            "content": "<p>Wir verwandeln dein Lieblingsfoto in einen hochwertigen und persönlichen Wandsticker.</p>",
+            "content": "<p>Wir verwandeln dein Lieblingsfoto in einen hochwertigen und persönlichen Wandsticker. Das Foto wird dafür <strong>nicht </strong>in eine KI geladen!</p>",
             "page": ""
           }
         },
@@ -279,7 +279,7 @@
           "settings": {
             "heading": "Hochwertiges Material",
             "icon": "robustes_material",
-            "content": "<p>Gefertigt erst auf Bestellung in Berlin und gedruckt mit einem besonderen UV-Gel – für langanhaltende Farben und verantwortungsvolles Gestalten.</p>",
+            "content": "<p> Dank eines speziellen Klebers haften die Sticker auch auf groben Untergründen und lässt sich problemlos umpositionieren.Gefertigt erst auf Bestellung in Berlin und gedruckt mit einem besonderen UV-Gel – für langanhaltende Farben und verantwortungsvolles Gestalten.</p>",
             "page": ""
           }
         },
