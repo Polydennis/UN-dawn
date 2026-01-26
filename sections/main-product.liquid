@@ -209,6 +209,66 @@
                 </p>
               {%- when 'custom_liquid' -%}
                 {{ block.settings.custom_liquid }}
+              {%- when 'materialprobe' -%}
+                {%- if product.handle contains 'tapete' or product.handle contains 'kuechenfolie' -%}
+                  {%- assign skip_card_product_styles = false -%}
+                  {%- assign handle_prefix = product.handle | slice: 0, 7 -%}
+
+                  {%- if handle_prefix == 'muster-' -%}
+                    {%- assign handle_length = product.handle | size -%}
+                    {%- assign slice_length = handle_length | minus: 7 -%}
+                    {%- assign main_handle = product.handle | slice: 7, slice_length -%}
+                    {%- assign main_product = all_products[main_handle] -%}
+
+                    {%- if main_product and main_product.title != blank and main_product.title != 'Beispiel für Produkttitel' -%}
+                      {%- assign quick_add = 'none' -%}
+                      <div class="materialprobe-block" {{ block.shopify_attributes }}>
+                        <h2 class="h3">{{ block.settings.sample_heading | default: 'Dies ist eine Materialprobe für' }}</h2>
+                        <p>{{ block.settings.sample_description | default: 'Du erhältst mit deiner Musterbestellung einen Wertgutschein über deine Bestellung. Du zahlst letztendlich also nichts für das Muster beim Kauf des Produkts.' }}</p>
+                        {% render 'card-product',
+                           card_product: main_product,
+                           media_aspect_ratio: 'square',
+                           show_secondary_image: false,
+                           lazy_load: false,
+                           skip_styles: skip_card_product_styles,
+                           quick_add: quick_add,
+                           section_id: section.id,
+                           horizontal_class: true,
+                           horizontal_quick_add: true
+                        %}
+                      </div>
+                    {%- else -%}
+                      <p class="h3" style="color:red;">⚠️ Hauptprodukt nicht gefunden (Handle: {{ main_handle }})</p>
+                    {%- endif -%}
+
+                  {%- else -%}
+                    {%- assign expected_handle = 'muster-' | append: product.handle -%}
+                    {%- assign my_sample_product = all_products[expected_handle] -%}
+
+                    {%- if my_sample_product and my_sample_product.handle == expected_handle -%}
+                      {%- assign quick_add = 'standard' -%}
+                      <div class="materialprobe-block" {{ block.shopify_attributes }}>
+                        <h2 class="h3" style="margin-bottom:0!important;">{{ block.settings.product_heading | default: 'Überzeuge dich selbst von Qualität und Material:' }}</h2>
+                        <p>{{ block.settings.product_description | default: 'Du erhältst mit deiner Musterbestellung einen Wertgutschein über deine Bestellung. Du zahlst letztendlich also nichts für das Muster beim Kauf des Produkts.' }}</p>
+                        {% render 'card-product',
+                           card_product: my_sample_product,
+                           media_aspect_ratio: 'portrait',
+                           show_secondary_image: false,
+                           lazy_load: true,
+                           skip_styles: skip_card_product_styles,
+                           quick_add: quick_add,
+                           section_id: section.id,
+                           horizontal_class: true
+                        %}
+                      </div>
+                    {%- else -%}
+                      <div class="h3" style="margin-top:1rem;">
+                        {{ block.settings.fallback_text | default: 'Wenn du ein Muster für dieses Produkt bestellen möchtest,' }}
+                        <a href="{{ block.settings.contact_url | default: 'https://unik-nordic.com/pages/kontakt' }}" target="_blank" rel="noopener noreferrer">{{ block.settings.contact_link_text | default: 'schreibe uns!' }}</a>
+                      </div>
+                    {%- endif -%}
+                  {%- endif -%}
+                {%- endif -%}
               {%- when 'collapsible_tab' -%}
                 <div class="product__accordion accordion quick-add-hidden" {{ block.shopify_attributes }}>
                   <details id="Details-{{ block.id }}-{{ section.id }}">
@@ -955,6 +1015,66 @@
           "id": "custom_liquid",
           "label": "t:sections.custom-liquid.settings.custom_liquid.label",
           "info": "t:sections.custom-liquid.settings.custom_liquid.info"
+        }
+      ]
+    },
+    {
+      "type": "materialprobe",
+      "name": "Materialprobe / Muster",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Auf Muster-Produktseiten"
+        },
+        {
+          "type": "text",
+          "id": "sample_heading",
+          "label": "Überschrift",
+          "default": "Dies ist eine Materialprobe für"
+        },
+        {
+          "type": "textarea",
+          "id": "sample_description",
+          "label": "Beschreibung",
+          "default": "Du erhältst mit deiner Musterbestellung einen Wertgutschein über deine Bestellung. Du zahlst letztendlich also nichts für das Muster beim Kauf des Produkts."
+        },
+        {
+          "type": "header",
+          "content": "Auf Hauptprodukt-Seiten"
+        },
+        {
+          "type": "text",
+          "id": "product_heading",
+          "label": "Überschrift",
+          "default": "Überzeuge dich selbst von Qualität und Material:"
+        },
+        {
+          "type": "textarea",
+          "id": "product_description",
+          "label": "Beschreibung",
+          "default": "Du erhältst mit deiner Musterbestellung einen Wertgutschein über deine Bestellung. Du zahlst letztendlich also nichts für das Muster beim Kauf des Produkts."
+        },
+        {
+          "type": "header",
+          "content": "Wenn kein Muster verfügbar"
+        },
+        {
+          "type": "text",
+          "id": "fallback_text",
+          "label": "Fallback Text",
+          "default": "Wenn du ein Muster für dieses Produkt bestellen möchtest,"
+        },
+        {
+          "type": "text",
+          "id": "contact_link_text",
+          "label": "Link Text",
+          "default": "schreibe uns!"
+        },
+        {
+          "type": "url",
+          "id": "contact_url",
+          "label": "Kontakt-URL",
+          "default": "/pages/kontakt"
         }
       ]
     },
