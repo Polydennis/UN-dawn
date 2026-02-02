@@ -21,80 +21,27 @@
     "kategorie_trendkollektion_titel_kVxphw": {
       "type": "kategorie-trendkollektion-titel",
       "blocks": {
-        "custom_image_9LpWNy": {
-          "type": "custom_image",
-          "settings": {
-            "image": "{{ collection.metafields.custom.trendkollektion.value.schriftzug.value }}"
-          }
-        },
         "heading_Rg8PRM": {
           "type": "heading",
           "settings": {
             "heading": "{{ collection.metafields.custom.motivwelt.value.titel.value }}",
             "heading_size": "h1"
           }
-        },
-        "text_6H9CQm": {
-          "type": "text",
-          "settings": {
-            "text": "",
-            "text_style": "caption-with-letter-spacing"
-          }
         }
       },
       "block_order": [
-        "custom_image_9LpWNy",
-        "heading_Rg8PRM",
-        "text_6H9CQm"
+        "heading_Rg8PRM"
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
-        "image": "{{ collection.metafields.custom.trendkollektion.value.hauptbild.value }}",
+        "image": "{{ collection.metafields.custom.motivwelt.value.hauptbild.value }}",
         "image_overlay_opacity": 0,
         "image_height": "medium",
         "image_behavior": "fixed",
         "desktop_content_position": "middle-center",
         "desktop_content_alignment": "center",
         "show_text_box": true,
-        "color_scheme": "",
-        "stack_images_on_mobile": true,
-        "mobile_content_alignment": "center",
-        "show_text_below": true
-      }
-    },
-    "image_banner_zaWgcb": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_Wn3ggC": {
-          "type": "heading",
-          "settings": {
-            "heading": "{{ collection.title }}",
-            "heading_size": "h1"
-          }
-        },
-        "text_6YrThp": {
-          "type": "text",
-          "settings": {
-            "text": "{{ collection.metafields.custom.trendkollektion.value.kurzbeschreibung.value }}",
-            "text_style": "caption-with-letter-spacing"
-          }
-        }
-      },
-      "block_order": [
-        "heading_Wn3ggC",
-        "text_6YrThp"
-      ],
-      "disabled": true,
-      "name": "t:sections.image-banner.presets.name",
-      "settings": {
-        "image": "shopify://shop_images/WT_525_300.jpg",
-        "image_overlay_opacity": 0,
-        "image_height": "small",
-        "image_behavior": "fixed",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "show_text_box": true,
-        "color_scheme": "",
+        "color_scheme": "scheme-5",
         "stack_images_on_mobile": true,
         "mobile_content_alignment": "center",
         "show_text_below": true
@@ -106,13 +53,14 @@
         "text_PEp7wD": {
           "type": "text",
           "settings": {
-            "text": "{{ collection.description }}{{ collection.metafields.custom.trendkollektion.value.ausfuehrliche_beschreibung | metafield_tag }}"
+            "text": "<p>{{ collection.metafields.custom.motivwelt.value.beschreibung | metafield_tag }}</p><p></p>"
           }
         }
       },
       "block_order": [
         "text_PEp7wD"
       ],
+      "name": "Kurzbeschreibung",
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
@@ -122,51 +70,18 @@
         "padding_bottom": 12
       }
     },
-    "multirow_qAXk7G": {
-      "type": "multirow",
-      "blocks": {
-        "row_TybJhP": {
-          "type": "row",
-          "source": "{{ collection.metafields.custom.trendkollektion.value }}",
-          "settings": {
-            "image": "{{ collection.metafields.custom.trendkollektion.value.block_1_bild.value }}",
-            "caption": "{{ collection.metafields.custom.trendkollektion.value.block_1_bildtext.value }}",
-            "heading": "{{ collection.metafields.custom.trendkollektion.value.block_1_ueberschrift.value }}",
-            "text": "{{ collection.metafields.custom.trendkollektion.value.block_1_fliesstext | metafield_tag }}",
-            "button_label": "",
-            "button_link": "{{ collection.metafields.custom.trendkollektion.value.url.value }}"
-          }
-        },
-        "row_8Tyf6B": {
-          "type": "row",
-          "source": "{{ collection.metafields.custom.trendkollektion.value }}",
-          "settings": {
-            "image": "{{ collection.metafields.custom.trendkollektion.value.block_2_bild.value }}",
-            "caption": "{{ collection.metafields.custom.trendkollektion.value.block_2_bildtext.value }}",
-            "heading": "{{ collection.metafields.custom.trendkollektion.value.block_2_ueberschrift.value }}",
-            "text": "{{ collection.metafields.custom.trendkollektion.value.block_2_fliesstext | metafield_tag }}",
-            "button_label": "",
-            "button_link": "{{ collection.metafields.custom.trendkollektion.value.url.value }}"
-          }
-        }
-      },
-      "block_order": [
-        "row_TybJhP",
-        "row_8Tyf6B"
-      ],
-      "name": "t:sections.multirow.presets.name",
+    "video_ekPb8g": {
+      "type": "video",
+      "disabled": true,
+      "name": "t:sections.video.presets.name",
       "settings": {
-        "image_height": "medium",
-        "desktop_image_width": "medium",
-        "image_layout": "alternate-left",
+        "heading": "Video",
         "heading_size": "h1",
-        "text_style": "body",
-        "button_style": "secondary",
-        "desktop_content_position": "middle",
-        "desktop_content_alignment": "left",
-        "mobile_content_alignment": "left",
-        "section_color_scheme": "",
-        "row_color_scheme": "",
+        "enable_video_looping": false,
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "description": "",
+        "full_width": false,
+        "color_scheme": "",
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -195,26 +110,132 @@
         "padding_bottom": 68
       }
     },
-    "rich_text_pwTFR9": {
+    "rich_text_eL6YVc": {
       "type": "rich-text",
       "blocks": {
-        "text_CKNRdV": {
+        "heading_hFAyQa": {
+          "type": "heading",
+          "settings": {
+            "heading": "{{ collection.metafields.custom.motivwelt.value.uberschrift_ausfuhrliche_beschreibungen.value }}",
+            "heading_size": "h1"
+          }
+        },
+        "text_iNfF8Q": {
           "type": "text",
           "settings": {
-            "text": "{{ collection.metafields.custom.seo_text | metafield_tag }}"
+            "text": "<p>Hier erfährst du, wie aus einzelnen Produkten ein stimmiges Gesamtbild entsteht.</p>"
           }
         }
       },
       "block_order": [
-        "text_CKNRdV"
+        "heading_hFAyQa",
+        "text_iNfF8Q"
       ],
+      "name": "Ausf. Beschreibung Überschrift",
       "settings": {
         "desktop_content_position": "center",
-        "content_alignment": "left",
+        "content_alignment": "center",
         "color_scheme": "",
-        "full_width": false,
-        "padding_top": 0,
+        "full_width": true,
+        "padding_top": 40,
         "padding_bottom": 52
+      }
+    },
+    "multirow_N9U6Fh": {
+      "type": "multirow",
+      "blocks": {
+        "row_tm6LQ6": {
+          "type": "row",
+          "settings": {
+            "image": "{{ collection.metafields.custom.motivwelt.value.bild_ausfuhrliche_beschreibung_1.value }}",
+            "caption": "",
+            "heading": "",
+            "text": "{{ collection.metafields.custom.motivwelt.value.ausfuhrliche_beschreibung | metafield_tag }}",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "row_bcVw7C": {
+          "type": "row",
+          "settings": {
+            "image": "{{ collection.metafields.custom.motivwelt.value.bild_ausfuhrliche_beschreibung_2.value }}",
+            "caption": "",
+            "heading": "",
+            "text": "{{ collection.metafields.custom.motivwelt.value.ausfuhrliche_beschreibung_2 | metafield_tag }}",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "row_KNLqCm": {
+          "type": "row",
+          "settings": {
+            "image": "{{ collection.metafields.custom.motivwelt.value.bild_ausfuhrliche_beschreibung_3.value }}",
+            "caption": "",
+            "heading": "",
+            "text": "{{ collection.metafields.custom.motivwelt.value.ausfuhrliche_beschreibung_3 | metafield_tag }}",
+            "button_label": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "row_tm6LQ6",
+        "row_bcVw7C",
+        "row_KNLqCm"
+      ],
+      "name": "Ausf. Beschreibung",
+      "settings": {
+        "image_height": "medium",
+        "desktop_image_width": "medium",
+        "image_layout": "alternate-left",
+        "heading_size": "h1",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "row_color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_KU8qMb": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_wF4jgF": {
+          "type": "heading",
+          "settings": {
+            "heading": "{{ collection.metafields.custom.motivwelt.value.info_externe_produkte_uberschrift.value }}",
+            "heading_size": "h1"
+          }
+        },
+        "text_iBR6Pm": {
+          "type": "text",
+          "settings": {
+            "text": "{{ collection.metafields.custom.motivwelt.value.info_externe_produkte_text | metafield_tag }}",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_wF4jgF",
+        "text_iBR6Pm"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
     "174427694371624c34": {
@@ -263,11 +284,12 @@
   "order": [
     "main-collection-banner",
     "kategorie_trendkollektion_titel_kVxphw",
-    "image_banner_zaWgcb",
     "rich_text_D6bjEy",
-    "multirow_qAXk7G",
+    "video_ekPb8g",
     "main-collection-product-grid",
-    "rich_text_pwTFR9",
+    "rich_text_eL6YVc",
+    "multirow_N9U6Fh",
+    "image_with_text_KU8qMb",
     "174427694371624c34"
   ]
 }
