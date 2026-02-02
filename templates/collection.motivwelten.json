@@ -30,14 +30,14 @@
         "heading_Rg8PRM": {
           "type": "heading",
           "settings": {
-            "heading": "{{ collection.metafields.custom.trendkollektion.value.kollektionsname.value }}",
+            "heading": "{{ collection.metafields.custom.motivwelt.value.titel.value }}",
             "heading_size": "h1"
           }
         },
         "text_6H9CQm": {
           "type": "text",
           "settings": {
-            "text": "{{ collection.metafields.custom.trendkollektion.value.kurzbeschreibung.value }}",
+            "text": "",
             "text_style": "caption-with-letter-spacing"
           }
         }
