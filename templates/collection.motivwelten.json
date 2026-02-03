@@ -386,6 +386,50 @@
       "settings": {
         "include_margins": true
       }
+    },
+    "rich_text_MXHR9d": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_cB8XNQ": {
+          "type": "heading",
+          "settings": {
+            "heading": "{{ collection.metafields.custom.motivwelt.value.motivwelt_uberschrift.value }}",
+            "heading_size": "h1"
+          }
+        },
+        "text_AYeKjK": {
+          "type": "text",
+          "settings": {
+            "text": "{{ collection.metafields.custom.motivwelt.value.motivwelt_infotext | metafield_tag }}"
+          }
+        },
+        "button_UDBkdc": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Schaltflächenbeschriftung",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_cB8XNQ",
+        "text_AYeKjK",
+        "button_UDBkdc"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
@@ -400,6 +444,7 @@
     "multirow_p97jca",
     "collage_mqDM7h",
     "image_with_text_KU8qMb",
-    "174427694371624c34"
+    "174427694371624c34",
+    "rich_text_MXHR9d"
   ]
 }
