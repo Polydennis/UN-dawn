@@ -93,7 +93,7 @@
         ".card__heading > a {font-family: Hunter, serif; font-weight: 500;}"
       ],
       "settings": {
-        "products_per_page": 8,
+        "products_per_page": 15,
         "columns_desktop": 2,
         "columns_mobile": "2",
         "color_scheme": "scheme-1",
@@ -194,21 +194,21 @@
         "product_GXW6WL": {
           "type": "product",
           "settings": {
-            "product": "",
+            "product": "{{ collection.metafields.custom.motivwelt.value.ausfuhrliche_beschreibung_2_produkt_1_3.value }}",
             "second_image": false
           }
         },
         "product_PwCfTX": {
           "type": "product",
           "settings": {
-            "product": "",
+            "product": "{{ collection.metafields.custom.motivwelt.value.ausfuhrliche_beschreibung_2_produkt_2_3.value }}",
             "second_image": false
           }
         },
         "product_dd77XC": {
           "type": "product",
           "settings": {
-            "product": "",
+            "product": "{{ collection.metafields.custom.motivwelt.value.ausfuhrliche_beschreibung_2_produkt_3_3.value }}",
             "second_image": false
           }
         }
@@ -271,21 +271,21 @@
         "product_QatfqW": {
           "type": "product",
           "settings": {
-            "product": "",
+            "product": "{{ collection.metafields.custom.motivwelt.value.ab_3_produkt_1_3.value }}",
             "second_image": false
           }
         },
         "product_RYGYmm": {
           "type": "product",
           "settings": {
-            "product": "",
+            "product": "{{ collection.metafields.custom.motivwelt.value.ab_3_produkt_2_3.value }}",
             "second_image": false
           }
         },
         "product_NFkdTQ": {
           "type": "product",
           "settings": {
-            "product": "",
+            "product": "{{ collection.metafields.custom.motivwelt.value.ab_3_produkt_3_3.value }}",
             "second_image": false
           }
         }
