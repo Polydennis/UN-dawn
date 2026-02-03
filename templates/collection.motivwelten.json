@@ -184,7 +184,7 @@
           "settings": {
             "image": "{{ collection.metafields.custom.motivwelt.value.bild_ausfuhrliche_beschreibung_2.value }}",
             "caption": "",
-            "heading": "",
+            "heading": "{{ collection.metafields.custom.motivwelt.value.ab_2_uberschrift.value }}",
             "text": "{{ collection.metafields.custom.motivwelt.value.ausfuhrliche_beschreibung_2 | metafield_tag }}",
             "button_label": "",
             "button_link": ""
@@ -261,7 +261,7 @@
           "settings": {
             "image": "{{ collection.metafields.custom.motivwelt.value.bild_ausfuhrliche_beschreibung_3.value }}",
             "caption": "",
-            "heading": "",
+            "heading": "{{ collection.metafields.custom.motivwelt.value.ab_3_uberschrift.value }}",
             "text": "{{ collection.metafields.custom.motivwelt.value.ausfuhrliche_beschreibung_3 | metafield_tag }}",
             "button_label": "",
             "button_link": ""
