@@ -93,9 +93,9 @@
         ".card__heading > a {font-family: Hunter, serif; font-weight: 500;}"
       ],
       "settings": {
-        "products_per_page": 22,
+        "products_per_page": 8,
         "columns_desktop": 2,
-        "columns_mobile": "1",
+        "columns_mobile": "2",
         "color_scheme": "scheme-1",
         "image_ratio": "adapt",
         "image_shape": "default",
@@ -165,25 +165,13 @@
             "button_label": "",
             "button_link": ""
           }
-        },
-        "row_KNLqCm": {
-          "type": "row",
-          "settings": {
-            "image": "{{ collection.metafields.custom.motivwelt.value.bild_ausfuhrliche_beschreibung_3.value }}",
-            "caption": "",
-            "heading": "",
-            "text": "{{ collection.metafields.custom.motivwelt.value.ausfuhrliche_beschreibung_3 | metafield_tag }}",
-            "button_label": "",
-            "button_link": ""
-          }
         }
       },
       "block_order": [
         "row_tm6LQ6",
-        "row_bcVw7C",
-        "row_KNLqCm"
+        "row_bcVw7C"
       ],
-      "name": "Ausf. Beschreibung",
+      "name": "Ausf. Beschreibung 1",
       "settings": {
         "image_height": "medium",
         "desktop_image_width": "medium",
@@ -197,6 +185,125 @@
         "section_color_scheme": "",
         "row_color_scheme": "",
         "padding_top": 36,
+        "padding_bottom": 0
+      }
+    },
+    "collage_dg9JU3": {
+      "type": "collage",
+      "blocks": {
+        "product_GXW6WL": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "second_image": false
+          }
+        },
+        "product_PwCfTX": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "second_image": false
+          }
+        },
+        "product_dd77XC": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "second_image": false
+          }
+        }
+      },
+      "block_order": [
+        "product_GXW6WL",
+        "product_PwCfTX",
+        "product_dd77XC"
+      ],
+      "name": "Produkte Beschr. 1",
+      "settings": {
+        "heading": "",
+        "heading_size": "h2",
+        "desktop_layout": "left",
+        "mobile_layout": "collage",
+        "card_styles": "product-card-wrapper",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
+    "multirow_p97jca": {
+      "type": "multirow",
+      "blocks": {
+        "row_ybTVXX": {
+          "type": "row",
+          "settings": {
+            "image": "{{ collection.metafields.custom.motivwelt.value.bild_ausfuhrliche_beschreibung_3.value }}",
+            "caption": "",
+            "heading": "",
+            "text": "{{ collection.metafields.custom.motivwelt.value.ausfuhrliche_beschreibung_3 | metafield_tag }}",
+            "button_label": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "row_ybTVXX"
+      ],
+      "name": "Ausf. Beschreibung 2",
+      "settings": {
+        "image_height": "medium",
+        "desktop_image_width": "medium",
+        "image_layout": "alternate-left",
+        "heading_size": "h1",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "row_color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 0
+      }
+    },
+    "collage_mqDM7h": {
+      "type": "collage",
+      "blocks": {
+        "product_QatfqW": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "second_image": false
+          }
+        },
+        "product_RYGYmm": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "second_image": false
+          }
+        },
+        "product_NFkdTQ": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "second_image": false
+          }
+        }
+      },
+      "block_order": [
+        "product_QatfqW",
+        "product_RYGYmm",
+        "product_NFkdTQ"
+      ],
+      "name": "Produkte Beschr. 2",
+      "settings": {
+        "heading": "",
+        "heading_size": "h2",
+        "desktop_layout": "left",
+        "mobile_layout": "collage",
+        "card_styles": "product-card-wrapper",
+        "color_scheme": "",
+        "padding_top": 0,
         "padding_bottom": 36
       }
     },
@@ -222,7 +329,7 @@
         "heading_wF4jgF",
         "text_iBR6Pm"
       ],
-      "name": "t:sections.image-with-text.presets.name",
+      "name": "Produkttipps",
       "settings": {
         "height": "adapt",
         "desktop_image_width": "medium",
@@ -289,6 +396,9 @@
     "main-collection-product-grid",
     "rich_text_eL6YVc",
     "multirow_N9U6Fh",
+    "collage_dg9JU3",
+    "multirow_p97jca",
+    "collage_mqDM7h",
     "image_with_text_KU8qMb",
     "174427694371624c34"
   ]
