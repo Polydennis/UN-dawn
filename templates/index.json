@@ -9,47 +9,6 @@
  */
 {
   "sections": {
-    "image_banner_MH9bFq": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_DBaUYc": {
-          "type": "heading",
-          "settings": {
-            "heading": "Zu viele Kekse...",
-            "heading_size": "h2"
-          }
-        },
-        "text_8T6zUc": {
-          "type": "text",
-          "settings": {
-            "text": "...deshalb können wir bis zum 5.1.26 leider keine Bestellungen verpacken. Natürlich kannst du trotzdem einkaufen, musst aber leider für Bestellungen ein paar Tage länger als üblich warten. (<a href=\"/pages/betriebsurlaub-weihnachtsferien-im-betrieb\" title=\"Betriebsurlaub - Weihnachtsferien im Betrieb\">Betriebsurlaub</a>)",
-            "text_style": "subtitle"
-          }
-        }
-      },
-      "block_order": [
-        "heading_DBaUYc",
-        "text_8T6zUc"
-      ],
-      "disabled": true,
-      "custom_css": [
-        "section {margin-bottom: 15px;}"
-      ],
-      "name": "t:sections.image-banner.presets.name",
-      "settings": {
-        "image": "shopify://shop_images/Betriebsurlaub_2025.jpg",
-        "image_overlay_opacity": 0,
-        "image_height": "small",
-        "image_behavior": "none",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "show_text_box": true,
-        "color_scheme": "scheme-84e37e6c-5625-45a2-aff7-c354c8bcbf72",
-        "stack_images_on_mobile": true,
-        "mobile_content_alignment": "center",
-        "show_text_below": true
-      }
-    },
     "rich_text_ybJPg7": {
       "type": "rich-text",
       "name": "t:sections.rich-text.presets.name",
@@ -539,6 +498,85 @@
         "columns_mobile": "2",
         "swipe_on_mobile": false,
         "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
+    "multicolumn_qyLABm": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_Y8mwqJ": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Motivwelt-Tannenwald-Kinderzimmer-01.jpg",
+            "title": "Tannenwald Aquarell",
+            "text": "<p>Klare Formen, natürliche Grüntöne und viel Weite – eine ruhige Motivwelt zum Ankommen und Durchatmen.</p>",
+            "link_label": "Zur Motivwelt",
+            "link": "shopify://collections/motivwelt-safari-aquarell"
+          }
+        },
+        "column_jTMcig": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Feen-Zimmer-Kind_01.jpg",
+            "title": "Feenwald",
+            "text": "<p>Sanfte Farben, magische Details und eine ruhige Fantasiewelt, die Kinderzimmer in kleine Wohlfühlorte verwandelt.</p>",
+            "link_label": "Zur Motivwelt",
+            "link": "shopify://collections/motivwelt-feenwald"
+          }
+        },
+        "column_wepinp": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Motivwelt-Meeresboden-Kinderzimmer-03.jpg",
+            "title": "Meeresboden",
+            "text": "<p>Eine entspannte Unterwasserwelt voller freundlicher Tiere und sanfter Blautöne, die Geborgenheit ausstrahlt.</p>",
+            "link_label": "Zur Motivwelt",
+            "link": "shopify://collections/motivwelt-meeresboden"
+          }
+        },
+        "column_bEdq3r": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Beschreibung_2.jpg",
+            "title": "Safari Aquarell",
+            "text": "<p>Warme Naturfarben und liebevolle Aquarellillustrationen bringen die ruhige Faszination der Savanne ins Kinderzimmer.</p>",
+            "link_label": "Zur Motivwelt",
+            "link": "shopify://collections/motivwelt-safari-aquarell"
+          }
+        },
+        "column_9xWptJ": {
+          "type": "column",
+          "disabled": true,
+          "settings": {
+            "title": "Spalte",
+            "text": "<p>Kombiniere Text mit einem Bild, um den Fokus auf dein Produkt, deine Kollektion oder deinen Blog-Beitrag zu richten. Du kannst außerdem weitere Details über die Verfügbarkeit oder den Stil und sogar eine Bewertung hinzufügen.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_Y8mwqJ",
+        "column_jTMcig",
+        "column_wepinp",
+        "column_bEdq3r",
+        "column_9xWptJ"
+      ],
+      "name": "Motivwelten",
+      "settings": {
+        "title": "Unsere Motivwelten für Kinder",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "circle",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 4,
+        "column_alignment": "left",
+        "background_style": "none",
+        "color_scheme": "scheme-5",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
         "padding_bottom": 36
       }
     },
@@ -1351,7 +1389,6 @@
     }
   },
   "order": [
-    "image_banner_MH9bFq",
     "rich_text_ybJPg7",
     "trust_hero_MX4pEL",
     "collection_list_kKF3eU",
@@ -1362,6 +1399,7 @@
     "image_with_text_iRBAJt",
     "featured_collection_G6qmcY",
     "featured_collection_HbMW8U",
+    "multicolumn_qyLABm",
     "featured_collection_r6wPYF",
     "image_with_text_48bmcJ",
     "featured_product_WRUKhe",
