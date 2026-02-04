@@ -93,7 +93,7 @@
         ".card__heading > a {font-family: Hunter, serif; font-weight: 500;}"
       ],
       "settings": {
-        "products_per_page": 15,
+        "products_per_page": 25,
         "columns_desktop": 2,
         "columns_mobile": "2",
         "color_scheme": "scheme-1",
