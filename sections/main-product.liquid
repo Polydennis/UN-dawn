@@ -612,23 +612,31 @@
                     {{ block.shopify_attributes -}}
                   >
                     <div class="complementary-products__container">
-                      <div class="product__motivwelt">
-                        <a href="{{ motivwelt_collection.url }}">
-                          <h2 class="h4">Teil der {{ motivwelt_collection.title }}</h2>
-                          {%- if motivwelt_collection.image != blank -%}
-                            {{
-                              motivwelt_collection.image
-                              | image_url: width: 200
-                              | image_tag:
-                                loading: 'lazy',
-                                class: 'product__motivwelt-image',
-                                alt: motivwelt_collection.title
-                            }}
-                          {%- endif -%}
-                        </a>
+                      <div class="product__motivwelt collection-list-wrapper">
+                        <div class="collection-list contains-card contains-card--collection">
+                          <div class="collection-list__item">
+                            {% render 'card-collection',
+                              card_collection: motivwelt_collection,
+                              media_aspect_ratio: 'square',
+                              columns: 1
+                            %}
+                          </div>
+                        </div>
+                        {%- if block.settings.motivwelt_cta_label != blank -%}
+                          <p class="card__caption">
+                            <a href="{{ motivwelt_collection.url }}" class="link animate-arrow">
+                              {{ block.settings.motivwelt_cta_label }} {{ motivwelt_collection.title }}
+                              <span class="icon-wrap">
+                                {{- 'icon-arrow.svg' | inline_asset_content -}}
+                              </span>
+                            </a>
+                          </p>
+                        {%- endif -%}
                       </div>
                     </div>
                   </div>
+                  {{ 'component-card.css' | asset_url | stylesheet_tag }}
+                  {{ 'section-collection-list.css' | asset_url | stylesheet_tag }}
                 {%- else -%}
                   <product-recommendations
                     class="complementary-products quick-add-hidden{% if block.settings.make_collapsible_row %} is-accordion{% endif %}{% if block.settings.enable_quick_add %} complementary-products-contains-quick-add{% endif %}"
@@ -1453,6 +1461,12 @@
           "id": "block_heading",
           "default": "t:sections.main-product.blocks.complementary_products.settings.heading.default",
           "label": "t:sections.main-product.blocks.complementary_products.settings.heading.label"
+        },
+        {
+          "type": "text",
+          "id": "motivwelt_cta_label",
+          "default": "Entdecke die",
+          "label": "Motivwelt CTA"
         },
         {
           "type": "checkbox",
