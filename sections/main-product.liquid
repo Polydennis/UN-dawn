@@ -612,23 +612,29 @@
                     {{ block.shopify_attributes -}}
                   >
                     <div class="complementary-products__container">
-                      <div class="product__motivwelt">
-                        <a href="{{ motivwelt_collection.url }}">
-                          <h2 class="h4">Teil der {{ motivwelt_collection.title }}</h2>
-                          {%- if motivwelt_collection.image != blank -%}
-                            {{
-                              motivwelt_collection.image
-                              | image_url: width: 200
-                              | image_tag:
-                                loading: 'lazy',
-                                class: 'product__motivwelt-image',
-                                alt: motivwelt_collection.title
-                            }}
-                          {%- endif -%}
-                        </a>
+                      {%- assign motivwelt_cta_label = block.settings.motivwelt_cta_label
+                        | replace: '[Motivwelt ABC]', motivwelt_collection.title
+                      -%}
+                      <div class="product__motivwelt collection-list-wrapper">
+                        <div class="collection-list contains-card contains-card--collection">
+                          <div class="collection-list__item">
+                            {% render 'card-collection',
+                              card_collection: motivwelt_collection,
+                              media_aspect_ratio: 'square',
+                              columns: 1
+                            %}
+                          </div>
+                        </div>
+                        <div class="center collection-list-view-all">
+                          <a href="{{ motivwelt_collection.url }}" class="button">
+                            {{ motivwelt_cta_label }}
+                          </a>
+                        </div>
                       </div>
                     </div>
                   </div>
+                  {{ 'component-card.css' | asset_url | stylesheet_tag }}
+                  {{ 'section-collection-list.css' | asset_url | stylesheet_tag }}
                 {%- else -%}
                   <product-recommendations
                     class="complementary-products quick-add-hidden{% if block.settings.make_collapsible_row %} is-accordion{% endif %}{% if block.settings.enable_quick_add %} complementary-products-contains-quick-add{% endif %}"
@@ -1453,6 +1459,12 @@
           "id": "block_heading",
           "default": "t:sections.main-product.blocks.complementary_products.settings.heading.default",
           "label": "t:sections.main-product.blocks.complementary_products.settings.heading.label"
+        },
+        {
+          "type": "text",
+          "id": "motivwelt_cta_label",
+          "default": "Entdecke mehr aus der [Motivwelt ABC]",
+          "label": "Motivwelt CTA"
         },
         {
           "type": "checkbox",
