@@ -11,20 +11,18 @@
   "sections": {
     "cart-items": {
       "type": "main-cart-items",
-      "blocks": {
-        "upsell_accessories": {
-          "type": "upsell_accessories",
-          "settings": {
-            "heading": "Passendes Zubehör"
-          }
-        }
-      },
-      "block_order": [
-        "upsell_accessories"
-      ],
       "settings": {
         "color_scheme": "scheme-1",
         "padding_top": 0,
+        "padding_bottom": 24
+      }
+    },
+    "cart-upsell-accessories": {
+      "type": "cart-upsell-accessories",
+      "settings": {
+        "heading": "Passendes Zubehör",
+        "color_scheme": "scheme-1",
+        "padding_top": 24,
         "padding_bottom": 24
       }
     },
@@ -68,6 +66,7 @@
   },
   "order": [
     "cart-items",
+    "cart-upsell-accessories",
     "17663937825342a44a",
     "cart-footer"
   ]
