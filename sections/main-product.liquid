@@ -197,34 +197,6 @@
                     {{ product.description }}
                   </div>
                 {%- endif -%}
-              {%- when 'motivwelt_link' -%}
-                {%- liquid
-                  assign sku = product.selected_or_first_available_variant.sku | default: product.sku
-                  assign motivnummer = sku | slice: 0, 4
-                  assign motiv_collection = nil
-
-                  if motivnummer != blank
-                    for collection in collections
-                      if collection.metafields.custom.motivnummer != blank
-                        if collection.metafields.custom.motivnummer.value == motivnummer
-                          assign motiv_collection = collection
-                          break
-                        endif
-                      endif
-                    endfor
-                  endif
-                -%}
-                {%- if motiv_collection != nil -%}
-                  <p class="product__text inline-richtext" {{ block.shopify_attributes }}>
-                    {{ block.settings.text }} 
-                    <a href="{{ motiv_collection.url }}">
-                      {{ block.settings.link_label }}
-                      {%- if block.settings.show_collection_title -%}
-                        {{ motiv_collection.title }}
-                      {%- endif -%}
-                    </a>
-                  </p>
-                {%- endif -%}
               {%- when 'sku' -%}
                 <p
                   class="product__sku{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.sku.size == 0 %} visibility-hidden{% endif %}"
@@ -901,30 +873,6 @@
           ],
           "default": "body",
           "label": "t:sections.main-product.blocks.sku.settings.text_style.label"
-        }
-      ]
-    },
-    {
-      "type": "motivwelt_link",
-      "name": "Motivwelt-Link",
-      "settings": [
-        {
-          "type": "text",
-          "id": "text",
-          "label": "Text vor dem Link",
-          "default": "Motivwelt:"
-        },
-        {
-          "type": "text",
-          "id": "link_label",
-          "label": "Link-Label",
-          "default": "Zur Motivwelt"
-        },
-        {
-          "type": "checkbox",
-          "id": "show_collection_title",
-          "label": "Kollektionstitel anhängen",
-          "default": true
         }
       ]
     },
