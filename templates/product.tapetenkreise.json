@@ -313,6 +313,7 @@
           "type": "complementary",
           "settings": {
             "block_heading": "Perfektes Zusammenspiel",
+            "motivwelt_cta_label": "Entdecke mehr aus der",
             "make_collapsible_row": false,
             "icon": "eye",
             "product_list_limit": 9,
