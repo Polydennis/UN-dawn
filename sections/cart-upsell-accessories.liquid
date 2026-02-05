@@ -1,4 +1,5 @@
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-slider.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
   .section-{{ section.id }}-padding {
@@ -10,10 +11,28 @@
     margin-bottom: 1.5rem;
   }
 
+  .cart-upsell__list.slider {
+    margin-bottom: 0;
+  }
+
+  .cart-upsell__list .grid__item {
+    width: calc(100% / 1.5);
+  }
+
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
       padding-top: {{ section.settings.padding_top }}px;
       padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+
+    .cart-upsell__list .grid__item {
+      width: calc(100% / 2.5);
+    }
+  }
+
+  @media screen and (min-width: 990px) {
+    .cart-upsell__list .grid__item {
+      width: calc(100% / 4.5);
     }
   }
 {%- endstyle -%}
@@ -45,10 +64,15 @@
   <section class="cart-upsell color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
     <div class="page-width">
       <h2 class="title h3 cart-upsell__heading">{{ section.settings.heading }}</h2>
-      <ul class="grid product-grid grid--3-col-desktop grid--3-col-tablet-down" role="list">
+      <slider-component class="slider-mobile-gutter">
+        <ul
+          class="cart-upsell__list grid product-grid slider slider--everywhere"
+          role="list"
+          aria-label="{{ 'general.slider.name' | t }}"
+        >
         {% assign skip_card_product_styles = false %}
         {%- for product in upsell_collection.products limit: section.settings.products_limit -%}
-          <li class="grid__item">
+          <li class="grid__item slider__slide">
             {% render 'card-product',
               card_product: product,
               show_vendor: false,
@@ -60,7 +84,8 @@
           </li>
           {%- assign skip_card_product_styles = true -%}
         {%- endfor -%}
-      </ul>
+        </ul>
+      </slider-component>
     </div>
   </section>
 {%- endif -%}
