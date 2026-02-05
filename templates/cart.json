@@ -17,21 +17,22 @@
         "padding_bottom": 24
       }
     },
-    "cart-upsell-accessories": {
-      "type": "cart-upsell-accessories",
-      "settings": {
-        "heading": "Passendes Zubehör",
-        "color_scheme": "scheme-1",
-        "padding_top": 24,
-        "padding_bottom": 24
-      }
-    },
     "cart-footer": {
       "type": "main-cart-footer",
       "blocks": {
         "subtotal": {
           "type": "subtotal",
           "settings": {}
+        },
+        "upsell_accessories": {
+          "type": "upsell_accessories",
+          "settings": {
+            "heading": "Passendes Zubehör",
+            "trigger_types": "home tapete,kindertapete",
+            "upsell_type": "tapetenzubehör",
+            "upsell_collection_handle": "tapetenzubehor",
+            "products_limit": 3
+          }
         },
         "buttons": {
           "type": "buttons",
@@ -40,6 +41,7 @@
       },
       "block_order": [
         "subtotal",
+        "upsell_accessories",
         "buttons"
       ],
       "settings": {
@@ -66,7 +68,6 @@
   },
   "order": [
     "cart-items",
-    "cart-upsell-accessories",
     "17663937825342a44a",
     "cart-footer"
   ]

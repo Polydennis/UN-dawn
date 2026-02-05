@@ -1,4 +1,5 @@
 {{ 'component-cart.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-totals.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 {{ 'component-discounts.css' | asset_url | stylesheet_tag }}
@@ -7,6 +8,10 @@
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  .cart__upsell {
+    margin-top: 2.5rem;
   }
 
   @media screen and (min-width: 750px) {
@@ -42,6 +47,50 @@
           {%- case block.type -%}
             {%- when '@app' -%}
               {% render block %}
+            {%- when 'upsell_accessories' -%}
+              {%- liquid
+                assign trigger_types = block.settings.trigger_types | downcase | split: ','
+                assign upsell_type = block.settings.upsell_type | downcase
+                assign has_trigger = false
+                assign has_upsell_type = false
+
+                for item in cart.items
+                  assign item_type = item.product.type | downcase
+                  if upsell_type != blank and item_type == upsell_type
+                    assign has_upsell_type = true
+                  endif
+
+                  for trigger in trigger_types
+                    assign trigger_clean = trigger | strip
+                    if trigger_clean != blank and item_type == trigger_clean
+                      assign has_trigger = true
+                    endif
+                  endfor
+                endfor
+
+                assign upsell_collection = collections[block.settings.upsell_collection_handle]
+              -%}
+              {%- if cart != empty and has_trigger and has_upsell_type == false and upsell_collection != blank and upsell_collection.products_count > 0 -%}
+                <div class="cart__upsell" {{ block.shopify_attributes }}>
+                  <h2 class="title h3">{{ block.settings.heading }}</h2>
+                  <ul class="grid product-grid grid--3-col-desktop grid--3-col-tablet-down" role="list">
+                    {% assign skip_card_product_styles = false %}
+                    {%- for product in upsell_collection.products limit: block.settings.products_limit -%}
+                      <li class="grid__item">
+                        {% render 'card-product',
+                          card_product: product,
+                          show_vendor: false,
+                          show_rating: false,
+                          quick_add: 'standard',
+                          section_id: section.id,
+                          skip_styles: skip_card_product_styles
+                        %}
+                      </li>
+                      {%- assign skip_card_product_styles = true -%}
+                    {%- endfor -%}
+                  </ul>
+                </div>
+              {%- endif -%}
             {%- when 'subtotal' -%}
               <div class="js-contents" {{ block.shopify_attributes }}>
                 <div>
@@ -182,6 +231,45 @@
     },
     {
       "type": "@app"
+    },
+    {
+      "type": "upsell_accessories",
+      "name": "Upsell Zubehör",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Überschrift",
+          "default": "Passendes Zubehör"
+        },
+        {
+          "type": "text",
+          "id": "trigger_types",
+          "label": "Trigger-Typen (kommagetrennt)",
+          "default": "home tapete,kindertapete"
+        },
+        {
+          "type": "text",
+          "id": "upsell_type",
+          "label": "Upsell-Typ (nicht anzeigen, wenn vorhanden)",
+          "default": "tapetenzubehör"
+        },
+        {
+          "type": "text",
+          "id": "upsell_collection_handle",
+          "label": "Collection Handle für Upsell",
+          "default": "tapetenzubehor"
+        },
+        {
+          "type": "range",
+          "id": "products_limit",
+          "min": 1,
+          "max": 6,
+          "step": 1,
+          "label": "Anzahl Produkte",
+          "default": 3
+        }
+      ]
     }
   ]
 }
