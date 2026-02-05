@@ -1,5 +1,6 @@
 {{ 'component-cart.css' | asset_url | stylesheet_tag }}
 {{ 'component-cart-items.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-totals.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 {{ 'component-discounts.css' | asset_url | stylesheet_tag }}
@@ -9,6 +10,10 @@
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  .cart__upsell {
+    margin-top: 2.5rem;
   }
 
   @media screen and (min-width: 750px) {
@@ -442,6 +447,42 @@
           {%- endif -%}
         </div>
       </div>
+
+      {%- liquid
+        assign has_tapete = false
+        assign has_accessory = false
+
+        for item in cart.items
+          assign product_type = item.product.product_type | downcase
+          if product_type == 'home tapete' or product_type == 'kindertapete'
+            assign has_tapete = true
+          endif
+          if product_type == 'tapetenzubehör' or product_type == 'tapetenzubehoer'
+            assign has_accessory = true
+          endif
+        endfor
+
+        assign upsell_collection = collections['tapetenzubehoer']
+      -%}
+      {%- if has_tapete and has_accessory == false and upsell_collection != blank and upsell_collection.products_count > 0 -%}
+        <div class="cart__upsell">
+          <h2 class="title h3">Passendes Zubehör</h2>
+          <ul class="grid product-grid grid--3-col-desktop grid--2-col-tablet-down" role="list">
+            {% assign skip_card_product_styles = false %}
+            {%- for product in upsell_collection.products limit: 3 -%}
+              <li class="grid__item">
+                {% render 'card-product',
+                  card_product: product,
+                  show_vendor: false,
+                  show_rating: false,
+                  skip_styles: skip_card_product_styles
+                %}
+              </li>
+              {%- assign skip_card_product_styles = true -%}
+            {%- endfor -%}
+          </ul>
+        </div>
+      {%- endif -%}
 
       <p class="visually-hidden" id="cart-live-region-text" aria-live="polite" role="status"></p>
       <p
