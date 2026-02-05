@@ -612,9 +612,6 @@
                     {{ block.shopify_attributes -}}
                   >
                     <div class="complementary-products__container">
-                      {%- assign motivwelt_cta_label = block.settings.motivwelt_cta_label
-                        | replace: '[Motivwelt ABC]', motivwelt_collection.title
-                      -%}
                       <div class="product__motivwelt collection-list-wrapper">
                         <div class="collection-list contains-card contains-card--collection">
                           <div class="collection-list__item">
@@ -625,11 +622,16 @@
                             %}
                           </div>
                         </div>
-                        <div class="center collection-list-view-all">
-                          <a href="{{ motivwelt_collection.url }}" class="button">
-                            {{ motivwelt_cta_label }}
-                          </a>
-                        </div>
+                        {%- if block.settings.motivwelt_cta_label != blank -%}
+                          <p class="card__caption">
+                            <a href="{{ motivwelt_collection.url }}" class="link animate-arrow">
+                              {{ block.settings.motivwelt_cta_label }} {{ motivwelt_collection.title }}
+                              <span class="icon-wrap">
+                                {{- 'icon-arrow.svg' | inline_asset_content -}}
+                              </span>
+                            </a>
+                          </p>
+                        {%- endif -%}
                       </div>
                     </div>
                   </div>
@@ -1463,7 +1465,7 @@
         {
           "type": "text",
           "id": "motivwelt_cta_label",
-          "default": "Entdecke mehr aus der [Motivwelt ABC]",
+          "default": "Entdecke die",
           "label": "Motivwelt CTA"
         },
         {
