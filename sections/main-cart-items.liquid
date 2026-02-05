@@ -453,7 +453,7 @@
         assign has_accessory = false
 
         for item in cart.items
-          assign product_type = item.product.product_type | downcase
+          assign product_type = item.product.type | downcase
           if product_type == 'home tapete' or product_type == 'kindertapete'
             assign has_tapete = true
           endif
