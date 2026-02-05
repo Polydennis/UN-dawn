@@ -205,12 +205,13 @@
                   </div>
                 {%- endif -%}
               {%- when 'motivwelt' -%}
-                {%- assign sku_prefix = product.selected_or_first_available_variant.sku | slice: 0, 4 -%}
-                {%- if sku_prefix != blank -%}
+                {%- assign sku_prefix_number = product.selected_or_first_available_variant.sku | slice: 0, 4 | plus: 0 -%}
+                {%- if sku_prefix_number != blank -%}
                   {%- assign motivwelt_collection = blank -%}
-                  {%- for collection in product.collections -%}
-                    {%- assign motivnummer = collection.metafields.custom.motivnummer.value | default: '' | strip -%}
-                    {%- if motivnummer == sku_prefix -%}
+                  {%- for collection in collections -%}
+                    {%- assign motivnummer = collection.metafields.custom.motivnummer -%}
+                    {%- assign motivnummer_value = motivnummer.value | default: motivnummer | strip | plus: 0 -%}
+                    {%- if motivnummer_value == sku_prefix_number -%}
                       {%- assign motivwelt_collection = collection -%}
                       {%- break -%}
                     {%- endif -%}
