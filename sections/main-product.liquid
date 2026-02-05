@@ -612,31 +612,34 @@
                     {{ block.shopify_attributes -}}
                   >
                     <div class="complementary-products__container">
-                      <div class="product__motivwelt collection-list-wrapper">
-                        <div class="collection-list contains-card contains-card--collection">
-                          <div class="collection-list__item">
-                            {% render 'card-collection',
-                              card_collection: motivwelt_collection,
-                              media_aspect_ratio: 'square',
-                              columns: 1
-                            %}
-                          </div>
-                        </div>
+                      <div class="product__motivwelt">
+                        <a href="{{ motivwelt_collection.url }}" class="product__motivwelt-link">
+                          {%- if motivwelt_collection.image != blank -%}
+                            {{
+                              motivwelt_collection.image
+                              | image_url: width: 600
+                              | image_tag:
+                                loading: 'lazy',
+                                class: 'product__motivwelt-image',
+                                alt: motivwelt_collection.title
+                            }}
+                          {%- endif -%}
+                        </a>
                         {%- if block.settings.motivwelt_cta_label != blank -%}
-                          <p class="card__caption">
-                            <a href="{{ motivwelt_collection.url }}" class="link animate-arrow">
-                              {{ block.settings.motivwelt_cta_label }} {{ motivwelt_collection.title }}
-                              <span class="icon-wrap">
-                                {{- 'icon-arrow.svg' | inline_asset_content -}}
-                              </span>
-                            </a>
-                          </p>
+                          <div class="center">
+                            <p class="card__caption">
+                              <a href="{{ motivwelt_collection.url }}" class="link animate-arrow">
+                                {{ block.settings.motivwelt_cta_label | strip }} {{ motivwelt_collection.title }}
+                                <span class="icon-wrap">
+                                  {{- 'icon-arrow.svg' | inline_asset_content -}}
+                                </span>
+                              </a>
+                            </p>
+                          </div>
                         {%- endif -%}
                       </div>
                     </div>
                   </div>
-                  {{ 'component-card.css' | asset_url | stylesheet_tag }}
-                  {{ 'section-collection-list.css' | asset_url | stylesheet_tag }}
                 {%- else -%}
                   <product-recommendations
                     class="complementary-products quick-add-hidden{% if block.settings.make_collapsible_row %} is-accordion{% endif %}{% if block.settings.enable_quick_add %} complementary-products-contains-quick-add{% endif %}"
