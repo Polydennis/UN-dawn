@@ -28,7 +28,6 @@
       "block_order": [
         "gropulse_wishlist_gropulse_product_recommendations_3itP4g"
       ],
-      "disabled": true,
       "settings": {
         "include_margins": true
       }
@@ -72,8 +71,8 @@
   },
   "order": [
     "cart-items",
-    "17663937825342a44a",
     "cart_upsell_accessories_GWqPCk",
-    "cart-footer"
+    "cart-footer",
+    "17663937825342a44a"
   ]
 }
