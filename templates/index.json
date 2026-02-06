@@ -1060,7 +1060,7 @@
             "heading_size": "h1",
             "subheading": "{{ metaobjects.kollektionen[\"tapeten-der-70-er\"].kurzbeschreibung.value }}",
             "button_label": "Zur Trendkollektion",
-            "link": "shopify://collections/tapeten-der-70er",
+            "link": "shopify://collections/trendkollektion-tapeten-der-70er",
             "button_style_secondary": false,
             "show_text_box": true,
             "box_align": "bottom-left",
