@@ -1005,7 +1005,7 @@
             "heading_size": "h1",
             "subheading": "{{ metaobjects.kollektionen[\"urban-playground\"].kurzbeschreibung.value }}",
             "button_label": "Zur Trendkollektion",
-            "link": "shopify://collections/urban-playground",
+            "link": "shopify://collections/trendkollektion-urban-playground",
             "button_style_secondary": false,
             "show_text_box": true,
             "box_align": "bottom-left",

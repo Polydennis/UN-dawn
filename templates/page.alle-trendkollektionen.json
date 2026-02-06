@@ -41,7 +41,7 @@
             "heading": "{{ metaobjects.kollektionen[\"urban-playground\"].kollektionsname.value }}",
             "text": "<p>{{ metaobjects.kollektionen[\"urban-playground\"].kurzbeschreibung.value }}</p>",
             "button_label": "Zur Trendkollektion",
-            "button_link": "shopify://collections/urban-playground"
+            "button_link": "shopify://collections/trendkollektion-urban-playground"
           }
         },
         "row_FEGfGB": {
@@ -162,7 +162,7 @@
         "featured_collection_pEKVyx": {
           "type": "featured_collection",
           "settings": {
-            "collection": "urban-playground"
+            "collection": "trendkollektion-urban-playground"
           }
         },
         "featured_collection_wyzE7J": {
