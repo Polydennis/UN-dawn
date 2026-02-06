@@ -17,21 +17,6 @@
         "padding_bottom": 0
       }
     },
-    "17663937825342a44a": {
-      "type": "apps",
-      "blocks": {
-        "gropulse_wishlist_gropulse_product_recommendations_3itP4g": {
-          "type": "shopify://apps/gropulse-wishlist/blocks/gropulse-product-recommendations/d606b448-832c-4b0a-adbb-21c7fa132df1",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "gropulse_wishlist_gropulse_product_recommendations_3itP4g"
-      ],
-      "settings": {
-        "include_margins": true
-      }
-    },
     "cart_upsell_accessories_GWqPCk": {
       "type": "cart-upsell-accessories",
       "name": "Cart Upsell Zubehör",
@@ -66,6 +51,22 @@
         "color_scheme": "scheme-1",
         "padding_top": 20,
         "padding_bottom": 40
+      }
+    },
+    "17663937825342a44a": {
+      "type": "apps",
+      "blocks": {
+        "gropulse_wishlist_gropulse_product_recommendations_3itP4g": {
+          "type": "shopify://apps/gropulse-wishlist/blocks/gropulse-product-recommendations/d606b448-832c-4b0a-adbb-21c7fa132df1",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "gropulse_wishlist_gropulse_product_recommendations_3itP4g"
+      ],
+      "disabled": true,
+      "settings": {
+        "include_margins": true
       }
     }
   },
