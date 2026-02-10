@@ -1,82 +1,143 @@
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'quick-add.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
 {% if cart.item_count > 0 %}
-  {%- assign base_product_id = cart.items.first.product.id -%}
-  <div class="cart-upsell" data-base-product-id="{{ base_product_id }}">
-    <h2>{{ section.settings.heading }}</h2>
-    <div class="cart-upsell__grid"></div>
-  </div>
+  {%- liquid
+    assign base_product_id = cart.items.first.product.id
+    assign base_product_price = cart.items.first.final_line_price
+    assign cart_prefixes = '|'
+    assign cart_product_ids = '|'
+    assign has_accessory_in_cart = false
+    assign accessory_type_a = 'tapetenzubehör'
+    assign accessory_type_b = 'tapetenzubehor'
 
-  <script>
-    (async () => {
-      const el = document.querySelector('.cart-upsell');
-      if (!el) return;
+    for item in cart.items
+      assign item_price = item.final_line_price
+      if item_price > base_product_price
+        assign base_product_price = item_price
+        assign base_product_id = item.product.id
+      endif
 
-      const productId = el.dataset.baseProductId;
-      const limit = {{ section.settings.limit | json }};
-      const intent = {{ section.settings.intent | json }};
+      assign item_type = item.product.type | downcase
+      if item_type == accessory_type_a or item_type == accessory_type_b
+        assign has_accessory_in_cart = true
+      endif
 
-      const url =
-        window.Shopify.routes.root +
-        `recommendations/products.json?product_id=${productId}&limit=${limit}&intent=${intent}`;
+      assign item_sku = item.variant.sku | default: ''
+      if item_sku != blank
+        assign item_prefix = item_sku | slice: 0, 4
+        assign token = '|' | append: item_prefix | append: '|'
+        unless cart_prefixes contains token
+          assign cart_prefixes = cart_prefixes | append: item_prefix | append: '|'
+        endunless
+      endif
 
-      const res = await fetch(url);
-      const data = await res.json();
-      const products = (data && data.products) ? data.products : [];
+      assign item_product_id = item.product.id
+      assign product_token = '|' | append: item_product_id | append: '|'
+      unless cart_product_ids contains product_token
+        assign cart_product_ids = cart_product_ids | append: item_product_id | append: '|'
+      endunless
+    endfor
+  -%}
+  <section class="cart-upsell color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
+    <div class="page-width">
+      <product-recommendations
+        class="cart-upsell__recommendations"
+        data-url="{{ routes.product_recommendations_url }}?limit={{ section.settings.limit }}&intent={{ section.settings.intent }}"
+        data-section-id="{{ section.id }}"
+        data-product-id="{{ base_product_id }}"
+      >
+        {% if recommendations.performed and recommendations.products_count > 0 %}
+          {%- liquid
+            assign has_motivwelt_match = false
+            for recommendation in recommendations.products
+              assign rec_sku = recommendation.selected_or_first_available_variant.sku | default: ''
+              assign rec_prefix = rec_sku | slice: 0, 4
+              assign token = '|' | append: rec_prefix | append: '|'
+              if rec_prefix != blank and cart_prefixes contains token
+                assign has_motivwelt_match = true
+              endif
+            endfor
+          -%}
 
-      if (!products.length) {
-        el.remove();
-        return;
-      }
+          {%- capture items_html -%}
+            {% assign skip_card_product_styles = false %}
+            {% for recommendation in recommendations.products %}
+              {%- liquid
+                assign rec_type = recommendation.type | downcase
+                assign rec_sku = recommendation.selected_or_first_available_variant.sku | default: ''
+                assign rec_prefix = rec_sku | slice: 0, 4
+                assign rec_product_id = recommendation.id
+                assign rec_product_token = '|' | append: rec_product_id | append: '|'
+                assign include_item = true
 
-      const cartAddUrl = window.Shopify.routes.root + 'cart/add';
+                if cart_product_ids contains rec_product_token
+                  assign include_item = false
+                endif
 
-      const html = products.map(p => {
-        const imgObj = p.featured_image;
-        const imgUrl = imgObj && (imgObj.url || imgObj.src) ? (imgObj.url || imgObj.src) : '';
+                if has_accessory_in_cart and (rec_type == accessory_type_a or rec_type == accessory_type_b)
+                  assign include_item = false
+                endif
 
-        const variant = (p.variants || []).find(v => v.available) || (p.variants || [])[0];
-        const variantId = variant ? variant.id : null;
+                if has_motivwelt_match
+                  if rec_prefix == blank
+                    assign include_item = false
+                  else
+                    assign token = '|' | append: rec_prefix | append: '|'
+                    unless cart_prefixes contains token
+                      assign include_item = false
+                    endunless
+                  endif
+                endif
+              -%}
 
-        return `
-          <div class="cart-upsell__item">
-            <a href="${p.url}">
-              ${imgUrl ? `<img src="${imgUrl}" alt="${p.title}" loading="lazy" />` : ``}
-              <div class="cart-upsell__title">${p.title}</div>
-            </a>
-            ${variantId ? `
-              <form method="post" action="${cartAddUrl}">
-                <input type="hidden" name="id" value="${variantId}">
-                <input type="hidden" name="quantity" value="1">
-                <button type="submit">In den Warenkorb</button>
-              </form>
-            ` : ``}
-          </div>
-        `;
-      }).join('');
+              {% if include_item %}
+                <li class="grid__item">
+                  {% render 'card-product',
+                    card_product: recommendation,
+                    show_vendor: false,
+                    show_rating: false,
+                    quick_add: 'standard',
+                    section_id: section.id,
+                    skip_styles: skip_card_product_styles
+                  %}
+                </li>
+                {%- assign skip_card_product_styles = true -%}
+              {% endif %}
+            {% endfor %}
+          {%- endcapture -%}
 
-      el.querySelector('.cart-upsell__grid').innerHTML = html;
-    })();
-  </script>
-
-  <style>
-    .cart-upsell__grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-    }
-    @media (min-width: 990px) {
-      .cart-upsell__grid {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-      }
-    }
-    .cart-upsell__item img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    .cart-upsell__title {
-      margin-top: 8px;
-    }
-  </style>
+          {%- assign items_html_stripped = items_html | strip -%}
+          {% if items_html_stripped != blank %}
+            <h2 class="title h3 cart-upsell__heading">{{ section.settings.heading }}</h2>
+            <ul
+              class="grid product-grid grid--4-col-desktop grid--2-col-tablet-down"
+              role="list"
+            >
+              {{ items_html }}
+            </ul>
+          {% endif %}
+        {% endif %}
+      </product-recommendations>
+    </div>
+  </section>
 {% endif %}
 
 {% schema %}
@@ -95,6 +156,37 @@
         { "value": "complementary", "label": "Complementary (Upsell/Add-on)" },
         { "value": "related", "label": "Related (Ähnlich)" }
       ]
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "info": "t:sections.all.colors.has_cards_info",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 24
     }
   ]
 }
