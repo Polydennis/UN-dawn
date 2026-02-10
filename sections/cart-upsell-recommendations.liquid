@@ -1,0 +1,100 @@
+{% if cart.item_count > 0 %}
+  {%- assign base_product_id = cart.items.first.product.id -%}
+  <div class="cart-upsell" data-base-product-id="{{ base_product_id }}">
+    <h2>{{ section.settings.heading }}</h2>
+    <div class="cart-upsell__grid"></div>
+  </div>
+
+  <script>
+    (async () => {
+      const el = document.querySelector('.cart-upsell');
+      if (!el) return;
+
+      const productId = el.dataset.baseProductId;
+      const limit = {{ section.settings.limit | json }};
+      const intent = {{ section.settings.intent | json }};
+
+      const url =
+        window.Shopify.routes.root +
+        `recommendations/products.json?product_id=${productId}&limit=${limit}&intent=${intent}`;
+
+      const res = await fetch(url);
+      const data = await res.json();
+      const products = (data && data.products) ? data.products : [];
+
+      if (!products.length) {
+        el.remove();
+        return;
+      }
+
+      const cartAddUrl = window.Shopify.routes.root + 'cart/add';
+
+      const html = products.map(p => {
+        const imgObj = p.featured_image;
+        const imgUrl = imgObj && (imgObj.url || imgObj.src) ? (imgObj.url || imgObj.src) : '';
+
+        const variant = (p.variants || []).find(v => v.available) || (p.variants || [])[0];
+        const variantId = variant ? variant.id : null;
+
+        return `
+          <div class="cart-upsell__item">
+            <a href="${p.url}">
+              ${imgUrl ? `<img src="${imgUrl}" alt="${p.title}" loading="lazy" />` : ``}
+              <div class="cart-upsell__title">${p.title}</div>
+            </a>
+            ${variantId ? `
+              <form method="post" action="${cartAddUrl}">
+                <input type="hidden" name="id" value="${variantId}">
+                <input type="hidden" name="quantity" value="1">
+                <button type="submit">In den Warenkorb</button>
+              </form>
+            ` : ``}
+          </div>
+        `;
+      }).join('');
+
+      el.querySelector('.cart-upsell__grid').innerHTML = html;
+    })();
+  </script>
+
+  <style>
+    .cart-upsell__grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+    @media (min-width: 990px) {
+      .cart-upsell__grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+    .cart-upsell__item img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .cart-upsell__title {
+      margin-top: 8px;
+    }
+  </style>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Cart upsell",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Dazu passend" },
+    { "type": "range", "id": "limit", "label": "Anzahl", "min": 1, "max": 10, "step": 1, "default": 4 },
+    {
+      "type": "select",
+      "id": "intent",
+      "label": "Intent",
+      "default": "complementary",
+      "options": [
+        { "value": "complementary", "label": "Complementary (Upsell/Add-on)" },
+        { "value": "related", "label": "Related (Ähnlich)" }
+      ]
+    }
+  ]
+}
+{% endschema %}
