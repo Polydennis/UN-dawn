@@ -55,6 +55,7 @@
     },
     "cart_upsell_recommendations_J9QQhP": {
       "type": "cart-upsell-recommendations",
+      "disabled": true,
       "name": "Cart upsell",
       "settings": {
         "heading": "Dazu passend",
