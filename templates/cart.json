@@ -53,6 +53,15 @@
         "padding_bottom": 40
       }
     },
+    "cart_upsell_recommendations_J9QQhP": {
+      "type": "cart-upsell-recommendations",
+      "name": "Cart upsell",
+      "settings": {
+        "heading": "Dazu passend",
+        "limit": 4,
+        "intent": "complementary"
+      }
+    },
     "17663937825342a44a": {
       "type": "apps",
       "blocks": {
@@ -74,6 +83,7 @@
     "cart-items",
     "cart_upsell_accessories_GWqPCk",
     "cart-footer",
+    "cart_upsell_recommendations_J9QQhP",
     "17663937825342a44a"
   ]
 }
