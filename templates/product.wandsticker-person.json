@@ -288,7 +288,7 @@
           "settings": {
             "heading": "Nachhaltig produziert in Deutschland",
             "icon": "hergestellt_in_de",
-            "content": "<p>Gefertigt auf Bestellung in Berlin und gedruckt mit umweltfreundlichen Farben. Frei von PVC, Weichmachern und Lösungsmitteln – für ein gutes Raumgefühl und verantwortungsvolles Gestalten.</p>",
+            "content": "<p>Gefertigt auf Bestellung in Berlin und gedruckt mit umweltfreundlichen Farben. Bleicht kaum aus und riecht nicht – für ein gutes Raumgefühl und verantwortungsvolles Gestalten.</p>",
             "page": ""
           }
         },
@@ -329,6 +329,7 @@
           "type": "complementary",
           "settings": {
             "block_heading": "Perfektes Zusammenspiel",
+            "motivwelt_cta_label": "Entdecke die",
             "make_collapsible_row": false,
             "icon": "eye",
             "product_list_limit": 9,
