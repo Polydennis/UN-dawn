@@ -301,6 +301,12 @@
             "image": "shopify://shop_images/Das_perfekte_dinner_logo.png"
           }
         },
+        "image_cxeXXJ": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/logoLV.png"
+          }
+        },
         "image_hkBWLz": {
           "type": "image",
           "settings": {
@@ -333,6 +339,7 @@
         "image_VjM8tL",
         "image_yMq8GF",
         "image_Cfci9M",
+        "image_cxeXXJ",
         "image_hkBWLz",
         "image_4ddFJV",
         "image_zWNKaW",
