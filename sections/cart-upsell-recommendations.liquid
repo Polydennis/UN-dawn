@@ -1,5 +1,7 @@
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+{{ 'template-collection.css' | asset_url | stylesheet_tag }}
 {{ 'quick-add.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
@@ -25,8 +27,10 @@
     assign cart_prefixes = '|'
     assign cart_product_ids = '|'
     assign has_accessory_in_cart = false
-    assign accessory_type_a = 'tapetenzubehÃ¶r'
+    assign accessory_type_a = 'tapetenzubehör'
     assign accessory_type_b = 'tapetenzubehor'
+    assign columns_desktop = 4
+    assign columns_mobile = 2
 
     for item in cart.items
       assign item_price = item.final_line_price
@@ -56,8 +60,12 @@
       endunless
     endfor
   -%}
-  <section class="cart-upsell color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
-    <div class="page-width">
+  <div class="color-{{ section.settings.color_scheme }} isolate gradient">
+    <div
+      class="collection cart-upsell section-{{ section.id }}-padding"
+      id="collection-{{ section.id }}"
+      data-id="{{ section.id }}"
+    >
       <product-recommendations
         class="cart-upsell__recommendations"
         data-url="{{ routes.product_recommendations_url }}?limit={{ section.settings.limit }}&intent={{ section.settings.intent }}"
@@ -92,8 +100,10 @@
                   assign include_item = false
                 endif
 
-                if has_accessory_in_cart and (rec_type == accessory_type_a or rec_type == accessory_type_b)
-                  assign include_item = false
+                if has_accessory_in_cart
+                  if rec_type == accessory_type_a or rec_type == accessory_type_b
+                    assign include_item = false
+                  endif
                 endif
 
                 if has_motivwelt_match
@@ -112,6 +122,9 @@
                 <li class="grid__item">
                   {% render 'card-product',
                     card_product: recommendation,
+                    media_aspect_ratio: 'adapt',
+                    image_shape: 'default',
+                    show_secondary_image: false,
                     show_vendor: false,
                     show_rating: false,
                     quick_add: 'standard',
@@ -126,18 +139,24 @@
 
           {%- assign items_html_stripped = items_html | strip -%}
           {% if items_html_stripped != blank %}
-            <h2 class="title h3 cart-upsell__heading">{{ section.settings.heading }}</h2>
-            <ul
-              class="grid product-grid grid--4-col-desktop grid--2-col-tablet-down"
-              role="list"
-            >
-              {{ items_html }}
-            </ul>
+            <div class="collection__title title-wrapper title-wrapper--no-top-margin page-width">
+              <h2 class="title inline-richtext h3">{{ section.settings.heading }}</h2>
+            </div>
+            <slider-component class="slider-mobile-gutter page-width page-width-desktop">
+              <ul
+                id="Slider-{{ section.id }}"
+                data-id="{{ section.id }}"
+                class="grid product-grid contains-card contains-card--product{% if settings.card_style == 'standard' %} contains-card--standard{% endif %} grid--{{ columns_desktop }}-col-desktop grid--{{ columns_mobile }}-col-tablet-down"
+                role="list"
+              >
+                {{ items_html }}
+              </ul>
+            </slider-component>
           {% endif %}
         {% endif %}
       </product-recommendations>
     </div>
-  </section>
+  </div>
 {% endif %}
 
 {% schema %}
@@ -154,7 +173,7 @@
       "default": "complementary",
       "options": [
         { "value": "complementary", "label": "Complementary (Upsell/Add-on)" },
-        { "value": "related", "label": "Related (Ã„hnlich)" }
+        { "value": "related", "label": "Related (Ähnlich)" }
       ]
     },
     {
