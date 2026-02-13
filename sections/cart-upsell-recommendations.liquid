@@ -1,4 +1,4 @@
-{{ 'component-card.css' | asset_url | stylesheet_tag }}
+ï»¿{{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 {{ 'component-slider.css' | asset_url | stylesheet_tag }}
 {{ 'template-collection.css' | asset_url | stylesheet_tag }}
@@ -18,6 +18,27 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  .cart-upsell__recommendations {
+    display: block;
+  }
+
+  .cart-upsell__recommendations,
+  .cart-upsell__recommendations .product-grid,
+  .cart-upsell__recommendations .grid__item {
+    overflow: visible;
+  }
+
+  .cart-upsell__recommendations .product-grid {
+    --focus-outline-padding: 0.5rem;
+    --shadow-padding-sides: calc((var(--shadow-horizontal-offset) + var(--shadow-blur-radius)) * var(--shadow-visible));
+    --shadow-padding-sides-negative: calc(
+      (var(--shadow-horizontal-offset) * -1 + var(--shadow-blur-radius)) * var(--shadow-visible)
+    );
+    padding-left: max(var(--focus-outline-padding), var(--shadow-padding-sides-negative));
+    padding-right: max(var(--focus-outline-padding), var(--shadow-padding-sides));
+    margin-bottom: 0;
+  }
 {%- endstyle -%}
 
 {% if cart.item_count > 0 %}
@@ -27,7 +48,7 @@
     assign cart_prefixes = '|'
     assign cart_product_ids = '|'
     assign has_accessory_in_cart = false
-    assign accessory_type_a = 'tapetenzubehör'
+    assign accessory_type_a = 'tapetenzubehÃ¶r'
     assign accessory_type_b = 'tapetenzubehor'
     assign columns_desktop = 4
     assign columns_mobile = 2
@@ -173,7 +194,7 @@
       "default": "complementary",
       "options": [
         { "value": "complementary", "label": "Complementary (Upsell/Add-on)" },
-        { "value": "related", "label": "Related (Ähnlich)" }
+        { "value": "related", "label": "Related (Ã„hnlich)" }
       ]
     },
     {
