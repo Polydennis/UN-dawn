@@ -255,7 +255,8 @@
                     {%- assign my_sample_product = all_products[expected_handle] -%}
 
                     {%- if my_sample_product and my_sample_product.handle == expected_handle -%}
-                      {%- assign quick_add = 'standard' -%}
+                      {%- assign quick_add = 'none' -%}
+                      {%- assign sample_variant = my_sample_product.selected_or_first_available_variant -%}
                       <div class="materialprobe-block" {{ block.shopify_attributes }}>
                         <h2 class="h3" style="margin-bottom:0!important;">{{ block.settings.product_heading | default: 'Überzeuge dich selbst von Qualität und Material:' }}</h2>
                         <p>{{ block.settings.product_description | default: 'Du erhältst mit deiner Musterbestellung einen Wertgutschein über deine Bestellung. Du zahlst letztendlich also nichts für das Muster beim Kauf des Produkts.' }}</p>
@@ -269,6 +270,18 @@
                            section_id: section.id,
                            horizontal_class: true
                         %}
+                        {%- if sample_variant and sample_variant.available -%}
+                          <a
+                            class="button button--secondary button--full-width"
+                            href="{{ routes.cart_add_url }}?id={{ sample_variant.id }}&quantity=1"
+                          >
+                            {{ 'products.product.add_to_cart' | t }}
+                          </a>
+                        {%- else -%}
+                          <button class="button button--secondary button--full-width" type="button" disabled>
+                            {{ 'products.product.sold_out' | t }}
+                          </button>
+                        {%- endif -%}
                       </div>
                     {%- else -%}
                       <div class="h3" style="margin-top:1rem;">
