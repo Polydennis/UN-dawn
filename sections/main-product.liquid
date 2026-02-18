@@ -332,32 +332,137 @@
                     {%- assign my_sample_product = all_products[expected_handle] -%}
 
                     {%- if my_sample_product and my_sample_product.handle == expected_handle -%}
-                      {%- assign quick_add = 'link' -%}
                       {%- assign sample_variant = my_sample_product.selected_or_first_available_variant -%}
-                      {%- assign sample_variant_available = false -%}
-                      {%- assign sample_atc_url = '' -%}
-                      {%- if sample_variant -%}
-                        {%- assign sample_atc_url = routes.cart_add_url | append: '?id=' | append: sample_variant.id | append: '&quantity=1' -%}
-                        {%- if sample_variant.available -%}
-                          {%- assign sample_variant_available = true -%}
-                        {%- endif -%}
-                      {%- endif -%}
                       <div class="materialprobe-block" {{ block.shopify_attributes }}>
                         <h2 class="h3" style="margin-bottom:0!important;">{{ block.settings.product_heading | default: 'Überzeuge dich selbst von Qualität und Material:' }}</h2>
                         <p>{{ block.settings.product_description | default: 'Du erhältst mit deiner Musterbestellung einen Wertgutschein über deine Bestellung. Du zahlst letztendlich also nichts für das Muster beim Kauf des Produkts.' }}</p>
-                        {% render 'card-product',
-                           card_product: my_sample_product,
-                           media_aspect_ratio: 'portrait',
-                           show_secondary_image: false,
-                           lazy_load: true,
-                           skip_styles: skip_card_product_styles,
-                           quick_add: quick_add,
-                           quick_add_url: sample_atc_url,
-                           quick_add_available: sample_variant_available,
-                           section_id: section.id,
-                           horizontal_class: true
-                        %}
+                        <div class="materialprobe-card" data-materialprobe-card>
+                          <a
+                            class="materialprobe-card__media-link"
+                            href="{{ my_sample_product.url }}"
+                            aria-label="{{ my_sample_product.title | escape }}"
+                          >
+                            {%- if my_sample_product.featured_media -%}
+                              <img
+                                class="materialprobe-card__media"
+                                src="{{ my_sample_product.featured_media | image_url: width: 420 }}"
+                                srcset="
+                                  {{ my_sample_product.featured_media | image_url: width: 220 }} 220w,
+                                  {{ my_sample_product.featured_media | image_url: width: 320 }} 320w,
+                                  {{ my_sample_product.featured_media | image_url: width: 420 }} 420w
+                                "
+                                sizes="(max-width: 749px) 35vw, 12rem"
+                                alt="{{ my_sample_product.featured_media.alt | default: my_sample_product.title | escape }}"
+                                loading="lazy"
+                                width="420"
+                                height="{{ 420 | divided_by: my_sample_product.featured_media.aspect_ratio | round }}"
+                              >
+                            {%- else -%}
+                              {{ 'product-apparel-2' | placeholder_svg_tag: 'materialprobe-card__media placeholder-svg' }}
+                            {%- endif -%}
+                          </a>
+                          <div class="materialprobe-card__content">
+                            {%- if sample_variant and sample_variant.available -%}
+                              <button
+                                type="button"
+                                class="materialprobe-card__atc button button--secondary"
+                                data-materialprobe-atc
+                                data-variant-id="{{ sample_variant.id }}"
+                              >
+                                {{ 'products.product.add_to_cart' | t }}
+                              </button>
+                            {%- else -%}
+                              <button
+                                type="button"
+                                class="materialprobe-card__atc button button--secondary"
+                                disabled
+                              >
+                                {{ 'products.product.sold_out' | t }}
+                              </button>
+                            {%- endif -%}
+                            <a class="materialprobe-card__title h5" href="{{ my_sample_product.url }}">
+                              {{ my_sample_product.title | escape }}
+                            </a>
+                            <div class="materialprobe-card__price">
+                              {% render 'price', product: my_sample_product, price_class: '', show_compare_at_price: true %}
+                            </div>
+                            <p class="materialprobe-card__error caption" data-materialprobe-error hidden></p>
+                          </div>
+                        </div>
                       </div>
+                      <script>
+                        (() => {
+                          if (window.UNMaterialprobeQuickAddBound) return;
+                          window.UNMaterialprobeQuickAddBound = true;
+                          const fallbackError = {{ 'sections.cart.cart_error' | t | json }};
+
+                          document.addEventListener('click', async (event) => {
+                            const button = event.target.closest('[data-materialprobe-atc]');
+                            if (!button || button.disabled) return;
+
+                            event.preventDefault();
+                            const variantId = button.getAttribute('data-variant-id');
+                            if (!variantId) return;
+
+                            const card = button.closest('[data-materialprobe-card]');
+                            const errorNode = card ? card.querySelector('[data-materialprobe-error]') : null;
+                            if (errorNode) {
+                              errorNode.hidden = true;
+                              errorNode.textContent = '';
+                            }
+
+                            button.disabled = true;
+
+                            try {
+                              const formData = new FormData();
+                              formData.append('id', variantId);
+                              formData.append('quantity', '1');
+
+                              const cartUi = document.querySelector('cart-notification') || document.querySelector('cart-drawer');
+                              if (cartUi && typeof cartUi.getSectionsToRender === 'function') {
+                                formData.append(
+                                  'sections',
+                                  cartUi.getSectionsToRender().map((section) => section.id)
+                                );
+                                formData.append('sections_url', window.location.pathname);
+                                if (typeof cartUi.setActiveElement === 'function') {
+                                  cartUi.setActiveElement(button);
+                                }
+                              }
+
+                              const config = fetchConfig('javascript');
+                              config.headers['X-Requested-With'] = 'XMLHttpRequest';
+                              delete config.headers['Content-Type'];
+                              config.body = formData;
+
+                              const response = await fetch(window.routes.cart_add_url, config);
+                              const data = await response.json();
+
+                              if (data.status) {
+                                if (errorNode) {
+                                  errorNode.textContent = data.description || data.message || fallbackError;
+                                  errorNode.hidden = false;
+                                }
+                                return;
+                              }
+
+                              if (cartUi && typeof cartUi.renderContents === 'function') {
+                                cartUi.renderContents(data);
+                              } else {
+                                window.location.href = window.routes.cart_url;
+                              }
+                            } catch (error) {
+                              console.error(error);
+                              if (errorNode) {
+                                errorNode.textContent = fallbackError;
+                                errorNode.hidden = false;
+                              }
+                            } finally {
+                              button.disabled = false;
+                            }
+                          });
+                        })();
+                      </script>
                     {%- else -%}
                       <div class="h3" style="margin-top:1rem;">
                         {{ block.settings.fallback_text | default: 'Wenn du ein Muster für dieses Produkt bestellen möchtest,' }}
