@@ -92,10 +92,13 @@
 
     .section-{{ section.id }}-padding .materialprobe-card__price {
       margin-top: 0.2rem;
+      text-align: right;
     }
 
     .section-{{ section.id }}-padding .materialprobe-card__price .price {
       margin: 0;
+      justify-content: flex-end;
+      text-align: right;
     }
 
     .section-{{ section.id }}-padding .materialprobe-card__atc {
@@ -362,6 +365,12 @@
                             {%- endif -%}
                           </a>
                           <div class="materialprobe-card__content">
+                            <a class="materialprobe-card__title h5" href="{{ my_sample_product.url }}">
+                              {{ my_sample_product.title | escape }}
+                            </a>
+                            <div class="materialprobe-card__price">
+                              {% render 'price', product: my_sample_product, price_class: '', show_compare_at_price: true %}
+                            </div>
                             {%- if sample_variant and sample_variant.available -%}
                               <button
                                 type="button"
@@ -380,12 +389,6 @@
                                 {{ 'products.product.sold_out' | t }}
                               </button>
                             {%- endif -%}
-                            <a class="materialprobe-card__title h5" href="{{ my_sample_product.url }}">
-                              {{ my_sample_product.title | escape }}
-                            </a>
-                            <div class="materialprobe-card__price">
-                              {% render 'price', product: my_sample_product, price_class: '', show_compare_at_price: true %}
-                            </div>
                             <p class="materialprobe-card__error caption" data-materialprobe-error hidden></p>
                           </div>
                         </div>
