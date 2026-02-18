@@ -255,8 +255,16 @@
                     {%- assign my_sample_product = all_products[expected_handle] -%}
 
                     {%- if my_sample_product and my_sample_product.handle == expected_handle -%}
-                      {%- assign quick_add = 'none' -%}
+                      {%- assign quick_add = 'link' -%}
                       {%- assign sample_variant = my_sample_product.selected_or_first_available_variant -%}
+                      {%- assign sample_variant_available = false -%}
+                      {%- assign sample_atc_url = '' -%}
+                      {%- if sample_variant -%}
+                        {%- assign sample_atc_url = routes.cart_add_url | append: '?id=' | append: sample_variant.id | append: '&quantity=1' -%}
+                        {%- if sample_variant.available -%}
+                          {%- assign sample_variant_available = true -%}
+                        {%- endif -%}
+                      {%- endif -%}
                       <div class="materialprobe-block" {{ block.shopify_attributes }}>
                         <h2 class="h3" style="margin-bottom:0!important;">{{ block.settings.product_heading | default: 'Überzeuge dich selbst von Qualität und Material:' }}</h2>
                         <p>{{ block.settings.product_description | default: 'Du erhältst mit deiner Musterbestellung einen Wertgutschein über deine Bestellung. Du zahlst letztendlich also nichts für das Muster beim Kauf des Produkts.' }}</p>
@@ -267,21 +275,11 @@
                            lazy_load: true,
                            skip_styles: skip_card_product_styles,
                            quick_add: quick_add,
+                           quick_add_url: sample_atc_url,
+                           quick_add_available: sample_variant_available,
                            section_id: section.id,
                            horizontal_class: true
                         %}
-                        {%- if sample_variant and sample_variant.available -%}
-                          <a
-                            class="button button--secondary button--full-width"
-                            href="{{ routes.cart_add_url }}?id={{ sample_variant.id }}&quantity=1"
-                          >
-                            {{ 'products.product.add_to_cart' | t }}
-                          </a>
-                        {%- else -%}
-                          <button class="button button--secondary button--full-width" type="button" disabled>
-                            {{ 'products.product.sold_out' | t }}
-                          </button>
-                        {%- endif -%}
                       </div>
                     {%- else -%}
                       <div class="h3" style="margin-top:1rem;">
