@@ -8,7 +8,7 @@ For inquiries or permissions, contact daniel@section.store
 ---------------------------------------------------------
 {% endcomment %}
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" media="print" onload="this.media='all'"/>
 
 {%- liquid 
   assign padding_horizontal = section.settings.padding_horizontal
@@ -1177,8 +1177,8 @@ For inquiries or permissions, contact daniel@section.store
   </template>
 {% endif %}
 
-<script src="https://cdn.jsdelivr.net/npm/swiper@8.4.7/swiper-bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.2/dist/lazyload.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@8.4.7/swiper-bundle.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.2/dist/lazyload.min.js" defer></script>
 
 <script>
   function initProductVideos() {
