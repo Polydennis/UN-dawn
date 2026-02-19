@@ -32,66 +32,37 @@
     "collection_list_rX7iYp": {
       "type": "collection-list",
       "blocks": {
-        "featured_collection_pEKVyx": {
+        "featured_collection_yMnwKB": {
           "type": "featured_collection",
           "settings": {
-            "collection": "trendkollektion-urban-playground"
+            "collection": "motivwelt-tannenwald-aquarell"
           }
         },
-        "featured_collection_wyzE7J": {
+        "featured_collection_yDgax6": {
           "type": "featured_collection",
           "settings": {
-            "collection": "trendkollektion-royal-revival"
+            "collection": "motivwelt-feenwald"
           }
         },
-        "featured_collection_TzEE7L": {
+        "featured_collection_GURr8W": {
           "type": "featured_collection",
           "settings": {
-            "collection": "trendkollektion-dopamin-decor"
+            "collection": "motivwelt-meeresboden"
           }
         },
-        "featured_collection_hFCE9z": {
+        "featured_collection_R9ipWr": {
           "type": "featured_collection",
           "settings": {
-            "collection": "trendkollektion-tapeten-der-70er"
-          }
-        },
-        "featured_collection_G4HpXn": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "aquarellwelten"
-          }
-        },
-        "featured_collection_WjQa3i": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "trendkollektion-boho"
-          }
-        },
-        "featured_collection_EaEag6": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "trendkollektion-cottage-core"
-          }
-        },
-        "featured_collection_hmRC4n": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "trendkollektion-meisterwerke"
+            "collection": "motivwelt-safari-aquarell"
           }
         }
       },
       "block_order": [
-        "featured_collection_pEKVyx",
-        "featured_collection_wyzE7J",
-        "featured_collection_TzEE7L",
-        "featured_collection_hFCE9z",
-        "featured_collection_G4HpXn",
-        "featured_collection_WjQa3i",
-        "featured_collection_EaEag6",
-        "featured_collection_hmRC4n"
+        "featured_collection_yMnwKB",
+        "featured_collection_yDgax6",
+        "featured_collection_GURr8W",
+        "featured_collection_R9ipWr"
       ],
-      "disabled": true,
       "settings": {
         "title": "",
         "heading_size": "h2",
