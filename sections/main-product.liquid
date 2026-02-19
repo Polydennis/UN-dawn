@@ -47,15 +47,31 @@
       margin-top: 0.5rem;
     }
 
+    .section-{{ section.id }}-padding .materialprobe-block {
+      margin-top: 1.6rem;
+      padding: 1.6rem;
+      border: 0.1rem solid rgba(var(--color-foreground), 0.08);
+      border-radius: var(--media-radius);
+      background: rgb(var(--color-background));
+    }
+
+    .section-{{ section.id }}-padding .materialprobe-block > :first-child {
+      margin-top: 0;
+    }
+
+    .section-{{ section.id }}-padding .materialprobe-block > :last-child {
+      margin-bottom: 0;
+    }
+
     .section-{{ section.id }}-padding .materialprobe-card {
       display: grid;
       grid-template-columns: minmax(10rem, 12rem) 1fr;
       gap: 1.6rem;
       align-items: start;
-      padding: 1.6rem;
-      border: 0.1rem solid rgba(var(--color-foreground), 0.08);
-      border-radius: var(--media-radius);
-      background: rgb(var(--color-background));
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
     }
 
     .section-{{ section.id }}-padding .materialprobe-card__media-link {
@@ -309,21 +325,31 @@
                     {%- assign main_handle = product.handle | slice: 7, slice_length -%}
                     {%- assign main_product = all_products[main_handle] -%}
 
-                    {%- if main_product and main_product.title != blank and main_product.title != 'Beispiel für Produkttitel' -%}
+                    {%- if main_product
+                      and main_product.title != blank
+                      and main_product.title != 'Beispiel für Produkttitel'
+                    -%}
                       {%- assign quick_add = 'none' -%}
                       <div class="materialprobe-block" {{ block.shopify_attributes }}>
-                        <h2 class="h3">{{ block.settings.sample_heading | default: 'Dies ist eine Materialprobe für' }}</h2>
-                        <p>{{ block.settings.sample_description | default: 'Du erhältst mit deiner Musterbestellung einen Wertgutschein über deine Bestellung. Du zahlst letztendlich also nichts für das Muster beim Kauf des Produkts.' }}</p>
+                        <h2 class="h3">
+                          {{ block.settings.sample_heading | default: 'Dies ist eine Materialprobe für' }}
+                        </h2>
+                        <p>
+                          {{
+                            block.settings.sample_description
+                            | default: 'Du erhältst mit deiner Musterbestellung einen Wertgutschein über deine Bestellung. Du zahlst letztendlich also nichts für das Muster beim Kauf des Produkts.'
+                          }}
+                        </p>
                         {% render 'card-product',
-                           card_product: main_product,
-                           media_aspect_ratio: 'square',
-                           show_secondary_image: false,
-                           lazy_load: false,
-                           skip_styles: skip_card_product_styles,
-                           quick_add: quick_add,
-                           section_id: section.id,
-                           horizontal_class: true,
-                           horizontal_quick_add: true
+                          card_product: main_product,
+                          media_aspect_ratio: 'square',
+                          show_secondary_image: false,
+                          lazy_load: false,
+                          skip_styles: skip_card_product_styles,
+                          quick_add: quick_add,
+                          section_id: section.id,
+                          horizontal_class: true,
+                          horizontal_quick_add: true
                         %}
                       </div>
                     {%- else -%}
@@ -337,8 +363,18 @@
                     {%- if my_sample_product and my_sample_product.handle == expected_handle -%}
                       {%- assign sample_variant = my_sample_product.selected_or_first_available_variant -%}
                       <div class="materialprobe-block" {{ block.shopify_attributes }}>
-                        <h2 class="h3" style="margin-bottom:0!important;">{{ block.settings.product_heading | default: 'Überzeuge dich selbst von Qualität und Material:' }}</h2>
-                        <p>{{ block.settings.product_description | default: 'Du erhältst mit deiner Musterbestellung einen Wertgutschein über deine Bestellung. Du zahlst letztendlich also nichts für das Muster beim Kauf des Produkts.' }}</p>
+                        <h2 class="h3" style="margin-bottom:0!important;">
+                          {{
+                            block.settings.product_heading
+                            | default: 'Überzeuge dich selbst von Qualität und Material:'
+                          }}
+                        </h2>
+                        <p>
+                          {{
+                            block.settings.product_description
+                            | default: 'Du erhältst mit deiner Musterbestellung einen Wertgutschein über deine Bestellung. Du zahlst letztendlich also nichts für das Muster beim Kauf des Produkts.'
+                          }}
+                        </p>
                         <div class="materialprobe-card" data-materialprobe-card>
                           <a
                             class="materialprobe-card__media-link"
@@ -361,7 +397,10 @@
                                 height="{{ 420 | divided_by: my_sample_product.featured_media.aspect_ratio | round }}"
                               >
                             {%- else -%}
-                              {{ 'product-apparel-2' | placeholder_svg_tag: 'materialprobe-card__media placeholder-svg' }}
+                              {{
+                                'product-apparel-2'
+                                | placeholder_svg_tag: 'materialprobe-card__media placeholder-svg'
+                              }}
                             {%- endif -%}
                           </a>
                           <div class="materialprobe-card__content">
@@ -369,7 +408,11 @@
                               {{ my_sample_product.title | escape }}
                             </a>
                             <div class="materialprobe-card__price">
-                              {% render 'price', product: my_sample_product, price_class: '', show_compare_at_price: true %}
+                              {% render 'price',
+                                product: my_sample_product,
+                                price_class: '',
+                                show_compare_at_price: true
+                              %}
                             </div>
                             {%- if sample_variant and sample_variant.available -%}
                               <button
@@ -468,8 +511,17 @@
                       </script>
                     {%- else -%}
                       <div class="h3" style="margin-top:1rem;">
-                        {{ block.settings.fallback_text | default: 'Wenn du ein Muster für dieses Produkt bestellen möchtest,' }}
-                        <a href="{{ block.settings.contact_url | default: 'https://unik-nordic.com/pages/kontakt' }}" target="_blank" rel="noopener noreferrer">{{ block.settings.contact_link_text | default: 'schreibe uns!' }}</a>
+                        {{
+                          block.settings.fallback_text
+                          | default: 'Wenn du ein Muster für dieses Produkt bestellen möchtest,'
+                        }}
+                        <a
+                          href="{{ block.settings.contact_url | default: 'https://unik-nordic.com/pages/kontakt' }}"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {{- block.settings.contact_link_text | default: 'schreibe uns!' -}}
+                        </a>
                       </div>
                     {%- endif -%}
                   {%- endif -%}
@@ -789,7 +841,10 @@
                   </div>
                 {%- endif -%}
               {%- when 'complementary' -%}
-                {%- assign sku_prefix_number = product.selected_or_first_available_variant.sku | slice: 0, 4 | plus: 0 -%}
+                {%- assign sku_prefix_number = product.selected_or_first_available_variant.sku
+                  | slice: 0, 4
+                  | plus: 0
+                -%}
                 {%- assign motivwelt_collection = blank -%}
                 {%- if sku_prefix_number != blank -%}
                   {%- for collection in collections -%}
@@ -825,7 +880,8 @@
                           <div class="center">
                             <p class="card__caption">
                               <a href="{{ motivwelt_collection.url }}" class="link animate-arrow">
-                                {{ block.settings.motivwelt_cta_label | strip }} {{ motivwelt_collection.title }}
+                                {{ block.settings.motivwelt_cta_label | strip }}
+                                {{ motivwelt_collection.title }}
                                 <span class="icon-wrap">
                                   {{- 'icon-arrow.svg' | inline_asset_content -}}
                                 </span>
@@ -1614,8 +1670,7 @@
           "type": "page",
           "id": "page",
           "label": "t:sections.main-product.blocks.collapsible_tab.settings.page.label"
-        },
-
+        }
       ]
     },
     {
