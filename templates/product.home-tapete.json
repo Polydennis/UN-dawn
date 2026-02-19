@@ -297,10 +297,16 @@
             "share_label": "Lieblingsdesign teilen"
           }
         },
-        "custom_liquid_zKAKwC": {
-          "type": "custom_liquid",
+        "materialprobe_NaL73x": {
+          "type": "materialprobe",
           "settings": {
-            "custom_liquid": "{% if product.handle contains 'tapete' or product.handle contains 'kuechenfolie' %}\n  {% assign skip_card_product_styles = false %}\n  {% assign handle_prefix = product.handle | slice: 0, 7 %}\n\n  {% if handle_prefix == 'muster-' %}\n    {% assign handle_length = product.handle | size %}\n    {% assign slice_length = handle_length | minus: 7 %}\n    {% assign main_handle = product.handle | slice: 7, slice_length %}\n    {% assign main_product = all_products[main_handle] %}\n\n    {% if main_product and main_product.title != blank and main_product.title != 'Beispiel für Produkttitel' %}\n      {% assign quick_add = 'none' %}\n      <h2 class=\"h3 \">Dies ist eine Materialprobe für</h2><p>Du erhältst mit deiner Musterbestellung einen Wertgutschein über deine Bestellung. Du zahlst letztendlich also nichts für das Muster beim Kauf des Produkts.</p>\n      {% render 'card-product',\n         card_product: main_product,\n         media_aspect_ratio: 'square',\n         show_secondary_image: false,\n         lazy_load: false,\n         skip_styles: skip_card_product_styles,\n         quick_add: quick_add,\n         section_id: section.id,\n         horizontal_class: true,\n         horizontal_quick_add: true\n      %}\n    {% else %}\n      <p class=\"h3\" style=\"color:red;\">⚠️ Hauptprodukt nicht gefunden (Handle: {{ main_handle }})</p>\n    {% endif %}\n\n  {% else %}\n    {% assign expected_handle = 'muster-' | append: product.handle %}\n    {% assign my_sample_product = all_products[expected_handle] %}\n\n    {% if my_sample_product and my_sample_product.handle == expected_handle %}\n      {% assign quick_add = 'standard' %}\n      <h2 class=\"h3\" style=\"margin-bottom:0!important;\">Überzeuge dich selbst von Qualität und Material:</h2><p>Du erhältst mit deiner Musterbestellung einen Wertgutschein über deine Bestellung. Du zahlst letztendlich also nichts für das Muster beim Kauf des Produkts.</p>\n      {% render 'card-product',\n         card_product: my_sample_product,\n         media_aspect_ratio: 'portrait',\n         show_secondary_image: false,\n         lazy_load: true,\n         skip_styles: skip_card_product_styles,\n         quick_add: quick_add,\n         section_id: section.id,\n         horizontal_class: true\n      %}\n    {% else %}\n      <div class=\"h3\" style=\"margin-top:1rem;\">\n        Wenn du ein Muster für dieses Produkt bestellen möchtest,\n        <a href=\"https://unik-nordic.com/pages/kontakt\" target=\"_blank\" rel=\"noopener noreferrer\">schreibe uns!</a>\n      </div>\n    {% endif %}\n  {% endif %}\n{% endif %}"
+            "sample_heading": "Dies ist eine Materialprobe für",
+            "sample_description": "Du erhältst mit deiner Musterbestellung einen Wertgutschein über deine Bestellung. Du zahlst letztendlich also nichts für das Muster beim Kauf des Produkts.",
+            "product_heading": "Überzeuge dich selbst von Qualität und Material:",
+            "product_description": "Du erhältst mit deiner Musterbestellung einen Wertgutschein über deine Bestellung. Du zahlst letztendlich also nichts für das Muster beim Kauf des Produkts.",
+            "fallback_text": "Wenn du ein Muster für dieses Produkt bestellen möchtest,",
+            "contact_link_text": "schreibe uns!",
+            "contact_url": ""
           }
         },
         "description": {
@@ -318,6 +324,7 @@
           "type": "complementary",
           "settings": {
             "block_heading": "Perfektes Zusammenspiel",
+            "motivwelt_cta_label": "Entdecke die",
             "make_collapsible_row": false,
             "icon": "eye",
             "product_list_limit": 9,
@@ -347,7 +354,7 @@
         "collapsible_tab_ebV9Pf",
         "collapsible_tab_b3bYRW",
         "share",
-        "custom_liquid_zKAKwC",
+        "materialprobe_NaL73x",
         "description",
         "text_7bAmN8",
         "complementary_MiF7W4"
