@@ -32,44 +32,66 @@
     "collection_list_rX7iYp": {
       "type": "collection-list",
       "blocks": {
-        "featured_collection_QjRgz3": {
+        "featured_collection_pEKVyx": {
           "type": "featured_collection",
           "settings": {
-            "collection": "motivwelt-tannenwald-aquarell"
+            "collection": "trendkollektion-urban-playground"
           }
         },
-        "featured_collection_Mp7rBL": {
+        "featured_collection_wyzE7J": {
           "type": "featured_collection",
           "settings": {
-            "collection": "motivwelt-feenwald"
+            "collection": "trendkollektion-royal-revival"
           }
         },
-        "featured_collection_kncP6T": {
+        "featured_collection_TzEE7L": {
           "type": "featured_collection",
           "settings": {
-            "collection": "motivwelt-meeresboden"
+            "collection": "trendkollektion-dopamin-decor"
           }
         },
-        "featured_collection_rzF9YV": {
+        "featured_collection_hFCE9z": {
           "type": "featured_collection",
           "settings": {
-            "collection": "motivwelt-safari-aquarell"
+            "collection": "trendkollektion-tapeten-der-70er"
           }
         },
-        "featured_collection_YYPF8W": {
+        "featured_collection_G4HpXn": {
           "type": "featured_collection",
           "settings": {
-            "collection": "motivwelt-traumzirkus"
+            "collection": "aquarellwelten"
+          }
+        },
+        "featured_collection_WjQa3i": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "trendkollektion-boho"
+          }
+        },
+        "featured_collection_EaEag6": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "trendkollektion-cottage-core"
+          }
+        },
+        "featured_collection_hmRC4n": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "trendkollektion-meisterwerke"
           }
         }
       },
       "block_order": [
-        "featured_collection_QjRgz3",
-        "featured_collection_Mp7rBL",
-        "featured_collection_kncP6T",
-        "featured_collection_rzF9YV",
-        "featured_collection_YYPF8W"
+        "featured_collection_pEKVyx",
+        "featured_collection_wyzE7J",
+        "featured_collection_TzEE7L",
+        "featured_collection_hFCE9z",
+        "featured_collection_G4HpXn",
+        "featured_collection_WjQa3i",
+        "featured_collection_EaEag6",
+        "featured_collection_hmRC4n"
       ],
+      "disabled": true,
       "settings": {
         "title": "",
         "heading_size": "h2",
