@@ -131,7 +131,8 @@
         "color_options_desc": "Avec cette étiquette, vous pouvez choisir vous-même les couleurs.",
         "moveable_elements_desc": "Ici, les motifs individuels du graphique sont déplaçables.",
         "custom_sizes_desc": "Le motif et la coupe sont ajustés sur mesure gratuitement.",
-        "w-squeegee": "Raclette incluse"
+        "w-squeegee": "Raclette incluse",
+        "w-squeegee_desc": "Raclette gratuite incluse pour poser le film facilement et sans bulles."
       },
       "upload_photo": "Ajouter une photo",
       "photo_uploaded": "Photo téléchargée avec succès",

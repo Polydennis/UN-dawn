@@ -130,7 +130,8 @@
         "color_options_desc": "With this label you can choose the colors yourself.",
         "moveable_elements_desc": "Here, the individual motifs of the graphic are moveable.",
         "custom_sizes_desc": "The motif and cut are adjusted to size free of charge.",
-        "w-squeegee": "Free squeegee"
+        "w-squeegee": "Free squeegee",
+        "w-squeegee_desc": "Free squeegee included so you can apply the film easily and without bubbles."
       },
       "upload_photo": "Upload photo",
       "photo_uploaded": "Photo uploaded successfully",

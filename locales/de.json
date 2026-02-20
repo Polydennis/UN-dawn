@@ -130,7 +130,8 @@
         "color_options_desc": "Mit diesem Label kannst du die Farben selbst bestimmen.",
         "moveable_elements_desc": "Hier sind die einzelnen Motive der Grafik verschiebbar.",
         "custom_sizes_desc": "Motiv und Schnitt werden kostenlos auf Maß angepasst.",
-        "w-squeegee": " inkl. Werkzeug"
+        "w-squeegee": " inkl. Werkzeug",
+        "w-squeegee_desc": "Kostenloser Rakel, mit dem du die Folie einfach und blasenfrei aufkleben kannst."
       },
       "upload_photo": "Foto anhängen",
       "photo_uploaded": "Foto erfolgreich hochgeladen",
