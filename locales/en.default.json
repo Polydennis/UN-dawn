@@ -560,5 +560,10 @@
       "send_on": "YYYY-MM-DD",
       "send_on_label": "Send on (optional)"
     }
+  },
+  "customer_accounts": {
+    "shop_policies": {
+      "privacy_policy": "Privacy Policy"
+    }
   }
 }
