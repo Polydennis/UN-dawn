@@ -345,29 +345,35 @@ For inquiries or permissions, contact daniel@section.store
       <div class="scrolling-second-bg-{{ section.id }}"></div>
       <div class="scrolling-wrap-{{ section.id }}">
         <div class="scrolling-list-{{ section.id }}">
-          {% for item in (1..5) %}
-            {% for block in section.blocks %}
-              <div class="scrolling-image-{{ section.id }}">
-                {% if block.settings.image != blank %}
-                  <img src="{{ block.settings.image | image_url }}" alt="{{ block.settings.image.alt }}" {% if lazy %}loading="lazy"{% endif %}> 
-                {% else %}  
-                  {{ 'image' | placeholder_svg_tag }}
-                {% endif %}
-              </div>
-            {% endfor %}            
+          {% for block in section.blocks %}
+            <div class="scrolling-image-{{ section.id }}">
+              {% if block.settings.image != blank %}
+                <img
+                  src="{{ block.settings.image | image_url: width: image_width }}"
+                  alt="{{ block.settings.image.alt }}"
+                  width="{{ image_width }}"
+                  loading="{% if lazy %}lazy{% else %}eager{% endif %}"
+                  decoding="async">
+              {% else %}
+                {{ 'image' | placeholder_svg_tag }}
+              {% endif %}
+            </div>
           {% endfor %}
         </div>
-        <div class="scrolling-list-{{ section.id }}">
-          {% for item in (1..5) %}
-            {% for block in section.blocks %}
-              <div class="scrolling-image-{{ section.id }}">
-                {% if block.settings.image != blank %}
-                  <img src="{{ block.settings.image | image_url }}" alt="{{ block.settings.image.alt }}" {% if lazy %}loading="lazy"{% endif %}> 
-                {% else %}  
-                  {{ 'image' | placeholder_svg_tag }}
-                {% endif %}
-              </div>
-            {% endfor %}  
+        <div class="scrolling-list-{{ section.id }}" aria-hidden="true">
+          {% for block in section.blocks %}
+            <div class="scrolling-image-{{ section.id }}">
+              {% if block.settings.image != blank %}
+                <img
+                  src="{{ block.settings.image | image_url: width: image_width }}"
+                  alt=""
+                  width="{{ image_width }}"
+                  loading="lazy"
+                  decoding="async">
+              {% else %}
+                {{ 'image' | placeholder_svg_tag }}
+              {% endif %}
+            </div>
           {% endfor %}
         </div>
       </div>
@@ -375,48 +381,68 @@ For inquiries or permissions, contact daniel@section.store
   </div>
 </div>
 
-{% if use_dragging %}
-  <script>
-    function initScrollingImages5() {
-      const container = document.querySelector('.scrolling-wrap-{{ section.id }}');
-
-      if (container) {
-        let isDragging = false;
-        let startX;
-        let scrollLeft;
-
-        container.addEventListener('mousedown', (e) => {
-          isDragging = true;
-          startX = e.pageX - container.offsetLeft;
-          scrollLeft = container.scrollLeft;
-        });
-
-        container.addEventListener('mouseleave', () => {
-          isDragging = false;
-        });
-
-        container.addEventListener('mouseup', () => {
-          isDragging = false;
-        });
-
-        container.addEventListener('mousemove', (e) => {
-          if (!isDragging) return;
-          e.preventDefault();
-          const x = e.pageX - container.offsetLeft;
-          const walk = (x - startX);
-          container.scrollLeft = scrollLeft - walk;
-        });
-      }  
+<script>
+  function fillScrollingList_{{ section.id | replace: '-', '' }}(listEl) {
+    const minWidth = window.innerWidth;
+    const originals = Array.from(listEl.children);
+    if (!originals.length) return;
+    let guard = 0;
+    while (listEl.scrollWidth < minWidth && guard++ < 30) {
+      originals.forEach(function(item) {
+        const clone = item.cloneNode(true);
+        const img = clone.querySelector('img');
+        if (img) {
+          img.setAttribute('loading', 'lazy');
+          img.setAttribute('alt', '');
+        }
+        listEl.appendChild(clone);
+      });
     }
+  }
 
-    document.addEventListener('DOMContentLoaded', initScrollingImages5);
+  function initScrollingImages5_{{ section.id | replace: '-', '' }}() {
+    const wrap = document.querySelector('.scrolling-wrap-{{ section.id }}');
+    if (!wrap) return;
 
-    if (Shopify.designMode) {
-      document.addEventListener('shopify:section:unload', initScrollingImages5);
-      document.addEventListener('shopify:section:load', initScrollingImages5);
-    }
-  </script>
-{% endif %}
+    wrap.querySelectorAll('.scrolling-list-{{ section.id }}').forEach(function(list) {
+      fillScrollingList_{{ section.id | replace: '-', '' }}(list);
+    });
+
+    {% if use_dragging %}
+    let isDragging = false;
+    let startX;
+    let scrollLeft;
+
+    wrap.addEventListener('mousedown', function(e) {
+      isDragging = true;
+      startX = e.pageX - wrap.offsetLeft;
+      scrollLeft = wrap.scrollLeft;
+    });
+
+    wrap.addEventListener('mouseleave', function() {
+      isDragging = false;
+    });
+
+    wrap.addEventListener('mouseup', function() {
+      isDragging = false;
+    });
+
+    wrap.addEventListener('mousemove', function(e) {
+      if (!isDragging) return;
+      e.preventDefault();
+      const x = e.pageX - wrap.offsetLeft;
+      wrap.scrollLeft = scrollLeft - (x - startX);
+    });
+    {% endif %}
+  }
+
+  document.addEventListener('DOMContentLoaded', initScrollingImages5_{{ section.id | replace: '-', '' }});
+
+  if (Shopify.designMode) {
+    document.addEventListener('shopify:section:unload', initScrollingImages5_{{ section.id | replace: '-', '' }});
+    document.addEventListener('shopify:section:load', initScrollingImages5_{{ section.id | replace: '-', '' }});
+  }
+</script>
 
 
 
