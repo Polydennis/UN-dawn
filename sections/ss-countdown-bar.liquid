@@ -253,7 +253,6 @@
                             ),
                             countDown = new Date('{{ block.settings.year }}', '{{ block.settings.month }}' - 1, '{{ block.settings.day }}', '{{ block.settings.hour }}', '{{ block.settings.minute }}', 0).getTime();
 
-                          console.log('start timer, end date:' + countDown)
                           const interval = setInterval(function () {
                             let now = new Date().getTime(),
                               distance = countDown - now,
