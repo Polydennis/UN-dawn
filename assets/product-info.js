@@ -427,3 +427,79 @@ if (!customElements.get('product-info')) {
     }
   );
 }
+
+(() => {
+  if (window.UNTooltipDelegationBound) return;
+  window.UNTooltipDelegationBound = true;
+
+  function getTooltipTrigger(target) {
+    const trigger = target.closest('.tooltip');
+    if (!trigger) return null;
+    if (!trigger.querySelector('.tooltiptext')) return null;
+    return trigger;
+  }
+
+  function positionTooltip(trigger, tip) {
+    tip.style.top = 'calc(100% + 8px)';
+    tip.style.bottom = 'auto';
+
+    const rect = trigger.getBoundingClientRect();
+    const tipRect = tip.getBoundingClientRect();
+    const spaceBelow = window.innerHeight - rect.bottom;
+    const needed = tipRect.height + 12;
+
+    if (spaceBelow < needed) {
+      tip.style.top = 'auto';
+      tip.style.bottom = 'calc(100% + 8px)';
+    }
+  }
+
+  function closeAll(except) {
+    document.querySelectorAll('.tooltip[aria-expanded="true"]').forEach((open) => {
+      if (open === except) return;
+      open.setAttribute('aria-expanded', 'false');
+      const tip = open.querySelector('.tooltiptext');
+      if (tip) {
+        tip.style.visibility = 'hidden';
+        tip.style.opacity = '0';
+      }
+    });
+  }
+
+  function toggleTip(trigger) {
+    const tip = trigger.querySelector('.tooltiptext');
+    if (!tip) return;
+
+    const expanded = trigger.getAttribute('aria-expanded') === 'true';
+    if (expanded) {
+      trigger.setAttribute('aria-expanded', 'false');
+      tip.style.visibility = 'hidden';
+      tip.style.opacity = '0';
+      return;
+    }
+
+    closeAll(trigger);
+    trigger.setAttribute('aria-expanded', 'true');
+    tip.style.visibility = 'visible';
+    tip.style.opacity = '1';
+    positionTooltip(trigger, tip);
+  }
+
+  document.addEventListener('click', (event) => {
+    const trigger = getTooltipTrigger(event.target);
+    if (trigger) {
+      event.preventDefault();
+      toggleTip(trigger);
+      return;
+    }
+
+    closeAll(null);
+  });
+
+  window.addEventListener('resize', () => {
+    document.querySelectorAll('.tooltip[aria-expanded="true"]').forEach((trigger) => {
+      const tip = trigger.querySelector('.tooltiptext');
+      if (tip) positionTooltip(trigger, tip);
+    });
+  });
+})();

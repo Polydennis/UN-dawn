@@ -313,7 +313,12 @@
                   {{- product.selected_or_first_available_variant.sku -}}
                 </p>
               {%- when 'custom_liquid' -%}
-                {{ block.settings.custom_liquid }}
+                {%- assign custom_liquid_content = block.settings.custom_liquid -%}
+                {%- if custom_liquid_content contains 'function positionTooltip(tooltip, tooltipText)' -%}
+                  {{ custom_liquid_content | split: '<script>' | first }}
+                {%- else -%}
+                  {{ custom_liquid_content }}
+                {%- endif -%}
               {%- when 'materialprobe' -%}
                 {%- if product.handle contains 'tapete' or product.handle contains 'kuechenfolie' -%}
                   {%- assign skip_card_product_styles = false -%}
