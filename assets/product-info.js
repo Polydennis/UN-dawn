@@ -486,6 +486,8 @@ if (!customElements.get('product-info')) {
   }
 
   document.addEventListener('click', (event) => {
+    if (event.defaultPrevented) return;
+
     const trigger = getTooltipTrigger(event.target);
     if (trigger) {
       event.preventDefault();
