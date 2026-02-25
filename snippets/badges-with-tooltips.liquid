@@ -216,6 +216,9 @@
 
   <script>
     (function() {
+      if (window.UNBadgeTooltipHandlersBound) return;
+      window.UNBadgeTooltipHandlersBound = true;
+
       function positionTooltip(trigger, tip) {
         tip.style.top = 'calc(100% + 8px)';
         tip.style.bottom = 'auto';
@@ -229,8 +232,8 @@
         }
       }
 
-      function closeAll(except) {
-        document.querySelectorAll('.badge.tooltip[aria-expanded="true"]').forEach(function(open) {
+      function closeAll(scope, except) {
+        scope.querySelectorAll('.badge.tooltip[aria-expanded="true"]').forEach(function(open) {
           if (open !== except) {
             open.setAttribute('aria-expanded', 'false');
             var tip = open.querySelector('.tooltiptext');
@@ -243,6 +246,7 @@
       }
 
       function toggleTip(el) {
+        var scope = el.closest('.badge-tooltips') || document;
         var tip = el.querySelector('.tooltiptext');
         if (!tip) return;
         var expanded = el.getAttribute('aria-expanded') === 'true';
@@ -251,7 +255,7 @@
           tip.style.visibility = 'hidden';
           tip.style.opacity = '0';
         } else {
-          closeAll(el);
+          closeAll(scope, el);
           el.setAttribute('aria-expanded', 'true');
           tip.style.visibility = 'visible';
           tip.style.opacity = '1';
@@ -265,7 +269,9 @@
           e.preventDefault();
           toggleTip(trigger);
         } else {
-          closeAll(null);
+          document.querySelectorAll('.badge-tooltips').forEach(function(scope) {
+            closeAll(scope, null);
+          });
         }
       });
 

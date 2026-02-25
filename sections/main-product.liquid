@@ -438,11 +438,14 @@
                       </div>
                       <script>
                         (() => {
-                          if (window.UNMaterialprobeQuickAddBound) return;
-                          window.UNMaterialprobeQuickAddBound = true;
+                          const bindKey = 'UNMaterialprobeQuickAddBound_{{ section.id }}';
+                          if (window[bindKey]) return;
+                          window[bindKey] = true;
                           const fallbackError = {{ 'sections.cart.cart_error' | t | json }};
+                          const root = document.getElementById('MainProduct-{{ section.id }}');
+                          if (!root) return;
 
-                          document.addEventListener('click', async (event) => {
+                          root.addEventListener('click', async (event) => {
                             const button = event.target.closest('[data-materialprobe-atc]');
                             if (!button || button.disabled) return;
 
