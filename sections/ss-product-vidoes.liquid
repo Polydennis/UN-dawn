@@ -1177,22 +1177,23 @@ For inquiries or permissions, contact daniel@section.store
   </template>
 {% endif %}
 
-<script src="https://cdn.jsdelivr.net/npm/swiper@8.4.7/swiper-bundle.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.2/dist/lazyload.min.js" defer></script>
-
 <script>
   function initProductVideos() {
     setTimeout(() => {
+      if (typeof Swiper === 'undefined' || typeof LazyLoad === 'undefined') return;
+      const sliderRoot = document.querySelector('.video-slider-{{ section.id }}');
+      const modalSliderRoot = document.querySelector('.video-modal-slider-{{ section.id }}');
+      const modal = document.querySelector('.video-modal-{{ section.id }}');
+      const close = document.querySelector('.video-modal-close-{{ section.id }}');
+      if (!sliderRoot || !modalSliderRoot || !modal || !close) return;
 
-      const slider=new Swiper('.video-slider-{{ section.id }}',{speed:300,slidesPerView: "auto", navigation:{nextEl:'.video-btn-next-{{ section.id }}',prevEl:'.video-btn-prev-{{ section.id }}'},breakpoints:{320:{spaceBetween:{{ slider_gap_mobile }}},768:{spaceBetween:{{ slider_gap_mobile }}},1024:{spaceBetween:{{ slider_gap }}}}});
+      const slider=new Swiper(sliderRoot,{speed:300,slidesPerView: "auto", navigation:{nextEl:'.video-btn-next-{{ section.id }}',prevEl:'.video-btn-prev-{{ section.id }}'},breakpoints:{320:{spaceBetween:{{ slider_gap_mobile }}},768:{spaceBetween:{{ slider_gap_mobile }}},1024:{spaceBetween:{{ slider_gap }}}}});
 
 
-      const slider2=new Swiper('.video-modal-slider-{{ section.id }}',{speed:300,slidesPerView:1,allowTouchMove:!1,spaceBetween:20,navigation:{nextEl:'.video-modal-next-{{ section.id }}',prevEl:'.video-modal-prev-{{ section.id }}'},on:{slideChange:function(){const e=this.slides;for(let t=0;t<e.length;t++){let n=e[t].querySelector('video'),s=e[t].querySelector('iframe'),a=e[t].querySelector('.video-modal-action-{{ section.id }}'),o,r;if(s){o=s.getAttribute('data-src'),r=s.getAttribute('data-src2')}t===this.activeIndex?(n&&(n.play(),n.muted=!1),s&&(s.src=r),a&&a.classList.add('active')):(n&&n.pause(),s&&(s.src=o))}}}});
+      const slider2=new Swiper(modalSliderRoot,{speed:300,slidesPerView:1,allowTouchMove:!1,spaceBetween:20,navigation:{nextEl:'.video-modal-next-{{ section.id }}',prevEl:'.video-modal-prev-{{ section.id }}'},on:{slideChange:function(){const e=this.slides;for(let t=0;t<e.length;t++){let n=e[t].querySelector('video'),s=e[t].querySelector('iframe'),a=e[t].querySelector('.video-modal-action-{{ section.id }}'),o,r;if(s){o=s.getAttribute('data-src'),r=s.getAttribute('data-src2')}t===this.activeIndex?(n&&(n.play(),n.muted=!1),s&&(s.src=r),a&&a.classList.add('active')):(n&&n.pause(),s&&(s.src=o))}}}});
 
 
       const toggles = document.querySelectorAll('.video-slide-video-{{ section.id }}');
-      const modal = document.querySelector('.video-modal-{{ section.id }}');
-      const close = document.querySelector('.video-modal-close-{{ section.id }}');
       let activeSlideIndex = 0;
       
       toggles.forEach((el, index) => {
@@ -1327,13 +1328,113 @@ For inquiries or permissions, contact daniel@section.store
       
     }, 400)
   }
-  
-  document.addEventListener('DOMContentLoaded', initProductVideos);
-  
-  if (Shopify.designMode) {
-     document.addEventListener('shopify:section:unload', initProductVideos);
-     document.addEventListener('shopify:section:load', initProductVideos);
-  }
+
+  (function () {
+    const initStateKey = '__UNProductVideosInit_{{ section.id }}';
+    const scriptPromises = (window.__UNScriptPromises = window.__UNScriptPromises || {});
+
+    function loadScriptOnce(src, key) {
+      if (scriptPromises[key]) return scriptPromises[key];
+
+      scriptPromises[key] = new Promise((resolve, reject) => {
+        const existing = document.querySelector(`script[data-un-script="${key}"]`);
+        if (existing) {
+          if (existing.getAttribute('data-loaded') === 'true') {
+            resolve();
+            return;
+          }
+          existing.addEventListener('load', resolve, { once: true });
+          existing.addEventListener('error', reject, { once: true });
+          return;
+        }
+
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = src;
+        script.setAttribute('data-un-script', key);
+        script.addEventListener(
+          'load',
+          () => {
+            script.setAttribute('data-loaded', 'true');
+            resolve();
+          },
+          { once: true }
+        );
+        script.addEventListener('error', reject, { once: true });
+        document.head.appendChild(script);
+      });
+
+      return scriptPromises[key];
+    }
+
+    function ensureDependencies() {
+      return Promise.all([
+        window.Swiper
+          ? Promise.resolve()
+          : loadScriptOnce('https://cdn.jsdelivr.net/npm/swiper@8.4.7/swiper-bundle.min.js', 'swiper-v8'),
+        window.LazyLoad
+          ? Promise.resolve()
+          : loadScriptOnce(
+              'https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.2/dist/lazyload.min.js',
+              'lazyload-v17'
+            ),
+      ]);
+    }
+
+    function runInit() {
+      if (window[initStateKey] === 'loading' || window[initStateKey] === 'done') return;
+      window[initStateKey] = 'loading';
+
+      ensureDependencies()
+        .then(() => {
+          initProductVideos();
+          window[initStateKey] = 'done';
+        })
+        .catch(() => {
+          window[initStateKey] = false;
+        });
+    }
+
+    function setupDeferredInit() {
+      const target =
+        document.querySelector('.section-{{ section.id }}-settings') ||
+        document.querySelector('#shopify-section-{{ section.id }}');
+
+      if (!target) {
+        window.setTimeout(setupDeferredInit, 250);
+        return;
+      }
+
+      if (!('IntersectionObserver' in window)) {
+        runInit();
+        return;
+      }
+
+      const observer = new IntersectionObserver(
+        (entries, obs) => {
+          if (entries.some((entry) => entry.isIntersecting)) {
+            runInit();
+            obs.disconnect();
+          }
+        },
+        { rootMargin: '300px 0px' }
+      );
+
+      observer.observe(target);
+    }
+
+    document.addEventListener('DOMContentLoaded', setupDeferredInit);
+    window.addEventListener('pointerdown', runInit, { once: true, passive: true });
+    window.addEventListener('touchstart', runInit, { once: true, passive: true });
+    window.addEventListener('keydown', runInit, { once: true });
+
+    if (Shopify.designMode) {
+      document.addEventListener('shopify:section:load', setupDeferredInit);
+      document.addEventListener('shopify:section:unload', () => {
+        window[initStateKey] = false;
+      });
+    }
+  })();
 </script>
 
 {% schema %}
