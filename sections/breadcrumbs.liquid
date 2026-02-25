@@ -1,6 +1,43 @@
 {% comment %}
-  Custom Breadcrumb Navigation Section for PDP with Schema
+  Breadcrumb Navigation for Product Pages
+  Priority:
+  1) Current collection context (if product is opened from a collection)
+  2) First product collection excluding generic "all" collections
+  3) Product type collection if a matching manual collection handle exists
 {% endcomment %}
+
+{%- liquid
+  assign generic_collection_handles = 'all,alle-produkte,all-products' | split: ','
+  assign breadcrumb_collection = blank
+
+  if collection and product.collections contains collection
+    unless generic_collection_handles contains collection.handle
+      assign breadcrumb_collection = collection
+    endunless
+  endif
+
+  if breadcrumb_collection == blank
+    for product_collection in product.collections
+      assign is_generic_title = false
+      assign collection_title_downcase = product_collection.title | downcase
+
+      if collection_title_downcase contains 'all products' or collection_title_downcase contains 'alle produkte'
+        assign is_generic_title = true
+      endif
+
+      unless generic_collection_handles contains product_collection.handle or is_generic_title
+        assign breadcrumb_collection = product_collection
+        break
+      endunless
+    endfor
+  endif
+
+  assign product_type_collection = blank
+  if breadcrumb_collection == blank and product.type != blank
+    assign product_type_handle = product.type | handleize
+    assign product_type_collection = collections[product_type_handle]
+  endif
+-%}
 
 <nav aria-label="Breadcrumb" class="breadcrumb page-width">
   <ol class="breadcrumb__list">
@@ -8,23 +45,71 @@
       <a href="{{ routes.root_url }}">Home</a>
     </li>
 
-    {% if product.collections.size > 0 %}
-      <!-- Trenner direkt als List-Item -->
+    {% if breadcrumb_collection %}
       <li class="breadcrumb__separator">{{ section.settings.breadcrumb_separator }}</li>
       <li class="breadcrumb__item">
-        <a href="{{ product.collections.first.url }}">
-          {{ product.collections.first.title }}
-        </a>
+        <a href="{{ breadcrumb_collection.url }}">{{ breadcrumb_collection.title }}</a>
       </li>
+    {% elsif product_type_collection %}
+      <li class="breadcrumb__separator">{{ section.settings.breadcrumb_separator }}</li>
+      <li class="breadcrumb__item">
+        <a href="{{ product_type_collection.url }}">{{ product_type_collection.title }}</a>
+      </li>
+    {% elsif product.type != blank %}
+      <li class="breadcrumb__separator">{{ section.settings.breadcrumb_separator }}</li>
+      <li class="breadcrumb__item">{{ product.type }}</li>
     {% endif %}
 
-    <!-- Wieder Trenner -->
     <li class="breadcrumb__separator">{{ section.settings.breadcrumb_separator }}</li>
-    <li class="breadcrumb__item" aria-current="page">
-      {{ product.title }}
-    </li>
+    <li class="breadcrumb__item" aria-current="page">{{ product.title }}</li>
   </ol>
 </nav>
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": {{ shop.url | append: routes.root_url | json }}
+      }
+      {% assign breadcrumb_position = 2 %}
+      {% if breadcrumb_collection %}
+        ,{
+          "@type": "ListItem",
+          "position": {{ breadcrumb_position }},
+          "name": {{ breadcrumb_collection.title | json }},
+          "item": {{ shop.url | append: breadcrumb_collection.url | json }}
+        }
+        {% assign breadcrumb_position = breadcrumb_position | plus: 1 %}
+      {% elsif product_type_collection %}
+        ,{
+          "@type": "ListItem",
+          "position": {{ breadcrumb_position }},
+          "name": {{ product_type_collection.title | json }},
+          "item": {{ shop.url | append: product_type_collection.url | json }}
+        }
+        {% assign breadcrumb_position = breadcrumb_position | plus: 1 %}
+      {% elsif product.type != blank %}
+        ,{
+          "@type": "ListItem",
+          "position": {{ breadcrumb_position }},
+          "name": {{ product.type | json }}
+        }
+        {% assign breadcrumb_position = breadcrumb_position | plus: 1 %}
+      {% endif %}
+      ,{
+        "@type": "ListItem",
+        "position": {{ breadcrumb_position }},
+        "name": {{ product.title | json }},
+        "item": {{ canonical_url | json }}
+      }
+    ]
+  }
+</script>
 
 {% schema %}
 {
@@ -64,6 +149,8 @@
   margin: 0 0.5em;
 }
 
-a {color: #000;
-  text-decoration: none;}
+a {
+  color: #000;
+  text-decoration: none;
+}
 {% endstylesheet %}
