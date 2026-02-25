@@ -373,32 +373,104 @@
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
-    <!-- Hotjar Tracking Code for https://unik-nordic.com/ -->
-    <script>
-      (function(h,o,t,j,a,r){
-          h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-          h._hjSettings={hjid:3295628,hjsv:6};
-          a=o.getElementsByTagName('head')[0];
-          r=o.createElement('script');r.async=1;
-          r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-          a.appendChild(r);
-      })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-    </script>
-
     {% comment %}
-      REPLYCO CHAT
+      Hotjar + Replyco:
+      - only load when tracking is allowed
+      - schedule loading in idle time to reduce INP impact during initial interactions
     {% endcomment %}
     <div id="replycoChat"></div>
     <script>
-      (function(){
-        window.replycoChat=window.replycoChat||function(){(window.replycoChat=window.replycoChat||[]).push(arguments)};
-        window.replycoChat.data = {
-          widgetId: "1e5c9add-71d1-45bb-9f01-08dce6f50014"
+      (function () {
+        const state = {
+          hotjarLoaded: false,
+          replycoLoaded: false,
+          initScheduled: false,
         };
-        var a = document.getElementsByTagName('head')[0];
-        var r = document.createElement('script');r.async=1;
-        r.src = "https://app.replyco.com/extensions/widget.js";
-        a.appendChild(r);
+
+        function appendScript(src, id) {
+          if (id && document.getElementById(id)) return;
+          const script = document.createElement('script');
+          if (id) script.id = id;
+          script.async = true;
+          script.src = src;
+          document.head.appendChild(script);
+        }
+
+        function loadHotjar() {
+          if (state.hotjarLoaded) return;
+          state.hotjarLoaded = true;
+
+          window.hj =
+            window.hj ||
+            function () {
+              (window.hj.q = window.hj.q || []).push(arguments);
+            };
+          window._hjSettings = { hjid: 3295628, hjsv: 6 };
+          appendScript(
+            `https://static.hotjar.com/c/hotjar-${window._hjSettings.hjid}.js?sv=${window._hjSettings.hjsv}`,
+            'hotjar-script'
+          );
+        }
+
+        function loadReplyco() {
+          if (state.replycoLoaded) return;
+          state.replycoLoaded = true;
+
+          window.replycoChat =
+            window.replycoChat ||
+            function () {
+              (window.replycoChat = window.replycoChat || []).push(arguments);
+            };
+          window.replycoChat.data = {
+            widgetId: '1e5c9add-71d1-45bb-9f01-08dce6f50014',
+          };
+          appendScript('https://app.replyco.com/extensions/widget.js', 'replyco-widget-script');
+        }
+
+        function trackingAllowed() {
+          try {
+            if (
+              window.Shopify &&
+              Shopify.customerPrivacy &&
+              typeof Shopify.customerPrivacy.userCanBeTracked === 'function'
+            ) {
+              return Shopify.customerPrivacy.userCanBeTracked();
+            }
+          } catch (error) {
+            return false;
+          }
+
+          // Fallback for markets without explicit banner/API availability.
+          return true;
+        }
+
+        function loadIntegrationsIfAllowed() {
+          if (!trackingAllowed()) return;
+          loadHotjar();
+          loadReplyco();
+        }
+
+        function scheduleLoad() {
+          if (state.initScheduled) return;
+          state.initScheduled = true;
+
+          const run = () => {
+            loadIntegrationsIfAllowed();
+            state.initScheduled = false;
+          };
+
+          if ('requestIdleCallback' in window) {
+            window.requestIdleCallback(run, { timeout: 4000 });
+          } else {
+            window.setTimeout(run, 1800);
+          }
+        }
+
+        // Initial delayed attempt.
+        scheduleLoad();
+
+        // Re-check once consent status changes.
+        document.addEventListener('visitorConsentCollected', scheduleLoad);
       })();
     </script>
 
