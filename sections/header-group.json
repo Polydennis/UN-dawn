@@ -39,6 +39,7 @@
         },
         "announcement_GRqeix": {
           "type": "announcement",
+          "disabled": true,
           "settings": {
             "text": "Neue Trendkollektion Urban Playground",
             "link": "shopify://collections/trendkollektion-urban-playground"
