@@ -1,4 +1,13 @@
 {% assign hero_id = section.id | replace: '_', '' | downcase %}
+{%- liquid
+  assign hero_image_loading = 'lazy'
+  assign hero_image_fetchpriority = 'auto'
+
+  if section.settings.prioritize_hero_image
+    assign hero_image_loading = 'eager'
+    assign hero_image_fetchpriority = 'high'
+  endif
+-%}
 
 {% style %}
   .hero-{{ hero_id }} {
@@ -181,7 +190,8 @@
         <img
           src="{{ section.settings.hero_image | image_url: width: 2400 }}"
           alt="{{ section.settings.hero_image.alt | escape }}"
-          loading="lazy"
+          loading="{{ hero_image_loading }}"
+          fetchpriority="{{ hero_image_fetchpriority }}"
           width="{{ section.settings.hero_image.width }}"
           height="{{ section.settings.hero_image.height }}"
           class="hero-image-{{ hero_id }}"
@@ -272,6 +282,7 @@
   "settings": [
     { "type": "header", "content": "Hero image" },
     { "type": "image_picker", "id": "hero_image", "label": "Image" },
+    { "type": "checkbox", "id": "prioritize_hero_image", "label": "Prioritize hero image (eager load + high fetch priority)", "default": false },
     { "type": "range", "id": "hero_height_desktop", "min": 300, "max": 800, "step": 50, "unit": "px", "label": "Height on desktop", "default": 600 },
     { "type": "range", "id": "hero_height_mobile", "min": 200, "max": 600, "step": 50, "unit": "px", "label": "Height on mobile", "default": 400 },
     { "type": "color_scheme", "id": "hero_color_scheme", "label": "Color scheme", "default": "scheme-1" },
