@@ -278,9 +278,9 @@
         "collapsible_tab_b3bYRW": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "Schnelle Lieferung",
+            "heading": "Lieferung",
             "icon": "truck",
-            "content": "<p>Unsere Küchenfolie wird direkt nach deiner Bestellung gefertigt und klimafreundlich versendet. Bereits nach wenigen Tagen hältst du sie in den Händen.</p>",
+            "content": "<p>Unsere Küchenfolie wird wegen internen Prozessen nur einmal in der Woche gedruckt. Daher kann die Lieferzeit 5-10 Werktage inkl. Versandzeit betragen.</p>",
             "page": ""
           }
         },
@@ -311,6 +311,7 @@
           "type": "complementary",
           "settings": {
             "block_heading": "Perfektes Zusammenspiel",
+            "motivwelt_cta_label": "Entdecke die",
             "make_collapsible_row": false,
             "icon": "eye",
             "product_list_limit": 9,
