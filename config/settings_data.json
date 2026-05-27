@@ -141,6 +141,10 @@
         "settings": {
           "color_scheme": "scheme-1"
         }
+      },
+      "ms-smtprice-sec": {
+        "type": "ms-smtprice-sec",
+        "settings": {}
       }
     },
     "content_for_index": [],
@@ -204,6 +208,13 @@
           "button_horizontal_position": "bottom_right",
           "button_vertical_position": "lowest",
           "greeting_message": ""
+        }
+      },
+      "6026437180881399386": {
+        "type": "shopify://apps/mh-smart-size-price-calculator/blocks/customprice/1c47e8da-03d3-419f-a546-dac612990268",
+        "disabled": false,
+        "settings": {
+          "calc_back_ground_color": "background-color: grey; \ncolor: white;\nfont-size: 14px;"
         }
       }
     },
