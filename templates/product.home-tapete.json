@@ -361,14 +361,14 @@
       ],
       "custom_css": [
         ".complementary-products__container {gap: 0;}",
-        ".product__media.media{padding:0!important;height:auto!important;aspect-ratio:auto!important}",
-        ".product__media img{position:static!important;height:auto!important;width:100%!important;object-fit:contain!important}"
+        ".product__media.media {padding: 0 !important; height: auto !important; aspect-ratio: auto !important;}",
+        ".product__media img {position: static !important; height: auto !important; width: 100% !important; object-fit: contain !important;}"
       ],
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
         "media_size": "medium",
-        "constrain_to_viewport": false,
+        "constrain_to_viewport": true,
         "media_fit": "contain",
         "gallery_layout": "thumbnail_slider",
         "mobile_thumbnails": "show",
