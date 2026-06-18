@@ -361,7 +361,7 @@
       ],
       "custom_css": [
         ".complementary-products__container {gap: 0;}",
-        " /* Apippa-Bilder nicht beschneiden */[class*=\"apippa\"] img,[id*=\"apippa\"] img,[class*=\"calculator\"] img,[id*=\"calculator\"] img,[class*=\"cpc\"] img,[id*=\"cpc\"] img {object-fit: contain !important; object-position: center center !important; aspect-ratio: auto !important;}"
+        " [style*=\"background-image\"]{background-size:contain!important; background-repeat:no-repeat!important; background-position:center!important;}"
       ],
       "settings": {
         "enable_sticky_info": true,
