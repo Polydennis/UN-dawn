@@ -11,6 +11,9 @@
   "sections": {
     "cart-items": {
       "type": "main-cart-items",
+      "custom_css": [
+        ".cart-item .unit-price,.cart-drawer .unit-price{display:none!important}"
+      ],
       "settings": {
         "color_scheme": "scheme-1",
         "padding_top": 0,
@@ -46,7 +49,10 @@
       "settings": {
         "heading": "Dazu passend",
         "limit": 4,
-        "intent": "complementary"
+        "intent": "complementary",
+        "color_scheme": "",
+        "padding_top": 24,
+        "padding_bottom": 24
       }
     },
     "cart_upsell_accessories_GWqPCk": {
