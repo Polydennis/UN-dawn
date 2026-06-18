@@ -361,7 +361,8 @@
       ],
       "custom_css": [
         ".complementary-products__container {gap: 0;}",
-        " [style*=\"background-image\"]{background-size:contain!important; background-repeat:no-repeat!important; background-position:center!important;}"
+        ".product__info-container *:has(>img){height:auto!important;aspect-ratio:auto!important;overflow:visible!important}",
+        ".product__info-container img{height:auto!important;max-height:none!important;object-fit:contain!important}"
       ],
       "settings": {
         "enable_sticky_info": true,
