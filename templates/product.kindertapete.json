@@ -371,7 +371,9 @@
         "complementary_MiF7W4"
       ],
       "custom_css": [
-        ".complementary-products__container {gap: 0;}"
+        ".complementary-products__container {gap: 0;}",
+        ".product__media.media {padding: 0 !important; height: auto !important; aspect-ratio: auto !important;}",
+        ".product__media img {position: static !important; height: auto !important; width: 100% !important; object-fit: contain !important;}"
       ],
       "settings": {
         "enable_sticky_info": true,
@@ -379,8 +381,8 @@
         "media_size": "medium",
         "constrain_to_viewport": true,
         "media_fit": "contain",
-        "gallery_layout": "stacked",
-        "mobile_thumbnails": "hide",
+        "gallery_layout": "thumbnail_slider",
+        "mobile_thumbnails": "show",
         "media_position": "left",
         "image_zoom": "lightbox",
         "hide_variants": false,
