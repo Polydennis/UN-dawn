@@ -360,9 +360,7 @@
         "complementary_MiF7W4"
       ],
       "custom_css": [
-        ".complementary-products__container {gap: 0;}",
-        ".product__info-container *:has(>img){height:auto!important;aspect-ratio:auto!important;overflow:visible!important}",
-        ".product__info-container img{height:auto!important;max-height:none!important;object-fit:contain!important}"
+        ".complementary-products__container {gap: 0;}"
       ],
       "settings": {
         "enable_sticky_info": true,
