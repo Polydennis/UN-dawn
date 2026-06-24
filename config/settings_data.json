@@ -210,11 +210,42 @@
           "greeting_message": ""
         }
       },
-      "6026437180881399386": {
-        "type": "shopify://apps/mh-smart-size-price-calculator/blocks/customprice/1c47e8da-03d3-419f-a546-dac612990268",
+      "12510727292439481604": {
+        "type": "shopify://apps/eu-widerruf-button/blocks/embed/019b2ca9-9838-7858-9694-3a8051afa76e",
         "disabled": false,
         "settings": {
-          "calc_back_ground_color": "background-color: grey; \ncolor: white;\nfont-size: 14px;"
+          "show_heading": true,
+          "heading": "-",
+          "description": "-",
+          "show_fixed_button": true,
+          "color_bg": "#000000",
+          "color_text": "#FFFFFF",
+          "position": "bottom-right",
+          "label_text": "-",
+          "show_order_lookup": true,
+          "require_order_number": true,
+          "hide_order_notes": false,
+          "require_items": false,
+          "confirm_step": false,
+          "hide_outside_eu": false
+        }
+      },
+      "13762318497758424536": {
+        "type": "shopify://apps/eu-widerruf-button/blocks/button_css_embed/019b2ca9-9838-7858-9694-3a8051afa76e",
+        "disabled": false,
+        "settings": {
+          "target_url": "/pages/widerruf-formular",
+          "button_style": "filled",
+          "bg_color": "#000000",
+          "text_color": "#FFFFFF",
+          "border_color": "#000000",
+          "padding_vertical": 10,
+          "padding_horizontal": 24,
+          "font_size": 15,
+          "font_weight": "600",
+          "border_radius": 8,
+          "hover_effect": "opacity",
+          "hide_outside_eu": false
         }
       }
     },
