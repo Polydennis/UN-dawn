@@ -235,7 +235,7 @@
           "show_heading": true,
           "heading": "-",
           "description": "-",
-          "show_fixed_button": true,
+          "show_fixed_button": false,
           "color_bg": "#FFFFFF",
           "color_text": "#434343",
           "position": "bottom-left",
