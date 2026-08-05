@@ -575,10 +575,10 @@
         "title": "Unsere Motivwelten für Kinder",
         "heading_size": "h1",
         "image_width": "full",
-        "image_ratio": "circle",
+        "image_ratio": "portrait",
         "button_label": "",
         "button_link": "",
-        "columns_desktop": 4,
+        "columns_desktop": 2,
         "column_alignment": "left",
         "background_style": "none",
         "color_scheme": "scheme-5",
@@ -649,6 +649,7 @@
         "text_bb9K7K",
         "button_mT7Le4"
       ],
+      "disabled": true,
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
         "image": "shopify://shop_images/Maedchen_03_05e44b57-9b77-4355-bf1c-d0b4f1dc137e.png",
@@ -714,6 +715,7 @@
         "quantity_selector_e7deKH",
         "buy_buttons_VMeaee"
       ],
+      "disabled": true,
       "name": "t:sections.featured-product.presets.name",
       "settings": {
         "product": "personalisierte-wandsticker-feenwald",
@@ -1104,6 +1106,7 @@
         "slide_meR7xV",
         "slide_nGiQKK"
       ],
+      "disabled": true,
       "name": "Trend-Kollektionen",
       "settings": {
         "layout": "grid",
