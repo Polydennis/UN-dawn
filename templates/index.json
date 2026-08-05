@@ -1297,10 +1297,10 @@
         "column_zkEzqd": {
           "type": "column",
           "settings": {
-            "title": "Spalte",
-            "text": "<p>Kombiniere Text mit einem Bild, um den Fokus auf dein Produkt, deine Kollektion oder deinen Blog-Beitrag zu richten. Du kannst außerdem weitere Details über die Verfügbarkeit oder den Stil und sogar eine Bewertung hinzufügen.</p>",
-            "link_label": "",
-            "link": ""
+            "title": "Muster",
+            "text": "<p>Du möchtest dir deine Wunschtapete erstmal in echt ansehen? Mit unseren Mustern ist das kein Problem!</p>",
+            "link_label": "Zu den Mustern",
+            "link": "shopify://collections/muster"
           }
         },
         "column_YDb3Hh": {
