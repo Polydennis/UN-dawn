@@ -1183,7 +1183,7 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "Design ansehen",
-            "button_link_1": "shopify://products/kindertapete-sanfter-dschungel",
+            "button_link_1": "shopify://products/kinder-tapete-beige-safari",
             "button_style_secondary_1": false,
             "button_label_2": "",
             "button_link_2": "",
@@ -1198,7 +1198,7 @@
       ],
       "name": "Design des Monats",
       "settings": {
-        "image": "shopify://shop_images/Tapete-Kinderzimmer-Dschungel-Pastell-Aquarell-Ruhig-Natur_01.jpg",
+        "image": "shopify://shop_images/Tapete-Kinderzimmer-Beige-Safari-Dschungel-Tiere-1334_6.jpg",
         "image_overlay_opacity": 0,
         "image_height": "large",
         "image_behavior": "fixed",
