@@ -1003,122 +1003,6 @@
         "padding_bottom": 8
       }
     },
-    "slideshow_fWgjNj": {
-      "type": "slideshow",
-      "blocks": {
-        "slide_LdqB3N": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/candid-photography-with-natural-textures-and-highl__31338.jpg",
-            "image_overlay_opacity": 0,
-            "heading": "{{ metaobjects.kollektionen[\"urban-playground\"].kollektionsname.value }}",
-            "heading_size": "h1",
-            "subheading": "{{ metaobjects.kollektionen[\"urban-playground\"].kurzbeschreibung.value }}",
-            "button_label": "Zur Trendkollektion",
-            "link": "shopify://collections/trendkollektion-urban-playground",
-            "button_style_secondary": false,
-            "show_text_box": true,
-            "box_align": "bottom-left",
-            "text_alignment": "center",
-            "text_alignment_mobile": "center",
-            "color_scheme": "scheme-3622d7bd-4bcb-49fb-96fb-8cf723de96d3"
-          }
-        },
-        "slide_wRVdkg": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/Banner_3fc55368-26f3-41de-ae6a-ba531496ce53.jpg",
-            "image_overlay_opacity": 0,
-            "heading": "{{ metaobjects.kollektionen[\"royal-revival\"].kollektionsname.value }}",
-            "heading_size": "h1",
-            "subheading": "{{ metaobjects.kollektionen[\"royal-revival\"].kurzbeschreibung.value }}",
-            "button_label": "Zur Trendkollektion",
-            "link": "shopify://collections/trendkollektion-royal-revival",
-            "button_style_secondary": false,
-            "show_text_box": true,
-            "box_align": "bottom-left",
-            "text_alignment": "center",
-            "text_alignment_mobile": "center",
-            "color_scheme": "scheme-4"
-          }
-        },
-        "slide_MUWUax": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/Titel_Startseite_schmal.jpg",
-            "image_overlay_opacity": 0,
-            "heading": "{{ metaobjects.kollektionen[\"dopmain-decor\"].kollektionsname.value }}",
-            "heading_size": "h1",
-            "subheading": "{{ metaobjects.kollektionen[\"dopmain-decor\"].kurzbeschreibung.value }}",
-            "button_label": "Zur Trendkollektion",
-            "link": "shopify://collections/trendkollektion-dopamin-decor",
-            "button_style_secondary": false,
-            "show_text_box": true,
-            "box_align": "bottom-right",
-            "text_alignment": "center",
-            "text_alignment_mobile": "center",
-            "color_scheme": "scheme-84e37e6c-5625-45a2-aff7-c354c8bcbf72"
-          }
-        },
-        "slide_meR7xV": {
-          "type": "slide",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/1260_WT_TK_70s-70er-Retro-Tapete-Vintage-Schlafzimmer_03.webp",
-            "image_overlay_opacity": 0,
-            "heading": "{{ metaobjects.kollektionen[\"tapeten-der-70-er\"].kollektionsname.value }}",
-            "heading_size": "h1",
-            "subheading": "{{ metaobjects.kollektionen[\"tapeten-der-70-er\"].kurzbeschreibung.value }}",
-            "button_label": "Zur Trendkollektion",
-            "link": "shopify://collections/trendkollektion-tapeten-der-70er",
-            "button_style_secondary": false,
-            "show_text_box": true,
-            "box_align": "bottom-left",
-            "text_alignment": "center",
-            "text_alignment_mobile": "center",
-            "color_scheme": "scheme-4"
-          }
-        },
-        "slide_nGiQKK": {
-          "type": "slide",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/TK_Hauptseite_Aquarellwelten.webp",
-            "image_overlay_opacity": 0,
-            "heading": "{{ metaobjects.kollektionen.aquarellwelten.kollektionsname.value }}",
-            "heading_size": "h1",
-            "subheading": "{{ metaobjects.kollektionen.aquarellwelten.kurzbeschreibung.value }}",
-            "button_label": "Zur Trendkollektion",
-            "link": "shopify://collections/aquarellwelten",
-            "button_style_secondary": false,
-            "show_text_box": true,
-            "box_align": "bottom-left",
-            "text_alignment": "center",
-            "text_alignment_mobile": "center",
-            "color_scheme": "scheme-2"
-          }
-        }
-      },
-      "block_order": [
-        "slide_LdqB3N",
-        "slide_wRVdkg",
-        "slide_MUWUax",
-        "slide_meR7xV",
-        "slide_nGiQKK"
-      ],
-      "disabled": true,
-      "name": "Trend-Kollektionen",
-      "settings": {
-        "layout": "grid",
-        "slide_height": "medium",
-        "slider_visual": "counter",
-        "auto_rotate": true,
-        "change_slides_speed": 9,
-        "image_behavior": "none",
-        "show_text_below": true,
-        "accessibility_info": "Unsere Kollektionen"
-      }
-    },
     "rich_text_6kjzAz": {
       "type": "rich-text",
       "blocks": {
@@ -1397,6 +1281,60 @@
         "email_address": "support@unik-nordic.com",
         "phone_number": "+49 155 66 37 91 63"
       }
+    },
+    "multicolumn_zYEXfB": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_mVGkjP": {
+          "type": "column",
+          "settings": {
+            "title": "Alle Infos",
+            "text": "<p>In unseren FAQ klären wir alle wichtigen Fragen rund um unsere Produkte, Anbringung und geben Tipps.</p>",
+            "link_label": "Zum FAQ",
+            "link": "shopify://pages/faq-variable-anordnung-neu"
+          }
+        },
+        "column_zkEzqd": {
+          "type": "column",
+          "settings": {
+            "title": "Spalte",
+            "text": "<p>Kombiniere Text mit einem Bild, um den Fokus auf dein Produkt, deine Kollektion oder deinen Blog-Beitrag zu richten. Du kannst außerdem weitere Details über die Verfügbarkeit oder den Stil und sogar eine Bewertung hinzufügen.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_YDb3Hh": {
+          "type": "column",
+          "settings": {
+            "title": "Spalte",
+            "text": "<p>Kombiniere Text mit einem Bild, um den Fokus auf dein Produkt, deine Kollektion oder deinen Blog-Beitrag zu richten. Du kannst außerdem weitere Details über die Verfügbarkeit oder den Stil und sogar eine Bewertung hinzufügen.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_mVGkjP",
+        "column_zkEzqd",
+        "column_YDb3Hh"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "Mit mehreren Spalten",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "Schaltflächenbeschriftung",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
@@ -1417,13 +1355,13 @@
     "multicolumn_fKV4Ta",
     "slideshow_X3KTTm",
     "ss_instafeed_4AnGaj",
-    "slideshow_fWgjNj",
     "rich_text_6kjzAz",
     "17447273946b927c19",
     "image_banner_3U3FU6",
     "collection_list_EthTbL",
     "collapsible_content_AwMUec",
     "17489505506557c4fc",
-    "contact_section_X9Tyq9"
+    "contact_section_X9Tyq9",
+    "multicolumn_zYEXfB"
   ]
 }
