@@ -266,6 +266,7 @@
         },
         "collapsible_tab_ebV9Pf": {
           "type": "collapsible_tab",
+          "disabled": true,
           "settings": {
             "heading": "Schnelle Lieferung",
             "icon": "schneller_versand",
