@@ -278,6 +278,7 @@
         },
         "collapsible_tab_b3bYRW": {
           "type": "collapsible_tab",
+          "disabled": true,
           "settings": {
             "heading": "Schnelle Lieferung",
             "icon": "truck",
