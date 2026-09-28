@@ -11,6 +11,19 @@
   "sections": {
     "rich_text_ybJPg7": {
       "type": "rich-text",
+      "blocks": {
+        "caption_YKRgxn": {
+          "type": "caption",
+          "settings": {
+            "caption": "Psssstt... Ab 1. Oktober starten unsere Cosy Living Weeks!",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "large"
+          }
+        }
+      },
+      "block_order": [
+        "caption_YKRgxn"
+      ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
         "desktop_content_position": "center",
@@ -18,7 +31,7 @@
         "color_scheme": "",
         "full_width": true,
         "padding_top": 0,
-        "padding_bottom": 0
+        "padding_bottom": 20
       }
     },
     "trust_hero_MX4pEL": {
