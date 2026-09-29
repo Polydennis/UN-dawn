@@ -91,7 +91,7 @@
       "settings": {
         "hero_image": "shopify://shop_images/Header_Cosy_Weeks.jpg",
         "prioritize_hero_image": false,
-        "hero_height_desktop": 550,
+        "hero_height_desktop": 400,
         "hero_height_mobile": 200,
         "hero_color_scheme": "scheme-1",
         "show_overlay": false,
