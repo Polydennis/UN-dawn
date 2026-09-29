@@ -20,6 +20,7 @@
     },
     "trust_hero_iPFNeY": {
       "type": "trust-hero",
+      "disabled": true,
       "name": "Hero with trust bar",
       "settings": {
         "hero_image": "shopify://shop_images/blaue-aquarell-tapete-wohnzimmer-2.jpg",
@@ -143,6 +144,9 @@
             "show_sample_reviews": true,
             "reviews_selection": "current_collection",
             "products": [],
+            "filter_pinned": false,
+            "filter_featured": false,
+            "filter_custom_tags": "",
             "star_rating": "5_star",
             "show_review_media": true,
             "display_order": "media_first",
@@ -165,7 +169,8 @@
             "arrows_color": "#000000",
             "transition_speed": 5,
             "header_text": "Was unsere Kunden sagen",
-            "show_average_rating": true
+            "show_average_rating": true,
+            "rating_display": "default"
           }
         }
       },
