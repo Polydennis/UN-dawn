@@ -168,7 +168,7 @@
         "announcement_kdVVpV"
       ],
       "custom_css": [
-        "body.template-index & {display: none;}"
+        "body.template-index .announcement-bar {display: none;}"
       ],
       "name": "t:sections.announcement-bar.presets.name",
       "settings": {
