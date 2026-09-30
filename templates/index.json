@@ -36,6 +36,7 @@
     },
     "trust_hero_MX4pEL": {
       "type": "trust-hero",
+      "disabled": true,
       "name": "Hero with trust bar",
       "settings": {
         "hero_image": "shopify://shop_images/Unik-Nordic-Wallpaper-forest-home_02_d5604947-806d-4f53-a464-2945df2a9837.jpg",
@@ -86,7 +87,6 @@
     },
     "trust_hero_wbJW6e": {
       "type": "trust-hero",
-      "disabled": true,
       "name": "Hero Cosy Weeks",
       "settings": {
         "hero_image": "shopify://shop_images/Header_Cosy_Weeks.jpg",
