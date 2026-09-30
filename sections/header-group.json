@@ -167,9 +167,7 @@
       "block_order": [
         "announcement_kdVVpV"
       ],
-      "custom_css": [
-        "body.template-index .announcement-bar {display: none;}"
-      ],
+      "custom_css": [],
       "name": "t:sections.announcement-bar.presets.name",
       "settings": {
         "auto_rotate": false,
