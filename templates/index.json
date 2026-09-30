@@ -101,7 +101,7 @@
         "text": "Draußen wird es grau.\nDrinnen wird es traumhaft! \nSpare im Oktober 15% auf alle Tapeten, Wandsticker und Tapetenkreise.",
         "content_color_scheme": "scheme-4",
         "content_max_width": 600,
-        "content_padding": 40,
+        "content_padding": 20,
         "content_border_radius": 0,
         "content_vertical_alignment": "flex-end",
         "content_horizontal_alignment": "flex-start",
