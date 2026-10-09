@@ -599,6 +599,23 @@
             "image_radius": 20
           }
         },
+        "tab_bxgm4K": {
+          "type": "tab",
+          "settings": {
+            "title": "Gewährleistung",
+            "product_description": false,
+            "content": "",
+            "page_content": "",
+            "show_page_title": false,
+            "page_title_html_element": "h2",
+            "image": "shopify://shop_images/gewaehrleistungslabel-de.jpg",
+            "image_height": "adapt",
+            "desktop_image_width": "50",
+            "layout": "column",
+            "image_align": "center",
+            "image_radius": 20
+          }
+        },
         "tab_xr3bME": {
           "type": "tab",
           "settings": {
@@ -620,6 +637,7 @@
         "tab_hrCPVU",
         "tab_WYwz7c",
         "tab_QghXQd",
+        "tab_bxgm4K",
         "tab_xr3bME"
       ],
       "settings": {
