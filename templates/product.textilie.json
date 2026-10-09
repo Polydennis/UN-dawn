@@ -316,6 +316,7 @@
           "type": "complementary",
           "settings": {
             "block_heading": "Perfektes Zusammenspiel",
+            "motivwelt_cta_label": "Entdecke die",
             "make_collapsible_row": false,
             "icon": "eye",
             "product_list_limit": 9,
@@ -373,7 +374,28 @@
       "blocks": {
         "judge_me_reviews_review_snippet_widget_FTJcNN": {
           "type": "shopify://apps/judge-me-reviews/blocks/review_snippet_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {}
+          "settings": {
+            "reviews_selection": "auto",
+            "products": [],
+            "filter_pinned": false,
+            "filter_featured": false,
+            "filter_custom_tags": "",
+            "min_star_rating": "inherit",
+            "show_review_media": true,
+            "max_reviews": 5,
+            "review_length": "medium",
+            "text_size": "medium",
+            "max_width": 1100,
+            "max_image_size": "small",
+            "arrows_visibility": "always_shown",
+            "transition_speed": 5,
+            "corner_styling": "inherit",
+            "text_color": "",
+            "card_color": "",
+            "stars_color": "",
+            "arrows_color": "",
+            "arrows_background_color": ""
+          }
         }
       },
       "block_order": [
@@ -568,6 +590,23 @@
             "image_radius": 20
           }
         },
+        "tab_KWiVCP": {
+          "type": "tab",
+          "settings": {
+            "title": "Gewährleistung",
+            "product_description": false,
+            "content": "",
+            "page_content": "",
+            "show_page_title": false,
+            "page_title_html_element": "h2",
+            "image": "shopify://shop_images/gewaehrleistungslabel-de.jpg",
+            "image_height": "adapt",
+            "desktop_image_width": "50",
+            "layout": "column",
+            "image_align": "center",
+            "image_radius": 20
+          }
+        },
         "tab_xr3bME": {
           "type": "tab",
           "settings": {
@@ -589,6 +628,7 @@
         "tab_hrCPVU",
         "tab_WYwz7c",
         "tab_QghXQd",
+        "tab_KWiVCP",
         "tab_xr3bME"
       ],
       "settings": {
